@@ -8,9 +8,20 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ]
-  }
+    "lib": ["es2017", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "@app/env": ["src/environments/environment"],
+      "@components/*": ["src/app/components/*"],
+      "@services/*": ["src/app/services/*"],
+      "@modals/*": ["src/app/modals/*"],
+      "@directives/*": ["src/app/directives/*"],
+      "@pipes/*": ["src/app/pipes/*"],
+      "@app/*": ["src/app/*"],
+      "@root/*": ["./*"],
+      "echarts": ["node_modules/echarts/dist/echarts.min.js"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "src/**/*.spec.ts"]
 }
