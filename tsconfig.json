@@ -9,15 +9,15 @@
     "experimentalDecorators": true,
     "target": "es5",
     "lib": ["es2017", "dom"],
-    "baseUrl": "./",
+    "baseUrl": "./src/",
     "paths": {
-      "@app/env": ["src/environments/environment"],
-      "@components/*": ["src/app/components/*"],
-      "@services/*": ["src/app/services/*"],
-      "@modals/*": ["src/app/modals/*"],
-      "@directives/*": ["src/app/directives/*"],
-      "@pipes/*": ["src/app/pipes/*"],
-      "@app/*": ["src/app/*"],
+      "@app/env": ["environments/environment"],
+      "@components/*": ["app/components/*"],
+      "@services/*": ["app/services/*"],
+      "@modals/*": ["app/modals/*"],
+      "@directives/*": ["app/directives/*"],
+      "@pipes/*": ["app/pipes/*"],
+      "@app/*": ["app/*"],
       "@root/*": ["./*"],
       "echarts": ["node_modules/echarts/dist/echarts.min.js"]
     }
