@@ -1,0 +1,54 @@
+<!--
+  Generated template for the TestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'HOME.Test' | translate }}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-12 (click)="open()">
+        <ion-item>
+          <ion-label> 扫码拍照</ion-label>
+          <ion-icon name="qr-scanner" item-start color="primary"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-icon name="bulb" item-start color="primary"></ion-icon>
+          <ion-label> 屏幕常亮</ion-label>
+          <ion-toggle (ionChange)="changeLightState()" color="secondary" [(ngModel)]="isAlwaysLight"></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-icon name="musical-notes" item-start color="primary"></ion-icon>
+          <ion-label>语言切换</ion-label>
+          <ion-select [(ngModel)]="languageType" (ngModelChange)="setLanguageType($event)" cancelText="取消" okText="确定">
+            <ion-select-option value="zh" selected="true">中文</ion-select-option>
+            <ion-select-option value="en">英文</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
