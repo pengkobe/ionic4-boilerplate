@@ -9,7 +9,15 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "scss-lint": "scss-lint",
+    "commitmsg": "commitlint -e",
+    "release": "standard-version  --no-verify"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e"
+    }
   },
   "private": true,
   "dependencies": {
@@ -21,14 +29,21 @@
     "@angular/platform-browser-dynamic": "~6.1.1",
     "@angular/router": "~6.1.1",
     "@ionic-native/core": "5.0.0-beta.21",
+    "@ionic-native/file": "^5.0.0-beta.21",
     "@ionic-native/file-opener": "^5.0.0-beta.21",
     "@ionic-native/file-transfer": "^5.0.0-beta.21",
     "@ionic-native/insomnia": "^5.0.0-beta.21",
     "@ionic-native/network": "^5.0.0-beta.21",
+    "@ionic-native/qr-scanner": "^5.0.0-beta.21",
     "@ionic-native/splash-screen": "5.0.0-beta.21",
     "@ionic-native/status-bar": "5.0.0-beta.21",
+    "@ionic-native/vibration": "^5.0.0-beta.21",
     "@ionic/angular": "4.0.0-beta.13",
+    "@ngx-translate/core": "^10.0.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.3",
+    "echarts": "^4.2.0-rc.2",
+    "ngx-echarts": "^4.0.0",
     "rxjs": "6.2.2",
     "zone.js": "^0.8.26"
   },
@@ -41,7 +56,10 @@
     "@angular/compiler": "~6.1.1",
     "@angular/compiler-cli": "~6.1.1",
     "@angular/language-service": "~6.1.1",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-angular": "^7.1.2",
     "@ionic/angular-toolkit": "^1.0.0",
+    "@types/echarts": "^4.1.1",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.0",

@@ -1,11 +1,11 @@
 <ion-tabs>
-  <ion-tab label="Home" icon="home" href="/tabs/(home:home)">
+  <ion-tab label="{{'HOME.Home' | translate}}" icon="home" href="/tabs/(home:home)">
     <ion-router-outlet name="home"></ion-router-outlet>
   </ion-tab>
-  <ion-tab label="About" icon="information-circle" href="/tabs/(about:about)">
-    <ion-router-outlet name="about"></ion-router-outlet>
+  <ion-tab label="{{'HOME.List' | translate}}" icon="information-circle" href="/tabs/(list:list)">
+    <ion-router-outlet name="list"></ion-router-outlet>
   </ion-tab>
-  <ion-tab label="Contact" icon="contacts" href="/tabs/(contact:contact)">
-    <ion-router-outlet name="contact"></ion-router-outlet>
+  <ion-tab label="{{'HOME.Test' | translate}}" icon="hammer" href="/tabs/(test:test)">
+    <ion-router-outlet name="test"></ion-router-outlet>
   </ion-tab>
 </ion-tabs>

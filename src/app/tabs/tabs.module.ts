@@ -1,26 +1,15 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { TabsPageRoutingModule } from './tabs.router.module';
 
+import { SharedModule } from './../shared/shared.module';
 import { TabsPage } from './tabs.page';
-import { ContactPageModule } from '../contact/contact.module';
-import { AboutPageModule } from '../about/about.module';
-import { HomePageModule } from '../home/home.module';
+import { HomePage } from '../pages/home/home.page';
+import { TestPage } from '../pages/test/test.page';
+import { ListPage } from '../pages/list/list.page';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    TabsPageRoutingModule,
-    HomePageModule,
-    AboutPageModule,
-    ContactPageModule
-  ],
-  declarations: [TabsPage]
+  imports: [SharedModule, TabsPageRoutingModule],
+  declarations: [TabsPage,HomePage,TestPage,ListPage],
 })
 export class TabsPageModule {}

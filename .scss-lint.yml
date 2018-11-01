@@ -180,7 +180,7 @@ linters:
     spaces: 0
 
   StringQuotes:
-    enabled: true
+    enabled: false
     style: single_quotes
 
   TrailingSemicolon:
