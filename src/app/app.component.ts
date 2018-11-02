@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {
   Platform,
-  // IonicApp,
-  Nav,
   ToastController,
   Events,
 } from '@ionic/angular';
@@ -34,7 +32,6 @@ export class MyApp {
     public global: GlobalService,
     public native: NativeService,
     public updateService: UpdateService,
-    // public ionicApp: IonicApp,
     public toastCtrl: ToastController,
     public translate: TranslateService,
     public globalservice: GlobalService,
