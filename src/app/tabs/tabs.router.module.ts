@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../pages/home/home.page';
 import { TestPage } from '../pages/test/test.page';
-import { ListPage } from '../pages/list/list.page';
 
 const routes: Routes = [
   {
@@ -29,7 +28,7 @@ const routes: Routes = [
       {
         path: 'list',
         outlet: 'list',
-        component: ListPage,
+        loadChildren: '../pages/list/list.module#ListPageModule',
       },
     ],
   },

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { EchartsPage } from './echarts/echarts';
-import { CalendarPage } from './calendar/calendar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'page-list',
@@ -12,7 +10,7 @@ export class ListPage {
   icons: string[];
   items: Array<{ title: string; note: string; icon: string }>;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public route: Router) {
     // If we navigated to this page, we will have an item available as a nav param
 
     this.items = [
@@ -30,16 +28,12 @@ export class ListPage {
   }
 
   itemTapped(event, item) {
-    // if (item.title === 'echarts') {
-    //   this.navCtrl.navigateForward('EchartsPage',true, {
-    //     item: item,
-    //   });
-    // }
-    // if (item.title === 'calendar') {
-    //   this.navCtrl.navigateForward(CalendarPage, {
-    //     item: item,
-    //   });
-    // }
+    if (item.title === 'echarts') {
+      this.route.navigate(['/echarts', { foo: 'foo' }]);
+    }
+    if (item.title === 'calendar') {
+      this.route.navigate(['/calendar', { foo: 'foo' }]);
+    }
   }
 
   doRefresh(refresher) {

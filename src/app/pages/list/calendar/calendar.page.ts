@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'page-calendar',
-  templateUrl: 'calendar.html',
+  templateUrl: 'calendar.page.html',
 })
 export class CalendarPage {
   constructor() {}
