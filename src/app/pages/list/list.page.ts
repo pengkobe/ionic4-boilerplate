@@ -11,8 +11,6 @@ export class ListPage {
   items: Array<{ title: string; note: string; icon: string }>;
 
   constructor(public route: Router) {
-    // If we navigated to this page, we will have an item available as a nav param
-
     this.items = [
       {
         title: 'echarts',
@@ -27,13 +25,8 @@ export class ListPage {
     ];
   }
 
-  itemTapped(event, item) {
-    if (item.title === 'echarts') {
-      this.route.navigate(['/echarts', { foo: 'foo' }]);
-    }
-    if (item.title === 'calendar') {
-      this.route.navigate(['/calendar', { foo: 'foo' }]);
-    }
+  toHome(event) {
+    this.route.navigate(['tabs']);
   }
 
   doRefresh(refresher) {

@@ -51,7 +51,7 @@ import { MyErrorHandler } from './error.handler';
     FileOpener,
     Insomnia,
     Network,
-    { provide: ErrorHandler, useClass: MyErrorHandler },
+    // { provide: ErrorHandler, useClass: MyErrorHandler },
     EmitService,
     // { provide: ErrorHandler, useClass: RavenErrorHandler }
   ],

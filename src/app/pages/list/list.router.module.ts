@@ -10,22 +10,14 @@ const routes: Routes = [
   {
     path: '',
     component: ListPage,
-    children: [
-      {
-        path: '',
-        component: ListPage,
-        children: [
-          {
-            path: 'calendar',
-            component: CalendarPage,
-          },
-          {
-            path: 'echarts',
-            component: EchartsPage,
-          },
-        ],
-      },
-    ],
+  },
+  {
+    path: 'calendar',
+    component: CalendarPage,
+  },
+  {
+    path: 'echarts',
+    component: EchartsPage,
   },
 ];
 
