@@ -35,9 +35,9 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] tslint 与 scsslint
 - [x] 定义好目录结构
 - [x] Angular 最佳实践自动检测
-- [×] 支持多语言[中/英]
-- [×] 集成 echarts
-- [×] 去除开机白屏等待
+- [x] 支持多语言[中/英]
+- [x] 集成 echarts
+- [x] 去除开机白屏等待
 - [ ] 测试支持[单元测试/端到端测试]
 - [ ] 远程推送
 - [ ] 物理返回键双击退出
@@ -88,12 +88,13 @@ see: [version-update](./doc/version-update.md)
 
 ## Cordova 插件
 
-脚手架使用到的 Cordova 插件列表
+脚手架使用到的 Cordova 插件列表  
 see: [cordova-plugin](./doc/cordova-plugin.md)
 
 ## 国际化
 
-基于 ngx-translate, see：https://github.com/ngx-translate/core
+基于 ngx-translate,  
+see：https://github.com/ngx-translate/core
 
 版本需要与 angular 对应的版本相匹配
 
