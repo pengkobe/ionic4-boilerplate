@@ -29,7 +29,7 @@ cordova-hcp build
 
 > 注意: 需要对 www/chcp.json 进行稍许更改，模板可以参考 version_update/chcp.json
 
-修改完成后，将整个 `www` 内的内容上传至服务器  
+修改完成后，确认 config.xml 中 `chcp` 节点是否配置正确，将整个 `www` 内的内容上传至服务器  
 参考
 
 - https://github.com/pengkobe/reading-notes/issues/352
