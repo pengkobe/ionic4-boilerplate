@@ -45,7 +45,7 @@
     "@ngrx/effects": "^6.1.2",
     "@ngrx/store": "^6.1.2",
     "@ngx-translate/core": "^10.0.2",
-    "@ngx-translate/http-loader": "^4.0.0",
+    "@ngx-translate/http-loader": "^3.0.1",
     "cordova-android": "7.0.0",
     "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-device": "^2.0.2",

@@ -36,15 +36,15 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 支持多语言[中/英]
 - [x] 集成 echarts
 - [x] 去除开机白屏等待
+- [ ] 测试支持[单元测试/端到端测试], **脚手架自带**
 - [ ] 断网检测
-- [ ] 测试支持[单元测试/端到端测试]
 - [ ] 远程推送
+- [ ] 本地通知
 - [ ] 物理返回键双击退出
-- [ ] 支持本地通知与远程通知
-- [ ] Cordova 插件
+- [ ] Cordova 插件说明与示例
 - [ ] NGRX
-- [ ] 技巧与工具( VSCODE、谷歌控制台等 )
-- [ ] 主题( 换肤 )
+- [ ] 技巧与工具
+- [ ] 主题
 - [ ] 常用组件
 - [ ] 用户行为
 
@@ -81,7 +81,7 @@ see: [code-spec](./doc/code-spec.md)
 
 ## 版本更新
 
-支持 APK 版本更新与线上代码热更新  
+支持 APK 大版本更新与线上代码热更新  
 see: [version-update](./doc/version-update.md)
 
 ## Cordova 插件
@@ -91,14 +91,14 @@ see: [cordova-plugin](./doc/cordova-plugin.md)
 
 ## 国际化
 
-基于 ngx-translate,  
+基于 ngx-translate  
 see：https://github.com/ngx-translate/core
 
 版本需要与 angular 对应的版本相匹配
 
 ```bash
-npm install @ngx-translate/core@9.1.1 --save
-npm install @ngx-translate/http-loader@2.0.1 --save
+npm install @ngx-translate/core@10.0.2 --save
+npm install @ngx-translate/http-loader@3.0.1 --save
 ```
 
 ## NGRX
