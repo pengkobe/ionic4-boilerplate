@@ -19,36 +19,35 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 > 部分参考自: https://github.com/pengkobe/reading-notes/issues/420
 
-- 开发流程与代码规范, see [README-dev-spec](./doc/code-spec.md)
+- [x] 开发流程与代码规范, see [README-dev-spec](./doc/code-spec.md)
   - git √
   - 实用工具 √
   - 持续集成 √
   - 部署
-- 运行环境介绍 √
-- 错误上报 √
-- http √
-- 本地存储 √
-- 钩子( hooks ) √
-- 版本更新( apk ) √
-- 目录结构支持从项目主目录相对定位 √
-- tslint 与 scsslint √
-- 定义好目录结构 √
-- Angular 最佳实践自动检测 √
-- 测试支持[单元测试/端到端测试] x
-- 远程推送 x
-- 代码热更新 x
-- 物理返回键双击退出 x
-- 去除开机白屏等待 ×
-- 支持本地通知与远程通知 ×
-- 支持多语言[中/英] ×
-- Cordova 插件 ×
-
-- NGRX ×
-- 技巧与工具( VSCODE、谷歌控制台等 ) √
-- 主题( 换肤 ) ×
-- 集成 echarts ×
-- 常用组件 ×
-- 用户行为 ×
+- [x] 运行环境介绍
+- [x] 错误上报
+- [x] http
+- [x] 本地存储
+- [x] 钩子( hooks )
+- [x] 版本更新( apk )
+- [x] 代码热更新
+- [x] 目录结构支持从项目主目录相对定位
+- [x] tslint 与 scsslint
+- [x] 定义好目录结构
+- [x] Angular 最佳实践自动检测
+- [×] 支持多语言[中/英]
+- [×] 集成 echarts ×
+- [ ] 测试支持[单元测试/端到端测试]
+- [ ] 远程推送
+- [ ] 物理返回键双击退出
+- [ ] 去除开机白屏等待
+- [ ] 支持本地通知与远程通知
+- [ ] Cordova 插件
+- [ ] NGRX
+- [ ] 技巧与工具( VSCODE、谷歌控制台等 )
+- [ ] 主题( 换肤 )
+- [ ] 常用组件
+- [ ] 用户行为
 
 ## 运行环境介绍
 
@@ -159,15 +158,6 @@ https://ionicframework.com/docs/theming/
 ## 参考
 
 https://github.com/marcoturi/ionic-boilerplate
-
-## TODO
-
-- [x] 中英文切换示例
-- [ ] cordova 插件能力示例
-- [ ] 文档完善
-- [ ] 部署说明
-- [ ] 用户行为统计示例
-- [ ] 常用组件完善
 
 ## License
 
