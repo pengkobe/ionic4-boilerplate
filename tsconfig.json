@@ -19,7 +19,7 @@
       "@pipes/*": ["app/pipes/*"],
       "@app/*": ["app/*"],
       "@root/*": ["./*"],
-      "echarts": ["node_modules/echarts/dist/echarts.min.js"]
+      "echarts": ["../node_modules/echarts/dist/echarts.min.js"]
     }
   },
   "include": ["src/**/*.ts"],
