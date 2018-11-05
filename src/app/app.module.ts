@@ -14,6 +14,8 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
+// import { JPush } from '@jiguang-ionic/jpush';
+
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -34,6 +36,7 @@ import { MyErrorHandler } from './error.handler';
     CoreModule,
     SharedModule,
     BrowserModule,
+    // JPush,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
     StoreModule.forRoot({}),

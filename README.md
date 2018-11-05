@@ -17,9 +17,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ## 支持项
 
-> 部分参考自: https://github.com/pengkobe/reading-notes/issues/420
-
-- [x] 开发流程与代码规范, see [README-dev-spec](./doc/code-spec.md)
+- [x] 开发流程与代码规范
   - git √
   - 实用工具 √
   - 持续集成 √
@@ -38,6 +36,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 支持多语言[中/英]
 - [x] 集成 echarts
 - [x] 去除开机白屏等待
+- [ ] 断网检测
 - [ ] 测试支持[单元测试/端到端测试]
 - [ ] 远程推送
 - [ ] 物理返回键双击退出
@@ -76,9 +75,8 @@ System:
    OS                : Windows 10
 ```
 
-## 代码规范
+## 开发流程与代码规范
 
-代码规范与常见工具说明  
 see: [code-spec](./doc/code-spec.md)
 
 ## 版本更新
@@ -140,8 +138,9 @@ npm install raven-js --save
 
 see: https://golb.hplar.ch/2017/02/Integrate-ECharts-into-an-Ionic-2-app.html
 
-## 技巧与工具( VSCODE、谷歌控制台等 )
+## 技巧与工具
 
+VSCODE、谷歌控制台等  
 see: [tools](./doc/tools.md)
 
 ## 常用组件
