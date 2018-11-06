@@ -2,7 +2,7 @@
   <ion-tab label="{{'HOME.Home' | translate}}" icon="home" href="/tabs/(home:home)">
     <ion-router-outlet name="home"></ion-router-outlet>
   </ion-tab>
-  <ion-tab label="{{'HOME.List' | translate}}" icon="information-circle" href="/tabs/(list:list)">
+  <ion-tab label="{{'HOME.List' | translate}}" icon="information-circle" href="/tabs/(list:list)" routerDirection="forward">
     <ion-router-outlet name="list"></ion-router-outlet>
   </ion-tab>
   <ion-tab label="{{'HOME.Test' | translate}}" icon="hammer" href="/tabs/(test:test)">
