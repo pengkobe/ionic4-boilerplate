@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChildren, QueryList } from '@angular/core';
 import {
   Platform,
   ToastController,
   Events,
+  ModalController,
+  ActionSheetController,
+  PopoverController,
+  IonRouterOutlet,
+  MenuController,
 } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -14,6 +19,8 @@ import { NativeService } from '@services/native.service';
 import { TranslateService } from '@ngx-translate/core';
 import { EmitService } from '@services/emit.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -24,6 +31,12 @@ export class MyApp {
 
   pages: Array<{ title: string; component: any }>;
 
+  lastTimeBackPress = 0;
+  timePeriodToExit = 2000;
+
+  @ViewChildren(IonRouterOutlet)
+  routerOutlets: QueryList<IonRouterOutlet>;
+
   constructor(
     public platform: Platform,
     public events: Events,
@@ -32,10 +45,15 @@ export class MyApp {
     public global: GlobalService,
     public native: NativeService,
     public updateService: UpdateService,
-    public toastCtrl: ToastController,
     public translate: TranslateService,
     public globalservice: GlobalService,
-    public emit: EmitService
+    public emit: EmitService,
+    public toastCtrl: ToastController,
+    public modalCtrl: ModalController,
+    private menu: MenuController,
+    private actionSheetCtrl: ActionSheetController,
+    private popoverCtrl: PopoverController,
+    private router: Router
   ) {
     this.initializeApp();
     this.initTranslate();
@@ -83,37 +101,65 @@ export class MyApp {
    * 物理键返回事件
    */
   registerBackButtonAction() {
-    this.platform.backButton.subscribe(val => {
-      // const activePortal =
-      //   this.ionicApp._modalPortal.getActive() ||
-      //   this.ionicApp._toastPortal.getActive() ||
-      //   this.ionicApp._loadingPortal.getActive() ||
-      //   this.ionicApp._overlayPortal.getActive();
-      // if (activePortal) {
-      //   activePortal.dismiss().catch(() => {});
-      //   activePortal.onDidDismiss(() => {});
-      //   return;
-      // }
-      // const activeNav = this.app.getActiveNav();
-      // return activeNav.canGoBack() ? activeNav.pop() : this.showExit();
-    });
-  }
+    this.platform.backButton.subscribe(async () => {
+      // close action sheet
+      try {
+        const element = await this.actionSheetCtrl.getTop();
+        if (element) {
+          element.dismiss();
+          return;
+        }
+      } catch (error) {}
 
-  /**
-   * 确认是否关闭 App
-   */
-  async showExit() {
-    if (this.backButtonPressed) {
-      // TODO: 关闭 app
-    } else {
-      let toast = await this.toastCtrl.create({
-        message: '再按一次退出应用',
-        duration: 2000,
-        position: 'top',
+      // close popover
+      try {
+        const element = await this.popoverCtrl.getTop();
+        if (element) {
+          element.dismiss();
+          return;
+        }
+      } catch (error) {}
+
+      // close modal
+      try {
+        const element = await this.modalCtrl.getTop();
+        if (element) {
+          element.dismiss();
+          return;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+
+      // close side menua
+      try {
+        const element = await this.menu.getOpen();
+        if (element !== null) {
+          this.menu.close();
+          return;
+        }
+      } catch (error) {}
+
+      this.routerOutlets.forEach(async (outlet: IonRouterOutlet) => {
+        if (outlet && outlet.canGoBack()) {
+          outlet.pop();
+        } else if (this.router.url === '/home') {
+          if (
+            new Date().getTime() - this.lastTimeBackPress <
+            this.timePeriodToExit
+          ) {
+            navigator['app'].exitApp(); // work in ionic 4
+          } else {
+            let toast = await this.toastCtrl.create({
+              message: '再按一次退出应用',
+              duration: 2000,
+              position: 'top',
+            });
+            await toast.present();
+            this.lastTimeBackPress = new Date().getTime();
+          }
+        }
       });
-      await toast.present();
-      this.backButtonPressed = true;
-      setTimeout(() => (this.backButtonPressed = false), 2000);
-    }
+    });
   }
 }

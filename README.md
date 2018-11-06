@@ -18,9 +18,8 @@ commitizen init cz-conventional-changelog --save --save-exact
 ## 支持项
 
 - [x] 开发流程与代码规范
-  - git √
-  - 实用工具 √
-  - 持续集成 √
+  - git 流程管理 √
+  - 持续集成脚本 √
   - 部署
 - [x] 运行环境介绍
 - [x] 错误上报
@@ -36,17 +35,17 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 支持多语言[中/英]
 - [x] 集成 echarts
 - [x] 去除开机白屏等待
+- [x] 物理返回键双击退出
 - [ ] 测试支持[单元测试/端到端测试], **脚手架自带**
 - [ ] 断网检测
-- [ ] 远程推送
 - [ ] 本地通知
-- [ ] 物理返回键双击退出
+- [ ] 远程推送
 - [ ] Cordova 插件说明与示例
 - [ ] NGRX
 - [ ] 技巧与工具
 - [ ] 主题
-- [ ] 常用组件
 - [ ] 用户行为
+- [ ] 常用组件
 
 ## 运行环境介绍
 
