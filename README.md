@@ -36,7 +36,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 集成 echarts
 - [x] 去除开机白屏等待
 - [x] 物理返回键双击退出
-- [ ] 测试支持[单元测试/端到端测试], **脚手架自带**
+- [x] 测试支持[单元测试/端到端测试], **脚手架自带**
 - [ ] 断网检测
 - [ ] 本地通知
 - [ ] 远程推送

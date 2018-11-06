@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { IonicModule } from '@ionic/angular';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { SharedModule } from './../shared/shared.module';
@@ -8,11 +8,7 @@ import { HomePage } from '../pages/home/home.page';
 import { TestPage } from '../pages/test/test.page';
 
 @NgModule({
-  imports: [SharedModule, TabsPageRoutingModule],
-  declarations: [
-    TabsPage,
-    HomePage,
-    TestPage,
-  ],
+  imports: [IonicModule, SharedModule, TabsPageRoutingModule],
+  declarations: [TabsPage, HomePage, TestPage],
 })
 export class TabsPageModule {}

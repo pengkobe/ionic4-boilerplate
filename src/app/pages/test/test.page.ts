@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { NavController,  ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import lodash from 'lodash';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { EChartOption } from 'echarts';
@@ -60,7 +60,6 @@ export class TestPage {
   wrongScaned: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    public navCtrl: NavController,
     private insomnia: Insomnia,
     public globalservice: GlobalService,
     public modalCtrl: ModalController,
