@@ -12,6 +12,7 @@ import { UpdateService } from '@services/update.service';
 import { NativeService } from '@services/native.service';
 import { DataService } from '@services/data.service';
 import { BaiduLocationService } from '@services/baidulocation.service';
+import { EmitService } from '@services/emit.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
@@ -24,6 +25,7 @@ import { BaiduLocationService } from '@services/baidulocation.service';
     QiniuUploadService,
     DataService,
     BaiduLocationService,
+    EmitService,
   ],
 })
 export class CoreModule {}

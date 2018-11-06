@@ -1,9 +1,10 @@
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { RouteReuseStrategy } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicStorageModule } from '@ionic/Storage';
+
+import { RouteReuseStrategy } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
@@ -23,8 +24,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { MyApp } from './app.component';
-
-import { EmitService } from '@services/emit.service';
 
 import { MyErrorHandler } from './error.handler';
 // import { RavenErrorHandler } from './raven-error-handler.';
@@ -55,7 +54,6 @@ import { MyErrorHandler } from './error.handler';
     Insomnia,
     Network,
     // { provide: ErrorHandler, useClass: MyErrorHandler },
-    EmitService,
     // { provide: ErrorHandler, useClass: RavenErrorHandler }
   ],
 })

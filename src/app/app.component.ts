@@ -9,17 +9,16 @@ import {
   IonRouterOutlet,
   MenuController,
 } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { GlobalService } from '@services/global.service';
 import { UpdateService } from '@services/update.service';
 import { NativeService } from '@services/native.service';
-
 import { TranslateService } from '@ngx-translate/core';
 import { EmitService } from '@services/emit.service';
-
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -45,12 +44,12 @@ export class MyApp {
     public global: GlobalService,
     public native: NativeService,
     public updateService: UpdateService,
-    public translate: TranslateService,
+    public translateservice: TranslateService,
     public globalservice: GlobalService,
-    public emit: EmitService,
+    public emitservice: EmitService,
     public toastCtrl: ToastController,
     public modalCtrl: ModalController,
-    private menu: MenuController,
+    private menuCtrl: MenuController,
     private actionSheetCtrl: ActionSheetController,
     private popoverCtrl: PopoverController,
     private router: Router
@@ -61,15 +60,15 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.overlaysWebView(false);
-      this.statusBar.styleDefault();
-      this.statusBar.backgroundColorByHexString('#f8f8f8');
       this.splashScreen.hide();
-
-      this.updateService.checkUpdate();
-      this.native.initNativeService();
-
-      this.registerBackButtonAction();
+      this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(false);
+      this.statusBar.backgroundColorByHexString('#f8f8f8');
+      if (window.cordova) {
+        this.updateService.checkUpdate();
+        this.native.initNativeService();
+        this.registerBackButtonAction();
+      }
     });
 
     this.events.subscribe('qrScanner:show', () => {
@@ -81,18 +80,20 @@ export class MyApp {
   }
 
   initTranslate() {
-    this.translate.addLangs(['en', 'zh']);
-    this.translate.setDefaultLang('en');
+    this.translateservice.addLangs(['en', 'zh']);
+    this.translateservice.setDefaultLang('en');
     if (this.globalservice.languageType) {
-      this.translate.use(this.globalservice.languageType);
+      this.translateservice.use(this.globalservice.languageType);
     } else {
-      const browserLang = this.translate.getBrowserLang();
-      this.translate.use(browserLang.match(/en|zh/) ? browserLang : 'en');
+      const browserLang = this.translateservice.getBrowserLang();
+      this.translateservice.use(
+        browserLang.match(/en|zh/) ? browserLang : 'en'
+      );
     }
 
-    this.emit.eventEmit.subscribe(val => {
+    this.emitservice.eventEmit.subscribe(val => {
       if (val === 'languageType') {
-        this.translate.use(this.globalservice.languageType);
+        this.translateservice.use(this.globalservice.languageType);
       }
     });
   }
@@ -133,9 +134,9 @@ export class MyApp {
 
       // close side menua
       try {
-        const element = await this.menu.getOpen();
+        const element = await this.menuCtrl.getOpen();
         if (element !== null) {
-          this.menu.close();
+          this.menuCtrl.close();
           return;
         }
       } catch (error) {}

@@ -21,7 +21,5 @@
       "@root/*": ["./*"],
       "echarts": ["../node_modules/echarts/dist/echarts.min.js"]
     }
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "src/**/*.spec.ts"]
+  }
 }
