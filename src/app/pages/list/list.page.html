@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>{{ 'HOME.List' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,18 +13,20 @@
   </ion-refresher>
 
   <ion-list>
-    <a ion-item *ngFor="let item of items" routerLink="{{'./'+  item.title }}" routerLinkActive="active">
+    <ion-item ion-item *ngFor="let item of items" routerLink="{{'./'+  item.title }}" routerLinkActive="active">
       <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{ item.title }}
+      <ion-label>{{ item.title }}</ion-label>
       <div class="item-note" item-end>
         {{ item.note }}
       </div>
-    </a>
+    </ion-item>
   </ion-list>
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{ selectedItem.title }}</b>
   </div>
 
   <ion-button (click)="toHome()" color="primary">返回首页</ion-button>
+
+
 
 </ion-content>

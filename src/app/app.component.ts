@@ -163,4 +163,8 @@ export class MyApp {
       });
     });
   }
+
+  navigate(url) {
+    return this.router.navigateByUrl(url);
+  }
 }
