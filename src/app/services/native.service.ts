@@ -4,12 +4,13 @@
  * 2. 文件下载
  * 3. 屏幕常亮
  */
-
 import { Injectable } from '@angular/core';
 import { Platform, ToastController } from '@ionic/angular';
 import { GlobalService } from './global.service';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Network } from '@ionic-native/network/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 import {
   FileTransfer,
   FileTransferObject,
@@ -28,7 +29,8 @@ export class NativeService {
     private insomnia: Insomnia,
     private toastCtrl: ToastController,
     private transfer: FileTransfer,
-    private network: Network
+    private network: Network,
+    private localNotifications: LocalNotifications
   ) {}
 
   /**
@@ -146,5 +148,13 @@ export class NativeService {
         console.log(evt);
       });
     });
+  }
+
+  /**
+   * 本地通知
+   * @param obj
+   */
+  localNotify(obj: { id; text; sound?; data?; trigger? }) {
+    this.localNotifications.schedule([obj]);
   }
 }
