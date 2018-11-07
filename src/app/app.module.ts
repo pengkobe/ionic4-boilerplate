@@ -15,7 +15,7 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
-// import { JPush } from '@jiguang-ionic/jpush';
+import { JPush } from '../nativewrapper/jpush/ngx';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -26,7 +26,7 @@ import { StoreModule } from '@ngrx/store';
 import { MyApp } from './app.component';
 
 import { MyErrorHandler } from './error.handler';
-// import { RavenErrorHandler } from './raven-error-handler.';
+import { RavenErrorHandler } from './raven-error-handler.';
 
 @NgModule({
   declarations: [MyApp],
@@ -35,7 +35,6 @@ import { MyErrorHandler } from './error.handler';
     CoreModule,
     SharedModule,
     BrowserModule,
-    // JPush,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
     StoreModule.forRoot({}),
@@ -49,6 +48,7 @@ import { MyErrorHandler } from './error.handler';
     SplashScreen,
     BackgroundMode,
     File,
+    JPush,
     FileTransfer,
     FileOpener,
     Insomnia,

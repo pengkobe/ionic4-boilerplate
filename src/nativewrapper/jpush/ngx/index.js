@@ -1,0 +1,78 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+import { Injectable } from '@angular/core';
+import { IonicNativePlugin, cordova } from '@ionic-native/core';
+var JPush = /** @class */ (function (_super) {
+    __extends(JPush, _super);
+    function JPush() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    JPush.prototype.init = function () { return cordova(this, "init", {}, arguments); };
+    JPush.prototype.setDebugMode = function (enable) { return cordova(this, "setDebugMode", {}, arguments); };
+    JPush.prototype.getRegistrationID = function () { return cordova(this, "getRegistrationID", {}, arguments); };
+    JPush.prototype.stopPush = function () { return cordova(this, "stopPush", {}, arguments); };
+    JPush.prototype.resumePush = function () { return cordova(this, "resumePush", {}, arguments); };
+    JPush.prototype.isPushStopped = function () { return cordova(this, "isPushStopped", {}, arguments); };
+    JPush.prototype.setTags = function (params) { return cordova(this, "setTags", {}, arguments); };
+    JPush.prototype.addTags = function (params) { return cordova(this, "addTags", {}, arguments); };
+    JPush.prototype.deleteTags = function (params) { return cordova(this, "deleteTags", {}, arguments); };
+    JPush.prototype.cleanTags = function (params) { return cordova(this, "cleanTags", {}, arguments); };
+    JPush.prototype.getAllTags = function (params) { return cordova(this, "getAllTags", {}, arguments); };
+    JPush.prototype.checkTagBindState = function (params) { return cordova(this, "checkTagBindState", {}, arguments); };
+    JPush.prototype.setAlias = function (params) { return cordova(this, "setAlias", {}, arguments); };
+    JPush.prototype.deleteAlias = function (params) { return cordova(this, "deleteAlias", {}, arguments); };
+    JPush.prototype.getAlias = function (params) { return cordova(this, "getAlias", {}, arguments); };
+    JPush.prototype.getUserNotificationSettings = function () { return cordova(this, "getUserNotificationSettings", {}, arguments); };
+    JPush.prototype.clearLocalNotifications = function () { return cordova(this, "clearLocalNotifications", {}, arguments); };
+    JPush.prototype.setBadge = function (badge) { return cordova(this, "setBadge", {}, arguments); };
+    JPush.prototype.resetBadge = function () { return cordova(this, "resetBadge", {}, arguments); };
+    JPush.prototype.setApplicationIconBadgeNumber = function (badge) { return cordova(this, "setApplicationIconBadgeNumber", {}, arguments); };
+    JPush.prototype.getApplicationIconBadgeNumber = function () { return cordova(this, "getApplicationIconBadgeNumber", {}, arguments); };
+    JPush.prototype.addLocalNotificationForIOS = function (delayTime, content, badge, identifierKey, extras) { return cordova(this, "addLocalNotificationForIOS", {}, arguments); };
+    JPush.prototype.deleteLocalNotificationWithIdentifierKeyInIOS = function (identifierKey) { return cordova(this, "deleteLocalNotificationWithIdentifierKeyInIOS", {}, arguments); };
+    JPush.prototype.addDismissActions = function (actions, categoryId) { return cordova(this, "addDismissActions", {}, arguments); };
+    JPush.prototype.addNotificationActions = function (actions, categoryId) { return cordova(this, "addNotificationActions", {}, arguments); };
+    JPush.prototype.setLocation = function (latitude, longitude) { return cordova(this, "setLocation", {}, arguments); };
+    JPush.prototype.startLogPageView = function (pageName) { return cordova(this, "startLogPageView", {}, arguments); };
+    JPush.prototype.stopLogPageView = function (pageName) { return cordova(this, "stopLogPageView", {}, arguments); };
+    JPush.prototype.beginLogPageView = function (pageName, duration) { return cordova(this, "beginLogPageView", {}, arguments); };
+    JPush.prototype.getConnectionState = function () { return cordova(this, "getConnectionState", {}, arguments); };
+    JPush.prototype.setBasicPushNotificationBuilder = function () { return cordova(this, "setBasicPushNotificationBuilder", {}, arguments); };
+    JPush.prototype.setCustomPushNotificationBuilder = function () { return cordova(this, "setCustomPushNotificationBuilder", {}, arguments); };
+    JPush.prototype.clearAllNotification = function () { return cordova(this, "clearAllNotification", {}, arguments); };
+    JPush.prototype.clearNotificationById = function (id) { return cordova(this, "clearNotificationById", {}, arguments); };
+    JPush.prototype.setLatestNotificationNum = function (num) { return cordova(this, "setLatestNotificationNum", {}, arguments); };
+    JPush.prototype.addLocalNotification = function (builderId, content, title, notificationId, broadcastTime, extras) { return cordova(this, "addLocalNotification", {}, arguments); };
+    JPush.prototype.removeLocalNotification = function (notificationId) { return cordova(this, "removeLocalNotification", {}, arguments); };
+    JPush.prototype.reportNotificationOpened = function (msgId) { return cordova(this, "reportNotificationOpened", {}, arguments); };
+    JPush.prototype.requestPermission = function () { return cordova(this, "requestPermission", {}, arguments); };
+    JPush.prototype.setSilenceTime = function (startHour, startMinute, endHour, endMinute) { return cordova(this, "setSilenceTime", {}, arguments); };
+    JPush.prototype.setPushTime = function (weekdays, startHour, endHour) { return cordova(this, "setPushTime", {}, arguments); };
+    JPush.pluginName = "JPush";
+    JPush.plugin = "jpush-phonegap-plugin";
+    JPush.pluginRef = "JPush";
+    JPush.repo = "https://github.com/jpush/jpush-phonegap-plugin";
+    JPush.install = "ionic cordova plugin add jpush-phonegap-plugin --variable APP_KEY=YOUR_APP_KEY";
+    JPush.installVariables = ["APP_KEY"];
+    JPush.platforms = ["Android", "iOS"];
+    JPush = __decorate([
+        Injectable()
+    ], JPush);
+    return JPush;
+}(IonicNativePlugin));
+export { JPush };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9zcmMvQGlvbmljLW5hdGl2ZS9wbHVnaW5zL2pwdXNoL25neC9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsT0FBTyxFQUFFLFVBQVUsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUMzQyxPQUFPLDhCQUtOLE1BQU0sb0JBQW9CLENBQUM7O0lBc0JELHlCQUFpQjs7OztJQUUxQyxvQkFBSTtJQUlKLDRCQUFZLGFBQUMsTUFBZTtJQUk1QixpQ0FBaUI7SUFJakIsd0JBQVE7SUFJUiwwQkFBVTtJQUlWLDZCQUFhO0lBSWIsdUJBQU8sYUFBQyxNQUFrQjtJQUkxQix1QkFBTyxhQUFDLE1BQWtCO0lBSTFCLDBCQUFVLGFBQUMsTUFBa0I7SUFJN0IseUJBQVMsYUFBQyxNQUFrQjtJQUk1QiwwQkFBVSxhQUFDLE1BQWtCO0lBTzdCLGlDQUFpQixhQUFDLE1BQWM7SUFJaEMsd0JBQVEsYUFBQyxNQUFvQjtJQUk3QiwyQkFBVyxhQUFDLE1BQW9CO0lBSWhDLHdCQUFRLGFBQUMsTUFBb0I7SUFnQjdCLDJDQUEyQjtJQUkzQix1Q0FBdUI7SUFJdkIsd0JBQVEsYUFBQyxLQUFhO0lBSXRCLDBCQUFVO0lBSVYsNkNBQTZCLGFBQUMsS0FBYTtJQUkzQyw2Q0FBNkI7SUFJN0IsMENBQTBCLGFBQ3hCLFNBQWlCLEVBQ2pCLE9BQWUsRUFDZixLQUFhLEVBQ2IsYUFBcUIsRUFDckIsTUFBZTtJQUtqQiw2REFBNkMsYUFDM0MsYUFBcUI7SUFLdkIsaUNBQWlCLGFBQUMsT0FBaUIsRUFBRSxVQUFrQjtJQUl2RCxzQ0FBc0IsYUFDcEIsT0FBaUIsRUFDakIsVUFBa0I7SUFLcEIsMkJBQVcsYUFBQyxRQUFnQixFQUFFLFNBQWlCO0lBSS9DLGdDQUFnQixhQUFDLFFBQWdCO0lBSWpDLCtCQUFlLGFBQUMsUUFBZ0I7SUFJaEMsZ0NBQWdCLGFBQUMsUUFBZ0IsRUFBRSxRQUFnQjtJQUluRCxrQ0FBa0I7SUFJbEIsK0NBQStCO0lBSS9CLGdEQUFnQztJQUloQyxvQ0FBb0I7SUFJcEIscUNBQXFCLGFBQUMsRUFBVTtJQUloQyx3Q0FBd0IsYUFBQyxHQUFXO0lBSXBDLG9DQUFvQixhQUNsQixTQUFpQixFQUNqQixPQUFlLEVBQ2YsS0FBYSxFQUNiLGNBQXNCLEVBQ3RCLGFBQXFCLEVBQ3JCLE1BQWU7SUFLakIsdUNBQXVCLGFBQUMsY0FBc0I7SUFJOUMsd0NBQXdCLGFBQUMsS0FBYTtJQUl0QyxpQ0FBaUI7SUFJakIsOEJBQWMsYUFDWixTQUFpQixFQUNqQixXQUFtQixFQUNuQixPQUFlLEVBQ2YsU0FBaUI7SUFLbkIsMkJBQVcsYUFDVCxRQUFrQixFQUNsQixTQUFpQixFQUNqQixPQUFlOzs7Ozs7OztJQTNNTixLQUFLO1FBRGpCLFVBQVUsRUFBRTtPQUNBLEtBQUs7Z0JBNUJsQjtFQTRCMkIsaUJBQWlCO1NBQS9CLEtBQUsiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge1xuICBDb3Jkb3ZhLFxuICAvLyBDb3Jkb3ZhUHJvcGVydHksXG4gIElvbmljTmF0aXZlUGx1Z2luLFxuICBQbHVnaW4sXG59IGZyb20gJ0Bpb25pYy1uYXRpdmUvY29yZSc7XG5cbmV4cG9ydCBpbnRlcmZhY2UgVGFnT3B0aW9ucyB7XG4gIHNlcXVlbmNlOiBudW1iZXI7XG4gIHRhZ3M/OiBzdHJpbmdbXTtcbn1cbmV4cG9ydCBpbnRlcmZhY2UgQWxpYXNPcHRpb25zIHtcbiAgc2VxdWVuY2U6IG51bWJlcjtcbiAgYWxpYXM/OiBzdHJpbmc7XG59XG5cbkBQbHVnaW4oe1xuICBwbHVnaW5OYW1lOiAnSlB1c2gnLFxuICBwbHVnaW46ICdqcHVzaC1waG9uZWdhcC1wbHVnaW4nLFxuICBwbHVnaW5SZWY6ICdKUHVzaCcsXG4gIHJlcG86ICdodHRwczovL2dpdGh1Yi5jb20vanB1c2gvanB1c2gtcGhvbmVnYXAtcGx1Z2luJyxcbiAgaW5zdGFsbDpcbiAgICAnaW9uaWMgY29yZG92YSBwbHVnaW4gYWRkIGpwdXNoLXBob25lZ2FwLXBsdWdpbiAtLXZhcmlhYmxlIEFQUF9LRVk9WU9VUl9BUFBfS0VZJyxcbiAgaW5zdGFsbFZhcmlhYmxlczogWydBUFBfS0VZJ10sXG4gIHBsYXRmb3JtczogWydBbmRyb2lkJywgJ2lPUyddLFxufSlcbkBJbmplY3RhYmxlKClcbmV4cG9ydCBjbGFzcyBKUHVzaCBleHRlbmRzIElvbmljTmF0aXZlUGx1Z2luIHtcbiAgQENvcmRvdmEoKVxuICBpbml0KCk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgc2V0RGVidWdNb2RlKGVuYWJsZTogYm9vbGVhbik6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgZ2V0UmVnaXN0cmF0aW9uSUQoKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBzdG9wUHVzaCgpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHJlc3VtZVB1c2goKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBpc1B1c2hTdG9wcGVkKCk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgc2V0VGFncyhwYXJhbXM6IFRhZ09wdGlvbnMpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIGFkZFRhZ3MocGFyYW1zOiBUYWdPcHRpb25zKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBkZWxldGVUYWdzKHBhcmFtczogVGFnT3B0aW9ucyk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgY2xlYW5UYWdzKHBhcmFtczogVGFnT3B0aW9ucyk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgZ2V0QWxsVGFncyhwYXJhbXM6IFRhZ09wdGlvbnMpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICAvKipcbiAgICogQHBhcmFtIHBhcmFtcyB7IHNlcXVlbmNlOiBudW1iZXIsIHRhZzogc3RyaW5nIH1cbiAgICovXG4gIEBDb3Jkb3ZhKClcbiAgY2hlY2tUYWdCaW5kU3RhdGUocGFyYW1zOiBvYmplY3QpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHNldEFsaWFzKHBhcmFtczogQWxpYXNPcHRpb25zKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBkZWxldGVBbGlhcyhwYXJhbXM6IEFsaWFzT3B0aW9ucyk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgZ2V0QWxpYXMocGFyYW1zOiBBbGlhc09wdGlvbnMpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICAvKipcbiAgICogRGV0ZXJtaW5hdGUgd2hldGhlciB0aGUgYXBwbGljYXRpb24gbm90aWZpY2F0aW9uIGhhcyBiZWVuIG9wZW5lZC5cbiAgICpcbiAgICogaU9TOiAwOiBjbG9zZWQ7ID4xOiBvcGVuZWQuXG4gICAqICBVSVJlbW90ZU5vdGlmaWNhdGlvblR5cGVOb25lID0gMCxcbiAgICogIFVJUmVtb3RlTm90aWZpY2F0aW9uVHlwZUJhZGdlID0gMSA8PCAwLFxuICAgKiAgVUlSZW1vdGVOb3RpZmljYXRpb25UeXBlU291bmQgPSAxIDw8IDEsXG4gICAqICBVSVJlbW90ZU5vdGlmaWNhdGlvblR5cGVBbGVydCA9IDEgPDwgMixcbiAgICogIFVJUmVtb3RlTm90aWZpY2F0aW9uVHlwZU5ld3NzdGFuZENvbnRlbnRBdmFpbGFiaWxpdHkgPSAxIDw8IDNcbiAgICpcbiAgICogQW5kcm9pZDogMDogY2xvc2VkOyAxOiBvcGVuZWQuXG4gICAqL1xuICBAQ29yZG92YSgpXG4gIGdldFVzZXJOb3RpZmljYXRpb25TZXR0aW5ncygpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIGNsZWFyTG9jYWxOb3RpZmljYXRpb25zKCk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgc2V0QmFkZ2UoYmFkZ2U6IG51bWJlcik6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgcmVzZXRCYWRnZSgpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHNldEFwcGxpY2F0aW9uSWNvbkJhZGdlTnVtYmVyKGJhZGdlOiBudW1iZXIpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIGdldEFwcGxpY2F0aW9uSWNvbkJhZGdlTnVtYmVyKCk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgYWRkTG9jYWxOb3RpZmljYXRpb25Gb3JJT1MoXG4gICAgZGVsYXlUaW1lOiBudW1iZXIsXG4gICAgY29udGVudDogc3RyaW5nLFxuICAgIGJhZGdlOiBudW1iZXIsXG4gICAgaWRlbnRpZmllcktleTogc3RyaW5nLFxuICAgIGV4dHJhcz86IG9iamVjdFxuICApOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIGRlbGV0ZUxvY2FsTm90aWZpY2F0aW9uV2l0aElkZW50aWZpZXJLZXlJbklPUyhcbiAgICBpZGVudGlmaWVyS2V5OiBzdHJpbmdcbiAgKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBhZGREaXNtaXNzQWN0aW9ucyhhY3Rpb25zOiBvYmplY3RbXSwgY2F0ZWdvcnlJZDogc3RyaW5nKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBhZGROb3RpZmljYXRpb25BY3Rpb25zKFxuICAgIGFjdGlvbnM6IG9iamVjdFtdLFxuICAgIGNhdGVnb3J5SWQ6IHN0cmluZ1xuICApOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHNldExvY2F0aW9uKGxhdGl0dWRlOiBudW1iZXIsIGxvbmdpdHVkZTogbnVtYmVyKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBzdGFydExvZ1BhZ2VWaWV3KHBhZ2VOYW1lOiBzdHJpbmcpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHN0b3BMb2dQYWdlVmlldyhwYWdlTmFtZTogc3RyaW5nKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBiZWdpbkxvZ1BhZ2VWaWV3KHBhZ2VOYW1lOiBzdHJpbmcsIGR1cmF0aW9uOiBudW1iZXIpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIGdldENvbm5lY3Rpb25TdGF0ZSgpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHNldEJhc2ljUHVzaE5vdGlmaWNhdGlvbkJ1aWxkZXIoKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBzZXRDdXN0b21QdXNoTm90aWZpY2F0aW9uQnVpbGRlcigpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIGNsZWFyQWxsTm90aWZpY2F0aW9uKCk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgY2xlYXJOb3RpZmljYXRpb25CeUlkKGlkOiBudW1iZXIpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHNldExhdGVzdE5vdGlmaWNhdGlvbk51bShudW06IG51bWJlcik6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgYWRkTG9jYWxOb3RpZmljYXRpb24oXG4gICAgYnVpbGRlcklkOiBudW1iZXIsXG4gICAgY29udGVudDogc3RyaW5nLFxuICAgIHRpdGxlOiBzdHJpbmcsXG4gICAgbm90aWZpY2F0aW9uSWQ6IG51bWJlcixcbiAgICBicm9hZGNhc3RUaW1lOiBudW1iZXIsXG4gICAgZXh0cmFzPzogc3RyaW5nXG4gICk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgcmVtb3ZlTG9jYWxOb3RpZmljYXRpb24obm90aWZpY2F0aW9uSWQ6IG51bWJlcik6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgcmVwb3J0Tm90aWZpY2F0aW9uT3BlbmVkKG1zZ0lkOiBudW1iZXIpOiBQcm9taXNlPGFueT4ge1xuICAgIHJldHVybjtcbiAgfVxuICBAQ29yZG92YSgpXG4gIHJlcXVlc3RQZXJtaXNzaW9uKCk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG4gIEBDb3Jkb3ZhKClcbiAgc2V0U2lsZW5jZVRpbWUoXG4gICAgc3RhcnRIb3VyOiBudW1iZXIsXG4gICAgc3RhcnRNaW51dGU6IG51bWJlcixcbiAgICBlbmRIb3VyOiBudW1iZXIsXG4gICAgZW5kTWludXRlOiBudW1iZXJcbiAgKTogUHJvbWlzZTxhbnk+IHtcbiAgICByZXR1cm47XG4gIH1cbiAgQENvcmRvdmEoKVxuICBzZXRQdXNoVGltZShcbiAgICB3ZWVrZGF5czogc3RyaW5nW10sXG4gICAgc3RhcnRIb3VyOiBudW1iZXIsXG4gICAgZW5kSG91cjogbnVtYmVyXG4gICk6IFByb21pc2U8YW55PiB7XG4gICAgcmV0dXJuO1xuICB9XG59XG4iXX0=
