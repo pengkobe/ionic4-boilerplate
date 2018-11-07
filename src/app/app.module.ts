@@ -14,6 +14,7 @@ import { Network } from '@ionic-native/network/ngx';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 import { JPush } from '../nativewrapper/jpush/ngx';
 
@@ -53,6 +54,7 @@ import { RavenErrorHandler } from './raven-error-handler.';
     FileOpener,
     Insomnia,
     Network,
+    LocalNotifications,
     // { provide: ErrorHandler, useClass: MyErrorHandler },
     // { provide: ErrorHandler, useClass: RavenErrorHandler }
   ],
