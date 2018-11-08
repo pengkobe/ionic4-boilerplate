@@ -55,7 +55,7 @@ export class TodoListComponent implements OnInit {
   private readTodosState() {
     this.store.select(getVisibleTodos)
     .subscribe(todos => {
-      // debugger
+      
       this.todos = todos;
     });
   }

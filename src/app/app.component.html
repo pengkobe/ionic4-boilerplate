@@ -1,43 +1,36 @@
 <ion-app>
-  <ion-split-pane>
-
+  <ion-split-pane
+    [ngClass]="{
+      'dark-theme': selectedTheme === 'dark-theme',
+      'light-theme': selectedTheme !== 'dark-theme'
+    }"
+  >
     <ion-menu>
       <ion-header>
-        <ion-toolbar>
-          <ion-title>菜单</ion-title>
-        </ion-toolbar>
+        <ion-toolbar> <ion-title>菜单</ion-title> </ion-toolbar>
       </ion-header>
       <ion-content>
-
         <ion-list *ngIf="!loggedIn">
-          <ion-list-header>
-            功能点
-          </ion-list-header>
+          <ion-list-header> 功能点 </ion-list-header>
 
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="navigate('/tabs')">
               <ion-icon slot="start" name="home"></ion-icon>
-              <ion-label>
-                首页
-              </ion-label>
+              <ion-label> 首页 </ion-label>
             </ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="navigate('/tabs/(list:list)')">
               <ion-icon slot="start" name="information-circle"></ion-icon>
-              <ion-label>
-                列表
-              </ion-label>
+              <ion-label> 列表 </ion-label>
             </ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="navigate('/tabs/(test:test)')">
               <ion-icon slot="start" name="hammer"></ion-icon>
-              <ion-label>
-                测试
-              </ion-label>
+              <ion-label> 测试 </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
@@ -45,6 +38,5 @@
     </ion-menu>
 
     <ion-router-outlet main></ion-router-outlet>
-
   </ion-split-pane>
 </ion-app>

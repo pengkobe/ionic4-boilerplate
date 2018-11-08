@@ -13,6 +13,9 @@
 @import '~todomvc-common/base.css';
 @import '~todomvc-app-css/index.css';
 
+@import "./theme/theme.dark.scss";
+@import "./theme/theme.light.scss";
+
 ion-content {
     height: 100vh !important;
 }

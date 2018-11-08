@@ -18,7 +18,7 @@ export const getVisibleTodos = createSelector(
   getTodos,
   getFilter,
   (todos: Todo[], filter: string) => {
-    // debugger
+    
     switch (filter) {
       default:
       case 'SHOW_ALL':

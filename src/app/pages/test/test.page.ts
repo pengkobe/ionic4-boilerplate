@@ -59,12 +59,16 @@ export class TestPage {
   @Output()
   wrongScaned: EventEmitter<any> = new EventEmitter();
 
+  selectedTheme: String;
+
   constructor(
     private insomnia: Insomnia,
     public globalservice: GlobalService,
     public modalCtrl: ModalController,
     public emit: EmitService
-  ) {}
+  ) {
+    this.emit.getActiveTheme().subscribe(val => this.selectedTheme = val);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestPage');
@@ -125,5 +129,13 @@ export class TestPage {
   setLanguageType(val) {
     this.globalservice.languageType = val;
     this.emit.eventEmit.emit('languageType');
+  }
+
+  toggleAppTheme() {
+    if (this.selectedTheme === 'dark-theme') {
+      this.emit.setActiveTheme('light-theme');
+    } else {
+      this.emit.setActiveTheme('dark-theme');
+    }
   }
 }

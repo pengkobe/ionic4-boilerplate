@@ -41,11 +41,13 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 本地通知
 - [x] 远程推送
 - [x] NGRX
-- [ ] 技巧与工具
+  - [x] TODO Demo
+- [x] 主题切换示例
+- [x] 常用组件
+  - [x] 二维码扫描
 - [ ] Cordova 插件说明与示例
-- [ ] 主题切换
-- [ ] 常用组件
 - [ ] 用户行为统计
+- [ ] 技巧与工具分享
 
 ## 运行环境介绍
 

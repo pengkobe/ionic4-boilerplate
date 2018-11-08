@@ -36,6 +36,8 @@ export class MyApp {
   @ViewChildren(IonRouterOutlet)
   routerOutlets: QueryList<IonRouterOutlet>;
 
+  selectedTheme: String;
+
   constructor(
     public platform: Platform,
     public events: Events,
@@ -54,6 +56,11 @@ export class MyApp {
     private popoverCtrl: PopoverController,
     private router: Router
   ) {
+    this.emitservice.getActiveTheme().subscribe(val =>{
+      if(val){
+        this.selectedTheme = val;
+      }
+    });
     this.initializeApp();
     this.initTranslate();
   }
