@@ -27,6 +27,11 @@ export class ListPage {
         icon: 'speedometer',
       },
       {
+        title: 'todo',
+        note: '',
+        icon: 'create',
+      },
+      {
         title: 'calendar',
         note: '',
         icon: 'calendar',

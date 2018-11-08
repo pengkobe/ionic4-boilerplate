@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'echarts',
     component: EchartsPage,
   },
+  {
+    path: 'todo',
+    // outlet: 'todo',
+    loadChildren: './ngrxtodo/ngrxtodo.module#NgrxTodoPageModule',
+  },
 ];
 
 @NgModule({
