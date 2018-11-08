@@ -20,7 +20,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 开发流程与代码规范
   - [x] git 流程管理
   - [x] 持续集成脚本
-  - [ ]部署
+  - [ ] 部署
 - [x] 运行环境介绍
 - [x] 错误上报
 - [x] http
@@ -40,12 +40,12 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 断网检测
 - [x] 本地通知
 - [x] 远程推送
-- [ ] Cordova 插件说明与示例
-- [ ] NGRX
+- [x] NGRX
 - [ ] 技巧与工具
-- [ ] 主题
-- [ ] 用户行为
+- [ ] Cordova 插件说明与示例
+- [ ] 主题切换
 - [ ] 常用组件
+- [ ] 用户行为统计
 
 ## 运行环境介绍
 
