@@ -1,9 +1,11 @@
 /**
  * 常用原生服务
- * 1. 网络状态
- * 2. 文件下载
- * 3. 屏幕常亮
+ *  - 网络状态监听
+ *  - 屏幕常亮设置
+ *  - 文件下载
+ *  - 本地通知
  */
+
 import { Injectable } from '@angular/core';
 import { Platform, ToastController } from '@ionic/angular';
 import { GlobalService } from './global.service';
@@ -15,6 +17,8 @@ import {
   FileTransfer,
   FileTransferObject,
 } from '@ionic-native/file-transfer/ngx';
+
+declare var window;
 
 @Injectable()
 export class NativeService {
@@ -33,22 +37,13 @@ export class NativeService {
     private localNotifications: LocalNotifications
   ) {}
 
-  /**
-   * 初始化
-   */
   init() {}
 
-  /**
-   * 初始化 Native 服务
-   */
   initNativeService() {
     this.listenInsomniaState();
     this.listenNetworkState();
   }
 
-  /**
-   * 监听屏幕显示状态
-   */
   listenInsomniaState() {
     if (this.globalservice.isAlwaysLight) {
       this.insomnia
@@ -60,9 +55,6 @@ export class NativeService {
     }
   }
 
-  /**
-   * 监听网络状态
-   */
   listenNetworkState() {
     this.createToast();
     const offlineOnlineThrottle = this.throttle(msg => {
@@ -74,11 +66,10 @@ export class NativeService {
     this.network.onDisconnect().subscribe(() => {
       this.isOffline = true;
       console.log('network was disconnected :-(');
-      offlineOnlineThrottle('网络已断开！');
+      offlineOnlineThrottle('OFFLINE！');
     });
 
     this.network.onConnect().subscribe(() => {
-      console.log('network connected!');
       this.isOffline = false;
       this.toast.dismissAll();
       setTimeout(() => {
@@ -90,10 +81,10 @@ export class NativeService {
   }
 
   /**
-   * 函数节流方法
-   * @param Function fn 延时调用函数
-   * @param Number delay 延迟多长时间
-   * @return Function 延迟执行的方法
+   * throttle
+   * @param fn
+   * @param delay
+   * @return Function
    */
   throttle(fn, delay) {
     let timer = null;
@@ -106,12 +97,12 @@ export class NativeService {
   }
 
   /**
-   * 显示消息
-   * @param msg 消息
+   * create toast
+   * @param msg message to show
    */
-  async createToast() {
+  async createToast(msg = '') {
     this.toast = await this.toastCtrl.create({
-      message: '',
+      message: msg,
       duration: 3000,
       position: 'top',
       cssClass: 'my-toast-style',
@@ -121,9 +112,9 @@ export class NativeService {
   }
 
   /**
-   * 文件下载
+   * file download
    * @param remotepath
-   * @param targetPathWithFileName 带文件名的下载地址
+   * @param targetPathWithFileName
    */
   filedownload(remotepath, targetPathWithFileName) {
     return new Promise((resolve, reject) => {
@@ -135,17 +126,20 @@ export class NativeService {
       const trustHosts = true;
       const fileTransfer: FileTransferObject = this.transfer.create();
       fileTransfer
-        .download(remotepath, targetPathWithFileName, trustHosts, options)
+        .download(
+          window.encodeURI(remotepath),
+          targetPathWithFileName,
+          trustHosts,
+          options
+        )
         .then(result => {
-          console.log('filedownload： 下载完成..');
           resolve(result.toURL());
         })
         .catch(err => {
-          reject('ERR:下载出错');
-          console.log('filedownload： 下载出错', err);
+          reject(err);
         });
       fileTransfer.onProgress((evt: ProgressEvent) => {
-        console.log(evt);
+        // show download progress
       });
     });
   }
