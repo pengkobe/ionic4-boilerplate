@@ -24,7 +24,9 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 运行环境介绍
 - [x] 错误上报
 - [x] http
+  - [x] rebirth-http
 - [x] 本地存储
+  - [x] rebirth-storage
 - [x] 钩子( hooks )
 - [x] 版本更新( apk )
 - [x] 代码热更新
