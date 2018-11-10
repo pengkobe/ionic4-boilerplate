@@ -7,7 +7,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as querystring from 'querystring';
-import { Cacheable } from 'rebirth-storage';
+import { Cacheable } from './offlinecache.service';
 
 import { baseUrl } from '../config';
 import { NativeService } from './native.service';
