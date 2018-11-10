@@ -17,7 +17,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { RebirthStorageModule } from 'rebirth-storage';
 import { RebirthHttpModule } from 'rebirth-http';
 
 import { CoreModule } from './core/core.module';
@@ -55,7 +54,6 @@ import { RavenErrorHandler } from './raven-error-handler.';
     Insomnia,
     Network,
     LocalNotifications,
-    RebirthStorageModule,
     RebirthHttpModule,
     // { provide: ErrorHandler, useClass: MyErrorHandler },
     // { provide: ErrorHandler, useClass: RavenErrorHandler }

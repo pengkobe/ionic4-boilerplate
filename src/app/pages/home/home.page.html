@@ -9,8 +9,9 @@
 <ion-content padding>
   <h3 class="home-title">Ionic Boilerplate</h3>
 
-  <p>
-    create by <a href="https://yipeng.info/">pengkobe</a> .
-  </p>
+  <p>create by <a href="https://yipeng.info/">pengkobe</a> .</p>
   <ion-menu-button secondary>{{ 'HOME.Toggle' | translate }}</ion-menu-button>
+
+  <ion-button secondary (click)="testCache()">点击获取随机数</ion-button>
+  <span> {{ cahceData }}</span>
 </ion-content>

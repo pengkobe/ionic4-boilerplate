@@ -72,7 +72,6 @@
     "ngx-echarts": "^4.0.0",
     "raven-js": "^3.27.0",
     "rebirth-http": "^6.0.2",
-    "rebirth-storage": "^6.0.2",
     "rxjs": "6.2.2",
     "todomvc-app-css": "^2.1.2",
     "todomvc-common": "^1.0.5",

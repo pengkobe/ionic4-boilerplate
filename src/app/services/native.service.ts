@@ -25,7 +25,7 @@ export class NativeService {
   headimgurl: String;
   toast: any;
 
-  private isOffline = false;
+  private _isOffline = false;
 
   constructor(
     public platform: Platform,
@@ -37,12 +37,16 @@ export class NativeService {
     private localNotifications: LocalNotifications
   ) {}
 
-  init() {}
 
   initNativeService() {
     this.listenInsomniaState();
     this.listenNetworkState();
   }
+
+  isOffline() {
+    return this._isOffline;
+  }
+
 
   listenInsomniaState() {
     if (this.globalservice.isAlwaysLight) {
@@ -58,19 +62,19 @@ export class NativeService {
   listenNetworkState() {
     this.createToast();
     const offlineOnlineThrottle = this.throttle(msg => {
-      if (this.isOffline === true) {
+      if (this._isOffline === true) {
         this.toast.setMessage(msg);
         this.toast.present();
       }
     }, 2400);
     this.network.onDisconnect().subscribe(() => {
-      this.isOffline = true;
+      this._isOffline = true;
       console.log('network was disconnected :-(');
       offlineOnlineThrottle('OFFLINE！');
     });
 
     this.network.onConnect().subscribe(() => {
-      this.isOffline = false;
+      this._isOffline = false;
       this.toast.dismissAll();
       setTimeout(() => {
         if (this.network.type === 'wifi') {
