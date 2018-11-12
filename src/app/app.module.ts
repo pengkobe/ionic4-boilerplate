@@ -27,6 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { MyErrorHandler } from './error.handler';
 import { RavenErrorHandler } from './raven-error-handler.';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [MyApp],
@@ -39,6 +41,7 @@ import { RavenErrorHandler } from './raven-error-handler.';
     IonicModule.forRoot(),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   bootstrap: [MyApp],
   entryComponents: [MyApp],

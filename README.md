@@ -47,7 +47,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 主题切换示例
 - [x] 常用组件
   - [x] 二维码扫描
-- [ ] PWA
+- [x] PWA
 - [ ] Cordova 插件说明与示例
 - [ ] 用户行为统计
 - [ ] 技巧与工具分享
@@ -158,6 +158,18 @@ see: [tools](./doc/tools.md)
 
 一个高大上的 App 肯定少不了换肤功能，但是 Ionic 已经足够好，已经帮我们实现大部分了，具体实现可以参考:  
 https://ionicframework.com/docs/theming/
+
+## PWA
+
+集成教程可以参见:  
+https://www.joshmorony.com/create-a-pwa-with-angular-service-workers-in-ionic-4/  
+需要注意的是，ionic4 目前是基于 Angular6 进行开发，所以安装时需要指定之前的版本
+
+```bash
+ng add @angular/pwa@0.8.7 --project app
+```
+
+可以参见 issue: https://github.com/angular/angular-cli/issues/12914
 
 ## 参考
 
