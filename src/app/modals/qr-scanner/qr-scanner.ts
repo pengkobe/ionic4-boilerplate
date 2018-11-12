@@ -73,7 +73,7 @@ export class QRScannerModal {
     this.events.publish('qrScanner:hide');
   }
 
-  private dismiss(qrCode: object = null) {
+  public dismiss(qrCode: object = null) {
     this.qrScanner.getStatus().then((status: QRScannerStatus) => {
       if (status.showing) {
         this.hideCamera();
