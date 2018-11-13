@@ -37,7 +37,6 @@ export class NativeService {
     private localNotifications: LocalNotifications
   ) {}
 
-
   initNativeService() {
     this.listenInsomniaState();
     this.listenNetworkState();
@@ -46,7 +45,6 @@ export class NativeService {
   isOffline() {
     return this._isOffline;
   }
-
 
   listenInsomniaState() {
     if (this.globalservice.isAlwaysLight) {
@@ -116,6 +114,15 @@ export class NativeService {
   }
 
   /**
+   * 本地通知
+   * @param obj
+   */
+  localNotify(obj: { id; text; sound?; data?; trigger? }) {
+    this.localNotifications.schedule([obj]);
+  }
+
+  /**
+   * @deprecated see:https://cordova.apache.org/blog/2017/10/18/from-filetransfer-to-xhr2.html
    * file download
    * @param remotepath
    * @param targetPathWithFileName
@@ -149,10 +156,128 @@ export class NativeService {
   }
 
   /**
-   * 本地通知
-   * @param obj
+   * get files by prefix
    */
-  localNotify(obj: { id; text; sound?; data?; trigger? }) {
-    this.localNotifications.schedule([obj]);
+  getFiles(prefix: string): Promise<FileEntry[]> {
+    return new Promise((resolve, reject) => {
+      window.requestFileSystem(
+        LocalFileSystem.PERSISTENT,
+        0,
+        fs => {
+          fs.root.createReader().readEntries((entries: FileEntry[]) => {
+            resolve(entries.filter(e => e.isFile && e.name.includes(prefix)));
+          }, reject);
+        },
+        reject
+      );
+    });
+  }
+
+  /**
+   * get files from local or download from server
+   */
+  getLocalFileOrDowload(
+    remoteFileUri: string,
+    fileName: string,
+    prefix: string,
+    onProgress?: (e: ProgressEvent) => void
+  ): Promise<FileEntry> {
+    return new Promise((resolve, reject) => {
+      window.requestFileSystem(
+        LocalFileSystem.PERSISTENT,
+        0,
+        fs => {
+          fs.root.getFile(
+            prefix + fileName,
+            undefined,
+            fe => {
+              fe.file(f => {
+                if (f.size > 0) {
+                  resolve(fe);
+                } else {
+                  this.syncRemoteFile(
+                    fs,
+                    remoteFileUri,
+                    fileName,
+                    prefix,
+                    onProgress
+                  )
+                    .then(resolve)
+                    .catch(reject);
+                }
+              }, reject);
+            },
+            (err: FileError) => {
+              if (err.code === FileError.NOT_FOUND_ERR) {
+                this.syncRemoteFile(
+                  fs,
+                  remoteFileUri,
+                  fileName,
+                  prefix,
+                  onProgress
+                )
+                  .then(resolve)
+                  .catch(reject);
+              } else {
+                reject(err);
+              }
+            }
+          );
+        },
+        reject
+      );
+    });
+  }
+
+  syncRemoteFile(
+    fs: FileSystem,
+    remoteFileUri: string,
+    fileName: string,
+    prefix: string,
+    onProgress?: (e: ProgressEvent) => void
+  ): Promise<FileEntry> {
+    return new Promise((resolve, reject) => {
+      fs.root.getFile(
+        prefix + fileName,
+        { create: true, exclusive: false },
+        fileEntry =>
+          this.download(fileEntry, remoteFileUri, onProgress)
+            .then(resolve)
+            .catch(err => {
+              // a zero lenght file is created while trying to download and save
+              fileEntry.remove(() => {});
+              reject(err);
+            }),
+        reject
+      );
+    });
+  }
+
+  download(
+    fileEntry: FileEntry,
+    remoteURI: string,
+    onProgress?: (e: ProgressEvent) => void
+  ): Promise<FileEntry> {
+    return new Promise((resolve, reject) => {
+      const client = new XMLHttpRequest();
+      client.open('GET', remoteURI, true);
+      client.responseType = 'blob';
+      if (onProgress) {
+        client.onprogress = onProgress;
+      }
+      client.onload = () => {
+        const blob = client.response;
+        if (blob) {
+          fileEntry.createWriter(fileWriter => {
+            fileWriter.onwriteend = () => resolve(fileEntry);
+            fileWriter.onerror = reject;
+            fileWriter.write(blob);
+          }, reject);
+        } else {
+          reject('could not get file');
+        }
+      };
+      client.send();
+    });
   }
 }
