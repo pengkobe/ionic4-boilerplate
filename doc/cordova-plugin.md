@@ -1,5 +1,9 @@
 # Cordova 插件
 
+## build errors
+
+- [error: resource android:attr/fontVariationSettings not found](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview/issues/205#issuecomment-371669478)
+
 ## ionic-native
 
 TODO

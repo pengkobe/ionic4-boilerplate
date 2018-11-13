@@ -35,6 +35,7 @@
     "@ionic-native/file": "^5.0.0-beta.21",
     "@ionic-native/file-opener": "^5.0.0-beta.21",
     "@ionic-native/file-transfer": "^5.0.0-beta.21",
+    "@ionic-native/hot-code-push": "^5.0.0-beta.21",
     "@ionic-native/insomnia": "^5.0.0-beta.21",
     "@ionic-native/local-notifications": "^5.0.0-beta.21",
     "@ionic-native/network": "^5.0.0-beta.21",
@@ -50,6 +51,7 @@
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
     "cordova-android": "7.0.0",
+    "cordova-hot-code-push-plugin": "^1.5.3",
     "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-device": "^2.0.2",
@@ -140,7 +142,8 @@
       "jpush-phonegap-plugin": {
         "APP_KEY": "e4fad56dc2d40b58d77629f7"
       },
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "cordova-hot-code-push-plugin": {}
     },
     "platforms": [
       "android"

@@ -103,6 +103,7 @@
     <plugin name="jpush-phonegap-plugin" spec="^3.4.7">
         <variable name="APP_KEY" value="e4fad56dc2d40b58d77629f7" />
     </plugin>
-    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
+    <plugin name="cordova-hot-code-push-plugin" spec="^1.5.3" />
+    <engine name="android" spec="7.0.0" />
 </widget>
