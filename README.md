@@ -17,38 +17,38 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ## 支持项
 
+- [x] 运行环境介绍
 - [x] 开发流程与代码规范
   - [x] git 流程管理
   - [x] 持续集成脚本
   - [ ] 部署
-- [x] 运行环境介绍
-- [x] 错误上报
+- [x] 版本更新( apk )
+- [x] 支持多语言[中/英]
 - [x] http
   - [x] rebirth-http
 - [x] 本地存储
   - [x] rebirth-storage
 - [x] 钩子( hooks )
-- [x] 版本更新( apk )
 - [x] 代码热更新
 - [x] 目录结构支持从项目主目录相对定位
 - [x] tslint 与 scsslint
 - [x] 定义好目录结构
 - [x] Angular 最佳实践自动检测
-- [x] 支持多语言[中/英]
 - [x] 集成 echarts
 - [x] 去除开机白屏等待
 - [x] 物理返回键双击退出
 - [x] 测试支持[单元测试/端到端测试], **脚手架自带**
-- [x] 断网检测
-- [x] 本地通知
-- [x] 远程推送
+- [x] 错误上报
 - [x] NGRX
   - [x] TODO Demo
 - [x] 主题切换示例
 - [x] 常用组件
   - [x] 二维码扫描
 - [x] PWA
-- [ ] Cordova 插件说明与示例
+- [x] Cordova 插件说明与示例
+  - [x] 断网检测
+  - [x] 本地通知
+  - [x] 远程推送
 - [ ] 用户行为统计
 - [ ] 技巧与工具分享
 
@@ -88,12 +88,7 @@ see: [code-spec](./doc/code-spec.md)
 支持 APK 大版本更新与线上代码热更新  
 see: [version-update](./doc/version-update.md)
 
-## Cordova 插件
-
-脚手架使用到的 Cordova 插件列表  
-see: [cordova-plugin](./doc/cordova-plugin.md)
-
-## 国际化
+## 支持多语言[中/英]
 
 基于 ngx-translate  
 see：https://github.com/ngx-translate/core
@@ -105,10 +100,14 @@ npm install @ngx-translate/core@10.0.2 --save
 npm install @ngx-translate/http-loader@3.0.1 --save
 ```
 
-## NGRX
+## http
 
-脚手架已集成 NGRX  
-see: https://github.com/ngrx
+基于 rebirth-http 进行开发，可以大大节省开发工作量和代码维护难度。
+
+## 本地存储
+
+- 结合 rebirth-storage 实现，支持了 localstorage 和内存两种方式
+- 使用 `@ionic/storage`，尽量不使用 localstorage，系统清内存时会被删掉
 
 ## 钩子
 
@@ -118,9 +117,72 @@ see: https://github.com/ngrx
 - 010_update_config, 根据 package.json 中的版本号更新 config.xml
 - 010_init_directories, 用于创建 plugins 与 platforms 文件夹
 
-## 本地存储
+## 代码热更新
 
-使用 `@ionic/storage`，尽量不使用 localstorage，系统清内存时会被删掉
+基于 [cordova-hot-code-push-plugin](https://github.com/nordnet/cordova-hot-code-push)  
+不过这个插件在 2018-09-30 已经停维了
+
+## 目录结构支持从项目主目录相对定位
+
+通过在 tsconfig.json 中增加配置可以解决
+
+```
+  "baseUrl": "./src/",
+    "paths": {
+      "@app/env": ["environments/environment"],
+      "@components/*": ["app/components/*"],
+      "@services/*": ["app/services/*"],
+      "@modals/*": ["app/modals/*"],
+      "@directives/*": ["app/directives/*"],
+      "@pipes/*": ["app/pipes/*"],
+      "@app/*": ["app/*"],
+      "@root/*": ["./*"],
+      "echarts": ["../node_modules/echarts/dist/echarts.min.js"]
+    }
+```
+
+## tslint 与 scsslint
+
+详情参见项目目录下 `tslint.json` 与 `.scss-lint.yml`
+
+## 定义好目录结构
+
+按照职能进行区分，增加 share 与 core 等文件夹存放公有的模块和服务。
+
+## Angular 最佳实践自动检测
+
+使用 Angular Cli 即可，执行命令
+
+```bash
+ng lint
+```
+
+## 集成 echarts
+
+脚手架已集成 echarts  
+see: https://golb.hplar.ch/2017/02/Integrate-ECharts-into-an-Ionic-2-app.html
+
+## 去除开机白屏等待
+
+在 config.xml 中替换 Splash Screen 相关配置为如下:
+
+```bash
+<preference name="FadeSplashScreenDuration" value="300" />
+<preference name="SplashShowOnlyFirstTime" value="false" />
+<preference name="SplashScreen" value="screen" />
+<preference name="SplashScreenDelay" value="3000" />
+<preference name="AutoHideSplashScreen" value="false" />
+<preference name="FadeSplashScreen" value="false" />
+<preference name="ShowSplashScreen" value="true" />
+```
+
+## 物理返回键双击退出
+
+详情参见源代码下 `src/app/app.component.ts` 下方法 `registerBackButtonAction`
+
+## 测试支持[单元测试/端到端测试]
+
+使用 Ionic/Angular 内置即可
 
 ## 错误上报
 
@@ -131,33 +193,22 @@ see: https://github.com/ngrx
 npm install raven-js --save
 ```
 
-## 用户行为
+## NGRX
 
-基于 TalkingData 进行统计，Github 上有相应 Cordova 插件，需要在官网下载最新库文件，手动进行集成
+脚手架已集成 NGRX  
+see: https://github.com/ngrx
 
-- 官网：https://www.talkingdata.com/
-- 集成文档: http://doc.talkingdata.com/posts/143
+## 主题切换示例
 
-## 集成 echarts
-
-see: https://golb.hplar.ch/2017/02/Integrate-ECharts-into-an-Ionic-2-app.html
-
-## 技巧与工具
-
-VSCODE、谷歌控制台等  
-see: [tools](./doc/tools.md)
+一个高大上的 App 肯定少不了换肤功能，但是 Ionic 已经足够好，已经帮我们实现大部分了，具体实现可以参考:  
+https://ionicframework.com/docs/theming/
 
 ## 常用组件
 
 这里提供的常用组件有这些( 更多待开发 )
 
-- 二维码扫描
-- 日历，see: https://github.com/HsuanXyz/ion2-calendar
-
-## 换肤
-
-一个高大上的 App 肯定少不了换肤功能，但是 Ionic 已经足够好，已经帮我们实现大部分了，具体实现可以参考:  
-https://ionicframework.com/docs/theming/
+- [x] 二维码扫描
+- [ ] 日历
 
 ## PWA
 
@@ -171,9 +222,22 @@ ng add @angular/pwa@0.8.7 --project app
 
 可以参见 issue: https://github.com/angular/angular-cli/issues/12914
 
-## 参考
+## Cordova 插件说明与示例
 
-https://github.com/marcoturi/ionic-boilerplate
+脚手架使用到的 Cordova 插件列表  
+see: [cordova-plugin](./doc/cordova-plugin.md)
+
+## 用户行为
+
+基于 TalkingData 进行统计，Github 上有相应 Cordova 插件，需要在官网下载最新库文件，手动进行集成
+
+- 官网：https://www.talkingdata.com/
+- 集成文档: http://doc.talkingdata.com/posts/143
+
+## 技巧与工具
+
+VSCODE、谷歌控制台等  
+see: [tools](./doc/tools.md)
 
 ## License
 
