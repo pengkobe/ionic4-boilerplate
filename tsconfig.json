@@ -20,6 +20,7 @@
       "@app/*": ["app/*"],
       "@root/*": ["./*"],
       "echarts": ["../node_modules/echarts/dist/echarts.min.js"]
-    }
+    },
+    "types": ["cordova", "cordova-plugin-file"]
   }
 }
