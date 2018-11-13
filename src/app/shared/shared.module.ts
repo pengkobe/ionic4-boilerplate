@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { DebounceClickDirective } from '@directives/debounce-click.directive';
 
+import { CalendarModule } from './ion2-calendar';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -22,6 +24,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CommonModule,
     FormsModule,
     PipesModule,
+    CalendarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -39,6 +42,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     IonicModule,
     CommonModule,
     FormsModule,
+    CalendarModule,
   ],
 })
 export class SharedModule {}

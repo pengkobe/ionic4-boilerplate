@@ -44,6 +44,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 主题切换示例
 - [x] 常用组件
   - [x] 二维码扫描
+  - [x] 日历组件
 - [x] PWA
 - [x] Cordova 插件说明与示例
   - [x] 断网检测
