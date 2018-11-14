@@ -209,7 +209,7 @@ https://ionicframework.com/docs/theming/
 这里提供的常用组件有这些( 更多待开发 )
 
 - [x] 二维码扫描
-- [ ] 日历
+- [x] 日历
 
 ## PWA
 

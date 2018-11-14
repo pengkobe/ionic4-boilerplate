@@ -2,7 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { StoreModule, Store } from '@ngrx/store';
+import {
+  StoreModule,
+  Store,
+  ReducerManager,
+} from '@ngrx/store';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 
@@ -16,11 +20,10 @@ import { TodoComponent } from './../todo/todo.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'blank-cmp',
-  template: ``
+  template: ``,
 })
 // tslint:disable-next-line:component-class-suffix
-export class BlankCmp {
-}
+export class BlankCmp {}
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -30,25 +33,18 @@ describe('TodoListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TodoListComponent,
-        TodoComponent,
-        BlankCmp
-      ],
+      declarations: [TodoListComponent, TodoComponent, BlankCmp],
       imports: [
         ReactiveFormsModule,
         FormsModule,
-        RouterTestingModule.withRoutes([
-          {path: '', component: BlankCmp}
-        ]),
-        StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
-      ]
-    })
-    .compileComponents();
+        RouterTestingModule.withRoutes([{ path: '', component: BlankCmp }]),
+        StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+      ],
+      providers: [ReducerManager],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-
     store = TestBed.get(Store);
     spyOn(store, 'dispatch').and.callThrough();
 
@@ -64,7 +60,6 @@ describe('TodoListComponent', () => {
   });
 
   describe('Test for checkField', () => {
-
     it('should checkField be defined', () => {
       expect(component.checkField).toBeDefined();
     });
@@ -90,21 +85,17 @@ describe('TodoListComponent', () => {
       store.dispatch(action);
       expect(component.checkField.value).toBeFalsy();
     });
-
   });
 
   describe('Test for toggleAll', () => {
-
     it('should dispatch an action', () => {
       component.toggleAll();
       const action = new TodoActions.CompletedAllAction();
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
-
   });
 
   describe('Test for readTodosState', () => {
-
     it('should todos be equal that new todos', () => {
       const todos = [
         { id: 1, text: 'todo', completed: true },
@@ -115,16 +106,13 @@ describe('TodoListComponent', () => {
       store.dispatch(action);
       expect(component.todos).toEqual(todos);
     });
-
   });
 
   describe('Test for readParams', () => {
-
     it('should dispatch an action when filter is unknown', () => {
-
       route = TestBed.get(ActivatedRoute);
       route.params = of({
-        'filter': 'what'
+        filter: 'what',
       });
 
       fixture = TestBed.createComponent(TodoListComponent);
@@ -136,10 +124,9 @@ describe('TodoListComponent', () => {
     });
 
     it('should dispatch an action when filter is "active"', () => {
-
       route = TestBed.get(ActivatedRoute);
       route.params = of({
-        'filter': 'active'
+        filter: 'active',
       });
 
       fixture = TestBed.createComponent(TodoListComponent);
@@ -151,10 +138,9 @@ describe('TodoListComponent', () => {
     });
 
     it('should dispatch an action when filter is "completed"', () => {
-
       route = TestBed.get(ActivatedRoute);
       route.params = of({
-        'filter': 'completed'
+        filter: 'completed',
       });
 
       fixture = TestBed.createComponent(TodoListComponent);
@@ -164,6 +150,5 @@ describe('TodoListComponent', () => {
       const action = new FilterActions.SetFilterAction('SHOW_COMPLETED');
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
-
   });
 });

@@ -36,7 +36,7 @@ describe('NewTodoComponent', () => {
         RouterTestingModule.withRoutes([
           {path: '', component: BlankCmp}
         ]),
-        StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+        StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
       ]
     })
     .compileComponents();

@@ -13,12 +13,15 @@
   </ion-refresher>
 
   <ion-list>
-    <ion-item ion-item *ngFor="let item of items" routerLink="{{'./'+  item.title }}" routerLinkActive="active">
+    <ion-item
+      ion-item
+      *ngFor="let item of items"
+      routerLink="{{'./'+  item.title }}"
+      routerLinkActive="active"
+    >
       <ion-icon [name]="item.icon" item-start></ion-icon>
       <ion-label>{{ item.title }}</ion-label>
-      <div class="item-note" item-end>
-        {{ item.note }}
-      </div>
+      <div class="item-note" item-end>{{ item.note }}</div>
     </ion-item>
   </ion-list>
   <div *ngIf="selectedItem" padding>
@@ -26,7 +29,4 @@
   </div>
 
   <!-- <ion-button (click)="toHome()" color="primary">返回首页</ion-button> -->
-
-
-
 </ion-content>

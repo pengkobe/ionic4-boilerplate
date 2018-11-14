@@ -71,8 +71,8 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.statusBar.overlaysWebView(false);
       this.statusBar.backgroundColorByHexString('#f8f8f8');
-      this.native.initNativeService();
       if (window.cordova) {
+        this.native.initNativeService();
         this.updateService.checkUpdate();
         this.registerBackButtonAction();
         this.native.initAppCenter();
