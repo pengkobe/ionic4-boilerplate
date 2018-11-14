@@ -19,13 +19,6 @@ import {
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { FileTransfer } from '@ionic-native/file-transfer/ngx';
-import { FileOpener } from '@ionic-native/file-opener/ngx';
-import { File } from '@ionic-native/file/ngx';
-import { Insomnia } from '@ionic-native/insomnia/ngx';
-import { Network } from '@ionic-native/network/ngx';
-import { BackgroundMode } from '@ionic-native/background-mode/ngx';
-
 import { RouteReuseStrategy } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { Router } from '@angular/router';
@@ -72,14 +65,6 @@ describe('AppComponent', () => {
         AlertController,
         NavController,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        StatusBar,
-        SplashScreen,
-        BackgroundMode,
-        File,
-        FileTransfer,
-        FileOpener,
-        Insomnia,
-        Network,
         LoadingController,
         { provide: APP_BASE_HREF, useValue: '/' },
       ],
@@ -97,8 +82,7 @@ describe('AppComponent', () => {
     expect(platformSpy.ready).toHaveBeenCalled();
     console.log('statusBarSpy', statusBarSpy);
     await platformReadySpy;
-    // TODO: fix issue here
-    // expect(statusBarSpy.styleDefault).toHaveBeenCalled();
-    // expect(splashScreenSpy.hide).toHaveBeenCalled();
+    expect(statusBarSpy.styleDefault).toHaveBeenCalled();
+    expect(splashScreenSpy.hide).toHaveBeenCalled();
   });
 });
