@@ -6,8 +6,9 @@
     "module": "commonjs",
     "types": [
       "jasmine",
-      "node"
-    ]
+      "node",
+      "cordova", "cordova-plugin-file"
+    ],
   },
   "files": [
     "test.ts"
