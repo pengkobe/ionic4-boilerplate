@@ -30,6 +30,8 @@
     "@angular/pwa": "^0.8.7",
     "@angular/router": "~6.1.1",
     "@angular/service-worker": "~6.1.1",
+    "@ionic-native/app-center-analytics": "^5.0.0-beta.21",
+    "@ionic-native/app-center-crashes": "^5.0.0-beta.21",
     "@ionic-native/background-mode": "^5.0.0-beta.21",
     "@ionic-native/core": "5.0.0-beta.21",
     "@ionic-native/file": "^5.0.0-beta.21",
@@ -52,6 +54,9 @@
     "@ngx-translate/http-loader": "^3.0.1",
     "cordova-android": "7.0.0",
     "cordova-hot-code-push-plugin": "^1.5.3",
+    "cordova-plugin-appcenter-analytics": "^0.2.0",
+    "cordova-plugin-appcenter-crashes": "^0.2.0",
+    "cordova-plugin-appcenter-shared": "^0.2.0",
     "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-device": "^2.0.2",
@@ -144,7 +149,9 @@
         "APP_KEY": "e4fad56dc2d40b58d77629f7"
       },
       "cordova-plugin-local-notification": {},
-      "cordova-hot-code-push-plugin": {}
+      "cordova-hot-code-push-plugin": {},
+      "cordova-plugin-appcenter-analytics": {},
+      "cordova-plugin-appcenter-crashes": {}
     },
     "platforms": [
       "android"

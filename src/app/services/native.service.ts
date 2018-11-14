@@ -4,6 +4,7 @@
  *  - 屏幕常亮设置
  *  - 文件下载
  *  - 本地通知
+ *  - 应用统计相关
  */
 
 import { Injectable } from '@angular/core';
@@ -12,7 +13,8 @@ import { GlobalService } from './global.service';
 import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-
+import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
+import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
 import {
   FileTransfer,
   FileTransferObject,
@@ -34,8 +36,29 @@ export class NativeService {
     private toastCtrl: ToastController,
     private transfer: FileTransfer,
     private network: Network,
-    private localNotifications: LocalNotifications
+    private localNotifications: LocalNotifications,
+    private appCenterAnalytics: AppCenterAnalytics,
+    private appCenterCrashes: AppCenterCrashes
   ) {}
+
+  /**
+   * 初始化
+   */
+  initAppCenter() {
+    this.appCenterAnalytics.setEnabled(true).then(() => {
+      this.appCenterAnalytics
+        .trackEvent('Init', { TEST: 'yipeng.ionic3' })
+        .then(() => {
+          console.log('AppCenter Analytics event tracked');
+        });
+    });
+
+    this.appCenterCrashes.setEnabled(true).then(() => {
+      this.appCenterCrashes.lastSessionCrashReport().then(report => {
+        console.log('Crash report', report);
+      });
+    });
+  }
 
   initNativeService() {
     this.listenInsomniaState();

@@ -13,6 +13,8 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
+import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -56,6 +58,8 @@ import { environment } from '../environments/environment';
     FileOpener,
     Insomnia,
     Network,
+    AppCenterAnalytics,
+    AppCenterCrashes,
     LocalNotifications,
     RebirthHttpModule,
     // { provide: ErrorHandler, useClass: MyErrorHandler },

@@ -22,8 +22,11 @@
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="FadeSplashScreen" value="false" />
     <preference name="ShowSplashScreen" value="true" />
+    <preference name="APPCENTER_ANALYTICS_ENABLE_IN_JS" value="true" />
+    <preference name="APPCENTER_CRASHES_ALWAYS_SEND" value="false" />
     <platform name="android">
         <allow-intent href="market:*" />
+         <preference name="APP_SECRET" value="85a61209-7bb7-4692-9649-77907e85cdf9"/>
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -45,6 +48,7 @@
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
+         <preference name="APP_SECRET" value="85a61209-7bb7-4692-9649-77907e85cdf9"/>
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
@@ -106,4 +110,6 @@
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
     <plugin name="cordova-hot-code-push-plugin" spec="^1.5.3" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-appcenter-analytics" spec="^0.2.0" />
+    <plugin name="cordova-plugin-appcenter-crashes" spec="^0.2.0" />
 </widget>

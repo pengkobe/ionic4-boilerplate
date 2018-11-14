@@ -75,6 +75,7 @@ export class MyApp {
       if (window.cordova) {
         this.updateService.checkUpdate();
         this.registerBackButtonAction();
+        this.native.initAppCenter();
       }
     });
 
