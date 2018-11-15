@@ -30,14 +30,12 @@ commitizen init cz-conventional-changelog --save --save-exact
   - [x] rebirth-storage
 - [x] 钩子( hooks )
 - [x] 代码热更新
-- [x] 目录结构支持从项目主目录相对定位
+- [x] 支持从项目主目录相对定位
 - [x] tslint 与 scsslint
 - [x] 定义好目录结构
-- [x] Angular 最佳实践自动检测
 - [x] 集成 echarts
 - [x] 去除开机白屏等待
 - [x] 物理返回键双击退出
-- [x] 测试支持[单元测试/端到端测试], **脚手架自带**
 - [x] 错误上报
 - [x] NGRX
   - [x] TODO Demo
@@ -60,7 +58,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 ```bash
 Ionic:
 
-   Ionic Framework            : @ionic/angular 4.0.0-beta.13
+   Ionic Framework            : @ionic/angular 4.0.0-beta.15
    @angular-devkit/core       : 0.8.6
    @angular-devkit/schematics : 0.8.6
    @angular/cli               : 6.2.6
@@ -71,7 +69,7 @@ Cordova:
 
    cordova (Cordova CLI) : 8.0.0
    Cordova Platforms     : android 7.0.0
-   Cordova Plugins       : cordova-plugin-ionic-keyboard 2.1.3, cordova-plugin-ionic-webview 2.2.0, (and 4 other plugins)
+   Cordova Plugins       : cordova-plugin-ionic-keyboard 2.1.3, cordova-plugin-ionic-webview 2.2.0, (and other plugins)
 
 System:
 
@@ -112,7 +110,7 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 ## 钩子
 
-位于文件夹 `hooks` 下, 可以写各个声明周期的钩子，目前包含的钩子有
+位于文件夹 `hooks` 下, 可以写各个声明周期的钩子，目前引进的钩子有
 
 - 020_remove_sass_from_platforms, 删除不必要的 sass 文件
 - 010_update_config, 根据 package.json 中的版本号更新 config.xml
@@ -123,7 +121,7 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 基于 [cordova-hot-code-push-plugin](https://github.com/nordnet/cordova-hot-code-push)  
 不过这个插件在 2018-09-30 已经停维了
 
-## 目录结构支持从项目主目录相对定位
+## 支持从项目主目录相对定位
 
 通过在 tsconfig.json 中增加配置可以解决
 
@@ -150,14 +148,6 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 按照职能进行区分，增加 share 与 core 等文件夹存放公有的模块和服务。
 
-## Angular 最佳实践自动检测
-
-使用 Angular Cli 即可，执行命令
-
-```bash
-ng lint
-```
-
 ## 集成 echarts
 
 脚手架已集成 echarts  
@@ -180,10 +170,6 @@ see: https://golb.hplar.ch/2017/02/Integrate-ECharts-into-an-Ionic-2-app.html
 ## 物理返回键双击退出
 
 详情参见源代码下 `src/app/app.component.ts` 下方法 `registerBackButtonAction`
-
-## 测试支持[单元测试/端到端测试]
-
-使用 Ionic/Angular 内置即可
 
 ## 错误上报
 

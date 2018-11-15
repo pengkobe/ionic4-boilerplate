@@ -6,6 +6,17 @@
 
 托管在码云私有仓库上， see: https://gitee.com/
 
+### 测试
+
+使用 Ionic/Angular 默认测试工具即可，根据需求可以微调配置
+
+```bash
+# 单元测试
+npm run test
+# 端到端测试
+npm run e2e
+```
+
 ### 分支管理
 
 ![git 分支管理规范](./img/git-version-ctrl.png)
