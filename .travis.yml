@@ -1,4 +1,7 @@
 language: node_js
+sudo: required
+addons:
+  chrome: stable
 node_js:
   - '8.9'
 
@@ -9,6 +12,9 @@ branches:
 install:
   - npm install
 
+before_script:
+  - sudo chown root /opt/google/chrome/chrome-sandbox
+  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 script:
   - npm run lint
   - npm run test
