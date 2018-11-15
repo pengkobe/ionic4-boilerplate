@@ -85,7 +85,7 @@ class DataCacheStrategyFactory {
   }
 
   put(options: { pool?: string; key: string }, value: any, storage: IStorage) {
-    let strategy = this.dataCacheStrategies.find(t => t.match(value));
+    const strategy = this.dataCacheStrategies.find(t => t.match(value));
     if (strategy) {
       return strategy.put(value, result =>
         storage.put(options, { type: strategy.name(), result })
@@ -97,7 +97,9 @@ class DataCacheStrategyFactory {
 
   get(data: any): Object {
     if (data && data.type) {
-      let strategy = this.dataCacheStrategies.find(t => t.name() === data.type);
+      const strategy = this.dataCacheStrategies.find(
+        t => t.name() === data.type
+      );
       if (strategy) {
         return strategy.get(data.result);
       }
@@ -122,7 +124,7 @@ export class WebStorage implements IStorage {
   constructor(private webStorage: Storage) {}
 
   getAll(pool: string) {
-    let json = this.webStorage.getItem(pool);
+    const json = this.webStorage.getItem(pool);
     return json ? JSON.parse(json) : {};
   }
 
@@ -137,7 +139,7 @@ export class WebStorage implements IStorage {
     pool?: string;
     key: string;
   }): Object {
-    let storage = this.getAll(pool);
+    const storage = this.getAll(pool);
     return storage[key];
   }
 
@@ -145,7 +147,7 @@ export class WebStorage implements IStorage {
     { pool = DEFAULT_STORAGE_POOL_KEY, key }: { pool?: string; key: string },
     value: Object
   ): any {
-    let storage = this.getAll(pool);
+    const storage = this.getAll(pool);
     storage[key] = value;
     return this.saveAll(pool, storage);
   }
@@ -190,7 +192,7 @@ export class MemoryStorage implements IStorage {
     pool?: string;
     key: string;
   }): Object {
-    let storage = this.getAll(pool);
+    const storage = this.getAll(pool);
     return storage.has(key) ? cloneDeep(storage.get(key)) : null;
   }
 
@@ -216,7 +218,7 @@ export class MemoryStorage implements IStorage {
       return;
     }
 
-    let poolStorage = this.storage.get(pool);
+    const poolStorage = this.storage.get(pool);
     if (poolStorage) {
       poolStorage.delete(key);
     }
@@ -266,7 +268,7 @@ export class StorageService {
     key: string;
     storageType?: StorageType;
   }): Object {
-    let data = (this.storages.get(
+    const data = (this.storages.get(
       storageType || this.defaultStorageType
     ) as any).get({ pool, key });
     return DataCacheStrategyFactory.getInstance().get(data);
@@ -280,7 +282,7 @@ export class StorageService {
     }: { pool?: string; key: string; storageType?: StorageType },
     value: Object
   ): any {
-    let storage: any = this.storages.get(
+    const storage: any = this.storages.get(
       storageType || this.defaultStorageType
     );
     return DataCacheStrategyFactory.getInstance().put(
@@ -345,24 +347,24 @@ export function Cacheable({
   storageType = StorageType.memory,
 }: { pool?: string; key?: string; storageType?: StorageType } = {}) {
   const storageService = StorageFactory.getStorageService();
-  let getKey = (target: any, method: string, args: Object[]) => {
+  const getKey = (target: any, method: string, args: Object[]) => {
     // TODO: we can change this code or override object toString method;
-    let prefix = key || `${target.constructor.name}.${method}`;
+    const prefix = key || `${target.constructor.name}.${method}`;
     return `${prefix}:${args.join('-')}`;
   };
 
   return function(target: any, name: string, methodInfo: any) {
-    let method = methodInfo.value;
+    const method = methodInfo.value;
 
-    let proxy = function(...args) {
-      const key = getKey(target, name, args || []);
-      let data = storageService.get({ pool, key, storageType });
+    const proxy = function(...args) {
+      const pkey = getKey(target, name, args || []);
+      const data = storageService.get({ pool, key: pkey, storageType });
       if (data) {
         return data;
       }
 
-      let result = method.apply(this, args || []);
-      return storageService.put({ pool, key, storageType }, result);
+      const result = method.apply(this, args || []);
+      return storageService.put({ pool, key: pkey, storageType }, result);
     };
 
     (<any>proxy).cacheEvict = function() {
@@ -381,22 +383,22 @@ export function Offlinecache({
   storageType = StorageType.memory,
 }: { pool?: string; key?: string; storageType?: StorageType } = {}) {
   const storageService = StorageFactory.getStorageService();
-  let getKey = (target: any, method: string, args: Object[]) => {
-    let prefix = key || `${target.constructor.name}.${method}`;
+  const getKey = (target: any, method: string, args: Object[]) => {
+    const prefix = key || `${target.constructor.name}.${method}`;
     return `${prefix}:${args.join('-')}`;
   };
 
   return function(target: any, name: string, methodInfo: any) {
-    let method = methodInfo.value;
-    let proxy = function(...args) {
-      const key = getKey(target, name, args || []);
-      let data = storageService.get({ pool, key, storageType });
+    const method = methodInfo.value;
+    const proxy = function(...args) {
+      const pkey = getKey(target, name, args || []);
+      const data = storageService.get({ pool, key: pkey, storageType });
       if (data && this.native.isOffline()) {
         return data;
       }
 
-      let result = method.apply(this, args || []);
-      return storageService.put({ pool, key, storageType }, result);
+      const result = method.apply(this, args || []);
+      return storageService.put({ pool, key: pkey, storageType }, result);
     };
 
     (<any>proxy).cacheEvict = function() {

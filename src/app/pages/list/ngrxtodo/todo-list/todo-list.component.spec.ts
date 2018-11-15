@@ -2,11 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {
-  StoreModule,
-  Store,
-  ReducerManager,
-} from '@ngrx/store';
+import { StoreModule, Store, ReducerManager } from '@ngrx/store';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 
@@ -38,7 +34,8 @@ describe('TodoListComponent', () => {
         ReactiveFormsModule,
         FormsModule,
         RouterTestingModule.withRoutes([{ path: '', component: BlankCmp }]),
-        StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
       ],
       providers: [ReducerManager],
     }).compileComponents();

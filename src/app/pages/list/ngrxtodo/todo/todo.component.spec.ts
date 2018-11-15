@@ -1,4 +1,10 @@
-import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  tick,
+  fakeAsync,
+} from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -13,12 +19,10 @@ import { TodoComponent } from './todo.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'blank-cmp',
-  template: ``
+  template: ``,
 })
 // tslint:disable-next-line:component-class-suffix
-export class BlankCmp {
-}
-
+export class BlankCmp {}
 
 describe('TodoComponent', () => {
   let component: TodoComponent;
@@ -27,24 +31,18 @@ describe('TodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TodoComponent,
-        BlankCmp
-      ],
+      declarations: [TodoComponent, BlankCmp],
       imports: [
         ReactiveFormsModule,
         FormsModule,
-        RouterTestingModule.withRoutes([
-          {path: '', component: BlankCmp}
-        ]),
-        StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
-      ]
-    })
-    .compileComponents();
+        RouterTestingModule.withRoutes([{ path: '', component: BlankCmp }]),
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-
     store = TestBed.get(Store);
     spyOn(store, 'dispatch').and.callThrough();
 
@@ -53,7 +51,7 @@ describe('TodoComponent', () => {
     component.todo = {
       id: 1,
       text: 'test todo',
-      completed: true
+      completed: true,
     };
     fixture.detectChanges();
   });
@@ -63,7 +61,6 @@ describe('TodoComponent', () => {
   });
 
   describe('Test for textField', () => {
-
     it('should textField be defined', () => {
       expect(component.textField).toBeDefined();
     });
@@ -77,11 +74,9 @@ describe('TodoComponent', () => {
       component.textField.setValue('');
       expect(component.textField.invalid).toBeTruthy();
     });
-
   });
 
   describe('Test for checkField', () => {
-
     it('should checkField be define', () => {
       expect(component.checkField).toBeDefined();
     });
@@ -91,16 +86,17 @@ describe('TodoComponent', () => {
       const action = new TodoActions.ToggleAction(component.todo.id);
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
-
   });
 
   describe('Test for updateText', () => {
-
     it('should dispatch an action if textField is valid and editing is true', () => {
       component.editing = true;
       component.textField.setValue('update todo', { emitEvent: false });
       component.updateText();
-      const action = new TodoActions.UpdateAction(component.todo.id, component.textField.value);
+      const action = new TodoActions.UpdateAction(
+        component.todo.id,
+        component.textField.value
+      );
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
 
@@ -110,11 +106,9 @@ describe('TodoComponent', () => {
       component.updateText();
       expect(component.editing).toBeFalsy();
     });
-
   });
 
   describe('Test for activeEditMode', () => {
-
     it('should editing be true', () => {
       component.activeEditMode();
       expect(component.editing).toBeTruthy();
@@ -126,16 +120,13 @@ describe('TodoComponent', () => {
       tick(1000);
       expect(component.textInput.nativeElement.focus).toHaveBeenCalled();
     }));
-
   });
 
   describe('Test for deleteTodo', () => {
-
     it('should dispatch an action', () => {
       component.deleteTodo();
       const action = new TodoActions.DeleteTodoAction(component.todo.id);
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
-
   });
 });

@@ -42,7 +42,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 15, //  Retains last 15 states
     }),

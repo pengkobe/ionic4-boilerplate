@@ -49,6 +49,24 @@ export interface ModalOptions {
   leaveAnimation?: AnimationBuilder;
 }
 
+export interface CalendarOptions {
+  from?: Date | number;
+  to?: Date | number;
+  pickMode?: string;
+  weekStart?: number;
+  disableWeeks?: Array<number>;
+  weekdays?: Array<string>;
+  monthFormat?: string;
+  color?: string;
+  defaultTitle?: string;
+  defaultSubtitle?: string;
+  daysConfig?: Array<DayConfig>;
+  /**
+   * show last month & next month days fill six weeks
+   */
+  showAdjacentMonthDay?: boolean;
+}
+
 export interface CalendarModalOptions extends CalendarOptions {
   autoDone?: boolean;
   format?: string;
@@ -70,24 +88,6 @@ export interface CalendarModalOptions extends CalendarOptions {
    * @deprecated this version notwork
    */
   showYearPicker?: boolean;
-}
-
-export interface CalendarOptions {
-  from?: Date | number;
-  to?: Date | number;
-  pickMode?: string;
-  weekStart?: number;
-  disableWeeks?: Array<number>;
-  weekdays?: Array<string>;
-  monthFormat?: string;
-  color?: string;
-  defaultTitle?: string;
-  defaultSubtitle?: string;
-  daysConfig?: Array<DayConfig>;
-  /**
-   * show last month & next month days fill six weeks
-   */
-  showAdjacentMonthDay?: boolean;
 }
 
 export interface CalendarComponentOptions extends CalendarOptions {
@@ -112,7 +112,18 @@ export class CalendarComponentMonthChange {
 }
 
 export type DefaultDate = Date | string | number | null;
-export type Colors = 'primary' | 'secondary' | 'danger' | 'light' | 'dark' | string;
+export type Colors =
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'light'
+  | 'dark'
+  | string;
 export type PickMode = 'multi' | 'single' | 'range';
-export type CalendarComponentTypeProperty = 'string' | 'js-date' | 'moment' | 'time' | 'object';
+export type CalendarComponentTypeProperty =
+  | 'string'
+  | 'js-date'
+  | 'moment'
+  | 'time'
+  | 'object';
 export type CalendarComponentPayloadTypes = string | Date | number | {};

@@ -30,7 +30,8 @@ describe('AppComponent', () => {
         RouterTestingModule.withRoutes([
           { path: '', component: TodoListComponent },
         ]),
-        StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

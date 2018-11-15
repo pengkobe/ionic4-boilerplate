@@ -11,13 +11,14 @@ import { Component } from '@angular/core';
   templateUrl: 'calendar.page.html',
 })
 export class CalendarPage {
+  date: string;
+  type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
+
   constructor() {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EchartsPage');
   }
-  date: string;
-  type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
 
   onChange($event) {
     console.log($event);

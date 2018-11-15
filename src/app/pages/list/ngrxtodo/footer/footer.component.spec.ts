@@ -13,11 +13,10 @@ import { FooterComponent } from './footer.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'blank-cmp',
-  template: ``
+  template: ``,
 })
 // tslint:disable-next-line:component-class-suffix
-export class BlankCmp {
-}
+export class BlankCmp {}
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -26,22 +25,16 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        FooterComponent,
-        BlankCmp
-      ],
+      declarations: [FooterComponent, BlankCmp],
       imports: [
-        RouterTestingModule.withRoutes([
-          {path: '', component: BlankCmp}
-        ]),
-        StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
-      ]
-    })
-    .compileComponents();
+        RouterTestingModule.withRoutes([{ path: '', component: BlankCmp }]),
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-
     store = TestBed.get(Store);
     spyOn(store, 'dispatch').and.callThrough();
 
@@ -55,27 +48,22 @@ describe('FooterComponent', () => {
   });
 
   describe('Test for clearCompleted', () => {
-
     it('should dispatch an action', () => {
       component.clearCompleted();
       const action = new TodoActions.ClearCompletedAction();
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
-
   });
 
   describe('Test for completedAll', () => {
-
     it('should dispatch an action', () => {
       component.completedAll();
       const action = new TodoActions.CompletedAllAction();
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
-
   });
 
   describe('Test for countTodos', () => {
-
     it('should return 2 undone todos and showFooter is true', () => {
       const todos = [
         { id: 1, text: 'todo', completed: false },
@@ -97,17 +85,14 @@ describe('FooterComponent', () => {
       expect(component.countTodos).toEqual(0);
       expect(component.showFooter).toBeFalsy();
     });
-
   });
 
   describe('Test for currentFilter', () => {
-
     it('should currentFilter be "SHOW_ALL"', () => {
       const action = new FilterActions.SetFilterAction('SHOW_ALL');
       store.dispatch(action);
       fixture.detectChanges();
       expect(component.currentFilter).toEqual('SHOW_ALL');
     });
-
   });
 });

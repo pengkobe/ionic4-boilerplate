@@ -56,8 +56,8 @@ export class MyApp {
     private popoverCtrl: PopoverController,
     private router: Router
   ) {
-    this.emitservice.getActiveTheme().subscribe(val =>{
-      if(val){
+    this.emitservice.getActiveTheme().subscribe(val => {
+      if (val) {
         this.selectedTheme = val;
       }
     });
@@ -159,7 +159,7 @@ export class MyApp {
           ) {
             navigator['app'].exitApp(); // work in ionic 4
           } else {
-            let toast = await this.toastCtrl.create({
+            const toast = await this.toastCtrl.create({
               message: '再按一次退出应用',
               duration: 2000,
               position: 'top',

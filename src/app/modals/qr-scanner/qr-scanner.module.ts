@@ -11,7 +11,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     RouterModule.forChild([{ path: '', component: QRScannerModal }]),
     ClosePopupComponentModule,
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [QRScanner],
 })
 export class QRScannerModalModule {}

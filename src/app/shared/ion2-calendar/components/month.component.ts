@@ -1,6 +1,19 @@
-import { Component, ChangeDetectorRef, Input, Output, EventEmitter, forwardRef, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ChangeDetectorRef,
+  Input,
+  Output,
+  EventEmitter,
+  forwardRef,
+  AfterViewInit,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { CalendarDay, CalendarMonth, CalendarOriginal, PickMode } from '../calendar.model';
+import {
+  CalendarDay,
+  CalendarMonth,
+  CalendarOriginal,
+  PickMode,
+} from '../calendar.model';
 import { defaults, pickModes } from '../config';
 
 export const MONTH_VALUE_ACCESSOR: any = {
@@ -17,18 +30,25 @@ export const MONTH_VALUE_ACCESSOR: any = {
     <div [class]="color">
       <ng-template [ngIf]="!_isRange" [ngIfElse]="rangeBox">
         <div class="days-box">
-          <ng-template ngFor let-day [ngForOf]="month.days" [ngForTrackBy]="trackByTime">
+          <ng-template
+            ngFor
+            let-day
+            [ngForOf]="month.days"
+            [ngForTrackBy]="trackByTime"
+          >
             <div class="days">
               <ng-container *ngIf="day">
-                <button type='button'
-                        [class]="'days-btn ' + day.cssClass"
-                        [class.today]="day.isToday"
-                        (click)="onSelected(day)"
-                        [class.marked]="day.marked"
-                        [class.last-month-day]="day.isLastMonth"
-                        [class.next-month-day]="day.isNextMonth"
-                        [class.on-selected]="isSelected(day.time)"
-                        [disabled]="day.disable">
+                <button
+                  type="button"
+                  [class]="'days-btn ' + day.cssClass"
+                  [class.today]="day.isToday"
+                  (click)="onSelected(day)"
+                  [class.marked]="day.marked"
+                  [class.last-month-day]="day.isLastMonth"
+                  [class.next-month-day]="day.isNextMonth"
+                  [class.on-selected]="isSelected(day.time)"
+                  [disabled]="day.disable"
+                >
                   <p>{{ day.title }}</p>
                   <small *ngIf="day.subTitle">{{ day?.subTitle }}</small>
                 </button>
@@ -40,30 +60,38 @@ export const MONTH_VALUE_ACCESSOR: any = {
 
       <ng-template #rangeBox>
         <div class="days-box">
-          <ng-template ngFor let-day [ngForOf]="month.days" [ngForTrackBy]="trackByTime">
-            <div class="days"
-                 [class.startSelection]="isStartSelection(day)"
-                 [class.endSelection]="isEndSelection(day)"
-                 [class.is-first-wrap]="day?.isFirst"
-                 [class.is-last-wrap]="day?.isLast"
-                 [class.between]="isBetween(day)">
+          <ng-template
+            ngFor
+            let-day
+            [ngForOf]="month.days"
+            [ngForTrackBy]="trackByTime"
+          >
+            <div
+              class="days"
+              [class.startSelection]="isStartSelection(day)"
+              [class.endSelection]="isEndSelection(day)"
+              [class.is-first-wrap]="day?.isFirst"
+              [class.is-last-wrap]="day?.isLast"
+              [class.between]="isBetween(day)"
+            >
               <ng-container *ngIf="day">
-                <button type='button'
-                        [class]="'days-btn ' + day.cssClass"
-                        [class.today]="day.isToday"
-                        (click)="onSelected(day)"
-                        [class.marked]="day.marked"
-                        [class.last-month-day]="day.isLastMonth"
-                        [class.next-month-day]="day.isNextMonth"
-                        [class.is-first]="day.isFirst"
-                        [class.is-last]="day.isLast"
-                        [class.on-selected]="isSelected(day.time)"
-                        [disabled]="day.disable">
+                <button
+                  type="button"
+                  [class]="'days-btn ' + day.cssClass"
+                  [class.today]="day.isToday"
+                  (click)="onSelected(day)"
+                  [class.marked]="day.marked"
+                  [class.last-month-day]="day.isLastMonth"
+                  [class.next-month-day]="day.isNextMonth"
+                  [class.is-first]="day.isFirst"
+                  [class.is-last]="day.isLast"
+                  [class.on-selected]="isSelected(day.time)"
+                  [disabled]="day.disable"
+                >
                   <p>{{ day.title }}</p>
                   <small *ngIf="day.subTitle">{{ day?.subTitle }}</small>
                 </button>
               </ng-container>
-
             </div>
           </ng-template>
         </div>
@@ -132,8 +160,14 @@ export class MonthComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   isEndSelection(day: CalendarDay): boolean {
-    if (!day) return false;
-    if (this.pickMode !== pickModes.RANGE || !this._isInit || this._date[1] === null) {
+    if (!day) {
+      return false;
+    }
+    if (
+      this.pickMode !== pickModes.RANGE ||
+      !this._isInit ||
+      this._date[1] === null
+    ) {
       return false;
     }
 
@@ -141,7 +175,9 @@ export class MonthComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   isBetween(day: CalendarDay): boolean {
-    if (!day) return false;
+    if (!day) {
+      return false;
+    }
 
     if (this.pickMode !== pickModes.RANGE || !this._isInit) {
       return false;
@@ -158,8 +194,14 @@ export class MonthComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   isStartSelection(day: CalendarDay): boolean {
-    if (!day) return false;
-    if (this.pickMode !== pickModes.RANGE || !this._isInit || this._date[0] === null) {
+    if (!day) {
+      return false;
+    }
+    if (
+      this.pickMode !== pickModes.RANGE ||
+      !this._isInit ||
+      this._date[0] === null
+    ) {
       return false;
     }
 
@@ -185,7 +227,9 @@ export class MonthComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   onSelected(item: CalendarDay): void {
-    if (this.readonly) return;
+    if (this.readonly) {
+      return;
+    }
     item.selected = true;
     this.select.emit(item);
     if (this.pickMode === pickModes.SINGLE) {
@@ -218,7 +262,9 @@ export class MonthComponent implements ControlValueAccessor, AfterViewInit {
     }
 
     if (this.pickMode === pickModes.MULTI) {
-      const index = this._date.findIndex(e => e !== null && e.time === item.time);
+      const index = this._date.findIndex(
+        e => e !== null && e.time === item.time
+      );
 
       if (index === -1) {
         this._date.push(item);

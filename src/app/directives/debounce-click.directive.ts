@@ -10,7 +10,7 @@ import {
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
-@Directive({ selector: '[debounceClickDirective]' })
+@Directive({ selector: '[appDebounceClickDirective]' })
 export class DebounceClickDirective implements OnInit, OnDestroy {
   @Input() private debounceClickDirective;
   @Output() private debounceClick: EventEmitter<any> = new EventEmitter();

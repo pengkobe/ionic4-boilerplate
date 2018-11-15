@@ -13,11 +13,10 @@ import { NewTodoComponent } from './new-todo.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'blank-cmp',
-  template: ``
+  template: ``,
 })
 // tslint:disable-next-line:component-class-suffix
-export class BlankCmp {
-}
+export class BlankCmp {}
 
 describe('NewTodoComponent', () => {
   let component: NewTodoComponent;
@@ -26,24 +25,18 @@ describe('NewTodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-        NewTodoComponent,
-        BlankCmp
-      ],
+      declarations: [NewTodoComponent, BlankCmp],
       imports: [
         ReactiveFormsModule,
         FormsModule,
-        RouterTestingModule.withRoutes([
-          {path: '', component: BlankCmp}
-        ]),
-        StoreModule.forRoot({}),StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
-      ]
-    })
-    .compileComponents();
+        RouterTestingModule.withRoutes([{ path: '', component: BlankCmp }]),
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('ngrxtodo', ngrxtodoReducer),
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-
     store = TestBed.get(Store);
     spyOn(store, 'dispatch').and.callThrough();
 
@@ -57,7 +50,6 @@ describe('NewTodoComponent', () => {
   });
 
   describe('Test for textField', () => {
-
     it('should textField be defined', () => {
       expect(component.textField).toBeDefined();
     });
@@ -71,22 +63,19 @@ describe('NewTodoComponent', () => {
       component.textField.setValue('');
       expect(component.textField.invalid).toBeTruthy();
     });
-
   });
 
   describe('Test for saveTodo', () => {
-
     it('should dispatch an action', () => {
-      component.textField.setValue('new todo', {emitEvent: false});
+      component.textField.setValue('new todo', { emitEvent: false });
       component.saveTodo();
       expect(store.dispatch).toHaveBeenCalled();
     });
 
     it('should set value of textField in empty', () => {
-      component.textField.setValue('new todo', {emitEvent: false});
+      component.textField.setValue('new todo', { emitEvent: false });
       component.saveTodo();
       expect(component.textField.value).toEqual('');
     });
-
   });
 });

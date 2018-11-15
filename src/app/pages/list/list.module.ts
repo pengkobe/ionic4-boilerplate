@@ -10,7 +10,7 @@ import { CalendarPage } from './calendar/calendar.page';
 import { EchartsPage } from './echarts/echarts';
 
 @NgModule({
-  imports: [SharedModule, ListPageRoutingModule,NgxEchartsModule],
+  imports: [SharedModule, ListPageRoutingModule, NgxEchartsModule],
   declarations: [CalendarPage, EchartsPage, ListPage],
 })
 export class ListPageModule {}

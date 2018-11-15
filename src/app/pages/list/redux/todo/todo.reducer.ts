@@ -3,8 +3,10 @@ import * as TodoActions from './todo.actions';
 
 const initialState: Todo[] = [];
 
-export function TodosReducer(state: Todo[] = initialState, action: TodoActions.TodoActionType) {
-  
+export function TodosReducer(
+  state: Todo[] = initialState,
+  action: TodoActions.TodoActionType
+) {
   switch (action.type) {
     case TodoActions.ADD_TODO: {
       return [
@@ -12,8 +14,8 @@ export function TodosReducer(state: Todo[] = initialState, action: TodoActions.T
         {
           id: action.id,
           text: action.text,
-          completed: false
-        }
+          completed: false,
+        },
       ];
     }
     case TodoActions.POPULATE_TODOS: {
@@ -24,37 +26,37 @@ export function TodosReducer(state: Todo[] = initialState, action: TodoActions.T
         if (action.id === todo.id) {
           return {
             ...todo,
-            completed: !todo.completed
+            completed: !todo.completed,
           };
-        }else {
+        } else {
           return todo;
         }
       });
     }
     case TodoActions.DELETE_TODO: {
-      return state.filter(todo => action.id !== todo.id );
+      return state.filter(todo => action.id !== todo.id);
     }
     case TodoActions.UPDATE_TODO: {
       return state.map(todo => {
         if (action.id === todo.id) {
           return {
             ...todo,
-            text: action.text
+            text: action.text,
           };
-        }else {
+        } else {
           return todo;
         }
       });
     }
     case TodoActions.CLEAR_COMPLETED_TODO: {
-      return state.filter(todo => !todo.completed );
+      return state.filter(todo => !todo.completed);
     }
     case TodoActions.COMPLETE_ALL_TODO: {
       const areAllMarked = state.every(todo => todo.completed);
       return state.map(todo => {
         return {
           ...todo,
-          completed: !areAllMarked
+          completed: !areAllMarked,
         };
       });
     }
