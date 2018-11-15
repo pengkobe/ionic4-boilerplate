@@ -1,11 +1,29 @@
 <ion-tabs>
-  <ion-tab label="{{'HOME.Home' | translate}}" icon="home" href="/tabs/(home:home)">
+  <ion-tab tab="home-view">
     <ion-router-outlet name="home"></ion-router-outlet>
   </ion-tab>
-  <ion-tab label="{{'HOME.List' | translate}}" icon="information-circle" href="/tabs/(list:list)" routerDirection="forward">
+
+  <ion-tab tab="list-view">
     <ion-router-outlet name="list"></ion-router-outlet>
   </ion-tab>
-  <ion-tab label="{{'HOME.Test' | translate}}" icon="hammer" href="/tabs/(test:test)">
+  <ion-tab tab="test-view">
     <ion-router-outlet name="test"></ion-router-outlet>
   </ion-tab>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button href="/tabs/(home:home)" tab="home-view">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>{{ 'HOME.Home' | translate }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button href="/tabs/(list:list)" tab="list-view">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>{{ 'HOME.List' | translate }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="test-view" href="/tabs/(test:test)">
+      <ion-icon name="hammer"></ion-icon>
+      <ion-label>{{ 'HOME.Test' | translate }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
 </ion-tabs>
