@@ -53,13 +53,13 @@ export class TodoListComponent implements OnInit {
   }
 
   private readTodosState() {
-    this.store.pipe(select(getVisibleTodos).subscribe(todos => {
+    this.store.pipe(select(getVisibleTodos)).subscribe(todos => {
       this.todos = todos;
     });
   }
 
   private readStateCompleted() {
-    this.store.pipe(select(getStateCompleted).subscribe(status => {
+    this.store.pipe(select(getStateCompleted)).subscribe(status => {
       this.checkField.setValue(status);
     });
   }

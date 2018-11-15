@@ -21,6 +21,6 @@
       "@root/*": ["./*"],
       "echarts": ["../node_modules/echarts/dist/echarts.min.js"]
     },
-    "types": ["cordova", "cordova-plugin-file"]
+    "types": ["cordova", "cordova-plugin-file", "jasmine"]
   }
 }
