@@ -1,5 +1,16 @@
 # ionic4-boilerplate
 
+[![build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![David deps][david-image]][david-url]
+
+[travis-image]: https://img.shields.io/travis/pengkobe/ionic4-boilerplate.svg?style=flat-square
+[travis-url]: https://travis-ci.org/pengkobe/ionic4-boilerplate
+[codecov-image]: https://codecov.io/github/pengkobe/ionic4-boilerplate/coverage.svg?branch=master
+[codecov-url]: https://codecov.io/github/pengkobe/ionic4-boilerplate?branch=master
+[david-image]: https://img.shields.io/david/pengkobe/ionic4-boilerplate.svg?style=flat-square
+[david-url]: https://david-dm.org/pengkobe/ionic4-boilerplate
+
 boilerplate for ionic4  
 migrate from : https://github.com/pengkobe/ionic-boilerplate
 
