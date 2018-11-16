@@ -23,4 +23,3 @@ before_script:
 script:
   - npm run lint
   - npm run test
-  - npm run e2e

@@ -1,13 +1,11 @@
 # ionic4-boilerplate
 
 [![build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
+
 [![David deps][david-image]][david-url]
 
 [travis-image]: https://img.shields.io/travis/pengkobe/ionic4-boilerplate.svg?style=flat-square
 [travis-url]: https://travis-ci.org/pengkobe/ionic4-boilerplate
-[codecov-image]: https://codecov.io/github/pengkobe/ionic4-boilerplate/coverage.svg?branch=master
-[codecov-url]: https://codecov.io/github/pengkobe/ionic4-boilerplate?branch=master
 [david-image]: https://img.shields.io/david/pengkobe/ionic4-boilerplate.svg?style=flat-square
 [david-url]: https://david-dm.org/pengkobe/ionic4-boilerplate
 
@@ -22,6 +20,7 @@ migrate from : https://github.com/pengkobe/ionic-boilerplate
 git clone https://github.com/pengkobe/ionic4-boilerplate
 cd ionic4-boilerplate
 npm install
+# git commit tool
 npm install -g commitizen
 commitizen init cz-conventional-changelog --save --save-exact
 ```
@@ -29,9 +28,11 @@ commitizen init cz-conventional-changelog --save --save-exact
 ## 支持项
 
 - [x] 运行环境介绍
-- [x] 开发流程与代码规范
-  - [x] git 流程管理
-  - [x] 持续集成脚本
+- [x] 开发流程
+  - [x] git
+  - [x] 测试
+  - [x] 代码规范
+  - [x] 工具集成
   - [ ] 部署
 - [x] 版本更新( apk )
 - [x] 支持多语言[中/英]
@@ -40,8 +41,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 本地存储
   - [x] rebirth-storage
 - [x] 钩子( hooks )
-- [x] 代码热更新
-- [x] 支持从项目主目录相对定位
+- [x] 支持主目录相对定位
 - [x] tslint 与 scsslint
 - [x] 定义好目录结构
 - [x] 集成 echarts
@@ -60,7 +60,7 @@ commitizen init cz-conventional-changelog --save --save-exact
   - [x] 本地通知
   - [x] 远程推送
 - [x] 用户行为统计
-- [ ] 技巧与工具分享
+- [x] 技巧与工具分享
 
 ## 运行环境介绍
 
@@ -89,13 +89,13 @@ System:
    OS                : Windows 10
 ```
 
-## 开发流程与代码规范
+## 开发流程
 
 see: [code-spec](./doc/code-spec.md)
 
 ## 版本更新
 
-支持 APK 大版本更新与线上代码热更新  
+支持 APK 更新与线上代码热更新  
 see: [version-update](./doc/version-update.md)
 
 ## 支持多语言[中/英]
@@ -123,16 +123,11 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 位于文件夹 `hooks` 下, 可以写各个声明周期的钩子，目前引进的钩子有
 
-- 020_remove_sass_from_platforms, 删除不必要的 sass 文件
-- 010_update_config, 根据 package.json 中的版本号更新 config.xml
-- 010_init_directories, 用于创建 plugins 与 platforms 文件夹
+- `020_remove_sass_from_platforms`, 删除不必要的 sass 文件
+- `010_update_config`, 根据 package.json 中的版本号更新 config.xml
+- `010_init_directories`, 用于创建 plugins 与 platforms 文件夹
 
-## 代码热更新
-
-基于 [cordova-hot-code-push-plugin](https://github.com/nordnet/cordova-hot-code-push)  
-不过这个插件在 2018-09-30 已经停维了
-
-## 支持从项目主目录相对定位
+## 支持主目录相对定位
 
 通过在 tsconfig.json 中增加配置可以解决
 
@@ -198,9 +193,6 @@ see: https://github.com/ngrx
 
 ## 主题切换示例
 
-一个高大上的 App 肯定少不了换肤功能，但是 Ionic 已经足够好，已经帮我们实现大部分了，具体实现可以参考:  
-https://ionicframework.com/docs/theming/
-
 ## 常用组件
 
 这里提供的常用组件有这些( 更多待开发 )
@@ -225,7 +217,7 @@ ng add @angular/pwa@0.8.7 --project app
 脚手架使用到的 Cordova 插件列表  
 see: [cordova-plugin](./doc/cordova-plugin.md)
 
-## 用户行为
+## 用户行为统计
 
 ### 方案 1
 
@@ -243,7 +235,6 @@ see: [cordova-plugin](./doc/cordova-plugin.md)
 
 ## 技巧与工具
 
-VSCODE、谷歌控制台等  
 see: [tools](./doc/tools.md)
 
 ## License

@@ -6,7 +6,8 @@
 
 ## 热更新
 
-基于 cordova 插件: cordova-hot-code-push-plugin, see: https://github.com/nordnet/cordova-hot-code-push
+基于 [cordova-hot-code-push-plugin](https://github.com/nordnet/cordova-hot-code-push)  
+不过这个插件在 2018-09-30 已经停维了
 
 ### 安装与使用
 

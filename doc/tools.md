@@ -6,6 +6,8 @@
 
 ### 插件推荐
 
+- [Top 10 Angular VS Code Extensions](http://devboosts.com/2017/02/08/top-10-vs-code-extensions/)
+- [Essential Angular VS Code Extensions](https://johnpapa.net/essential-angular-vs-code-extensions/)
 
 ## 谷歌控制台
 
