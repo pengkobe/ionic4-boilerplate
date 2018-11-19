@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-
 import { AppState } from './../redux/ngrxtodo.reducer';
 import { Todo } from './../redux/todo/todo.model';
 import * as TodoActions from './../redux/todo/todo.actions';
@@ -10,7 +10,7 @@ import * as TodoActions from './../redux/todo/todo.actions';
   templateUrl: './ngrxtodo.page.html',
 })
 export class NgRxTodoComponent {
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
     this.populateTodos();
     this.updateTodos();
   }
@@ -29,5 +29,9 @@ export class NgRxTodoComponent {
         localStorage.setItem('angular-ngrx-todos', JSON.stringify(todos));
       }
     });
+  }
+
+  backTolist() {
+    this.router.navigateByUrl('tabs/(list:list)');
   }
 }

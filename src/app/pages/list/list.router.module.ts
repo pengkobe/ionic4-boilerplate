@@ -21,7 +21,6 @@ const routes: Routes = [
   },
   {
     path: 'todo',
-    // outlet: 'todo',
     loadChildren: './ngrxtodo/ngrxtodo.module#NgrxTodoPageModule',
   },
 ];

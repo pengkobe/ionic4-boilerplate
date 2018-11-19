@@ -49,6 +49,5 @@ const routes: Routes = [
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [NgRxTodoComponent],
 })
 export class NgrxTodoPageModule {}

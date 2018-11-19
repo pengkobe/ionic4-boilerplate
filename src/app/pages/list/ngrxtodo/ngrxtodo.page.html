@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="返回" defaultHref="list"></ion-back-button>
+      <ion-button  (click)="backTolist()" >
+        <ion-icon slot="start" name="arrow-back"></ion-icon> 返回
+      </ion-button>
     </ion-buttons>
     <ion-title>TODO</ion-title>
   </ion-toolbar>
