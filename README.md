@@ -1,7 +1,6 @@
 # ionic4-boilerplate
 
 [![build status][travis-image]][travis-url]
-
 [![David deps][david-image]][david-url]
 
 [travis-image]: https://img.shields.io/travis/pengkobe/ionic4-boilerplate.svg?style=flat-square
