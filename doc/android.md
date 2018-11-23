@@ -40,7 +40,7 @@ ANDROID_TOOLS:%ANDROID_HOME%\tools
 ANT_HOME:C:\Users\lenovo\Desktop\APP\apache-ant-1.9.5-bin\apache-ant-1.9.5
 ClASSPATH:.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar;C:\Users\lenovo\Desktop\APP\apache-ant-1.9.5-bin\apache-ant-1.9.5\lib
 
-Path(待究):C:\ProgramData\Oracle\Java\javapath;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%ANDROID_HOME%;C:\Users\lenov
+Path:C:\ProgramData\Oracle\Java\javapath;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%ANDROID_HOME%;C:\Users\lenov
 o\Desktop\APP\apache-ant-1.9.5-bin\apache-ant-1.9.5\bin;C:\Users\lenovo\Desktop\APP\adt-bundle-windows-x86-
 20130917.467161976\adt-bundle-windows-x86-20130917\sdk\tools;C:\Users\lenovo\Desktop\APP\adt-bundle-
 windows-x86-20130917.467161976\adt-bundle-windows-x86-20130917\sdk\platform-tools;
@@ -99,17 +99,15 @@ zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
 自签名失败：jarsigner 无法对 jar 进行签名 java.util.zipexception
 ```
 
-## 升级到 Cordova 7
+## ERROR List
 
-初次使用发现报错,后来发现是 Cordova 版本与 Android 版本之间是有对应关系的，[cordova android 7.0.0](http://cordova.apache.org/announcements/2017/12/04/cordova-android-7.0.0.html) 基于之前的配置 Build 直接会报错。不能乱来。[参考链接](http://stackoverflow.com/questions/43480076/ionic-2-error-could-not-find-an-installed-version-of-gradle-either-in-android)，  
-还有一说是直接安装 [Gradle](https://docs.gradle.org/4.4.1/userguide/installation.html)，按照说明安装了 4.4 版本，结果还是报错，后来在 git 中重新执行命令，居然能够运行下去了，只可惜不知是 Gradle 版本不对还是咋回事，终端又开始重新下 Gradle 了，  
-后知后觉，终端打印信息显示下载的是 3.3 版本，看来有可能是版本不对啊，下完 gradle 就开始下载 maven 相关的库了，需要数分钟才能下载完毕！
+- [unable to find attribute android:fontVariationSettings and android:ttcIndex](https://stackoverflow.com/questions/49162538/running-cordova-build-android-unable-to-find-attribute-androidfontvariation)
 
-```bash
-Error: Could not find an installed version of Gradle either in Android Studio,
-or on your system to install the gradle wrapper. Please include gradle
-in your path, or install Android Studio
-```
+### 其它
+
+#### Gradle
+
+从 Cordova-Android 6.4.0 开始, 必须安装 Gradle 才能 build Android，如果你使用的是 Windows, 需要将 Gradle 加到 path 中
 
 ## 参考
 
