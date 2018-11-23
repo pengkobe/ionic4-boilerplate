@@ -53,6 +53,7 @@
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
     "cordova-android": "7.0.0",
+    "cordova-android-support-gradle-release": "^2.0.1",
     "cordova-hot-code-push-plugin": "^1.5.3",
     "cordova-plugin-appcenter-analytics": "^0.2.0",
     "cordova-plugin-appcenter-crashes": "^0.2.0",
@@ -138,7 +139,6 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-vibration": {},
-      "cordova-plugin-qrscanner": {},
       "cordova-plugin-background-mode": {},
       "cordova-plugin-insomnia": {},
       "cordova-plugin-file": {},
@@ -149,9 +149,13 @@
         "APP_KEY": "e4fad56dc2d40b58d77629f7"
       },
       "cordova-plugin-local-notification": {},
-      "cordova-hot-code-push-plugin": {},
       "cordova-plugin-appcenter-analytics": {},
-      "cordova-plugin-appcenter-crashes": {}
+      "cordova-plugin-appcenter-crashes": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      },
+      "cordova-hot-code-push-plugin": {},
+      "cordova-plugin-qrscanner": {}
     },
     "platforms": [
       "android"
