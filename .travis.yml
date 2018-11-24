@@ -1,28 +1,72 @@
-language: node_js
-sudo: required
-dist: trusty
-node_js:
-- '8.9'
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    - google-chrome
-    packages:
-    - google-chrome-stable
-    - lib32stdc++6
-    - lib32z1
 branches:
   only:
-  - master
-install:
-- npm install
+    - master
+matrix:
+  include:
+    - os: linux
+      sudo: false
+      language: android
+      android:
+        components:
+          - tools
+          - platform-tools
+          - tools
+          - build-tools-26.0.0
+          - android-25
+          - extra-google-google_play_services
+          - extra-google-m2repository
+          - extra-android-m2repository
+      addons:
+        apt:
+          sources:
+            - sourceline: deb https://dl.yarnpkg.com/debian/ stable main
+              key_url: https://dl.yarnpkg.com/debian/pubkey.gpg
+          packages:
+            - oracle-java8-installer
+            - oracle-java8-set-default
+            - yarn
+            - jq
+      licenses:
+        - android-sdk-preview-license-.+
+        - android-sdk-license-.+
+        - google-gdk-license-.+
+    - os: osx
+      language: objective-c
+      osx_image: xcode8.3
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
+  - rm -rf $HOME/.gradle/caches/3.5/fileHashes/
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/Library/Caches/Yarn/v1/
+    - $HOME/.cache/yarn/v1/
+before_install:
+  - export LANG=en_US.UTF-8
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; brew install yarn ios-sim
+    jq ios-deploy cocoapods ; rvm use system ; pod setup ; fi
+  - nvm install 8
+  - yarn global add ionic cordova
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
 script:
-- npm run lint
-- npm run test
+  # 生成 APK/iPA
+  - yarn install
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/build-ios.sh && ./sh/package-ios.sh ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./sh/build-android.sh && ./sh/package-android.sh ; fi
 env:
   global:
+    - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+deploy:
+  # 部署到 GitHub Release
+  provider: releases
+  api_key:
     secure: kArQQt1D8XH45KSjLVRN56i7TQE7RRMdJ8NKxlt2g6TAU4s7Nmwd72mU7IrP/Q04AAfQwD7JVD/zt7vSDHsLErmob2kX/oBLqCpGbiNo2gOLwRSMEg7qEjbGfCywSQ1KSdfGA87TgYW5qYRRWiXBFk+s2ANk2My1RHkgMF7S1rTkgiH5Z2Wa0oTSngE/ScA00lZBj4rqrdOTkhM9SKEkmrogJH2Z87Ela9gjbRDp+ktXxCwWNEMg66CIGHad61X/rFBhfabpC2njgS16m3/2EB2t6x4GQo5q9qQgquLFMX4fF+lJPu6R2QrKFd+W2otUGFp28xXHIga4irY6i6PKb+YkNysSYHFEfVStxKzP/DDnwNII5jzPPZSdxlGLzo6CrK/8EcDZR/1p4H9dwlk0ITRzh1zJSFFxboiKgtlHlo7l7z9GtgLMwyG5e/mrB2Q3H1xOSQM6iNtBRYtqTNHxdpeg6Ouucy7pbu9czeTT30o7qBle+ICINDzv03iTUW7cza9L9SNYszBJco3evmsT2kWIQ5DvQDqS8Bb7YaOp38mBy4mq5s6QBhPNlLeBW88BPje321Iwa9t+HHM64opVdRglE5WIloKEjID3D/cLjrVNHWJRdD9hB4/djFvW7tz6o3WJhMxpMX5b5gzTV77DgJHQ4I2x9+Ma/WpAPovhF6k=
+  file: output/*
+  skip_cleanup: true
+  overwrite: true
+  on:
+    branch: master
