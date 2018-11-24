@@ -113,4 +113,5 @@
     <plugin name="cordova-plugin-qrscanner" spec="^2.6.0" />
     <plugin name="cordova-android-support-gradle-release" spec="^2.0.1" />
     <plugin name="cordova-hot-code-push-plugin" spec="^1.5.3" />
+    <engine name="android" spec="^7.1.4" />
 </widget>

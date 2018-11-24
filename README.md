@@ -78,7 +78,7 @@ Ionic:
 Cordova:
 
    cordova (Cordova CLI) : 8.0.0
-   Cordova Platforms     : android 7.0.0
+   Cordova Platforms     : android 7.1.4
    Cordova Plugins       : cordova-plugin-ionic-keyboard 2.1.3, cordova-plugin-ionic-webview 2.2.0, (and other plugins)
 
 System:
