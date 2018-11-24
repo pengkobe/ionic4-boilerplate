@@ -37,7 +37,7 @@ fs.readFile('config.xml', 'utf8', function(err, data) {
                 return console.log(err);
             }
 
-            //console.log('Build number successfully incremented');
+            console.log('Build number successfully incremented');
         });
 
     });

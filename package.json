@@ -1,8 +1,8 @@
 {
   "name": "ionic4-boilerplate",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "version": "0.0.2",
+  "author": "pengkobe",
+  "homepage": "http://github.com/pengkobe/ionic4-boilerplate",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -37,7 +37,6 @@
     "@ionic-native/file": "^5.0.0-beta.21",
     "@ionic-native/file-opener": "^5.0.0-beta.21",
     "@ionic-native/file-transfer": "^5.0.0-beta.21",
-    "@ionic-native/hot-code-push": "^5.0.0-beta.21",
     "@ionic-native/insomnia": "^5.0.0-beta.21",
     "@ionic-native/local-notifications": "^5.0.0-beta.21",
     "@ionic-native/network": "^5.0.0-beta.21",
@@ -52,7 +51,6 @@
     "@ngrx/store-devtools": "^6.1.2",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
-    "cordova-android": "7.0.0",
     "cordova-android-support-gradle-release": "^2.0.1",
     "cordova-hot-code-push-plugin": "^1.5.3",
     "cordova-plugin-appcenter-analytics": "^0.2.0",
@@ -151,14 +149,10 @@
       "cordova-plugin-local-notification": {},
       "cordova-plugin-appcenter-analytics": {},
       "cordova-plugin-appcenter-crashes": {},
-      "cordova-android-support-gradle-release": {
-        "ANDROID_SUPPORT_VERSION": "27.+"
-      },
-      "cordova-hot-code-push-plugin": {},
-      "cordova-plugin-qrscanner": {}
+      "cordova-plugin-qrscanner": {},
+      "cordova-android-support-gradle-release": {},
+      "cordova-hot-code-push-plugin": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }
