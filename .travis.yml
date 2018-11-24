@@ -46,12 +46,17 @@ cache:
     - $HOME/.cache/yarn/v1/
 before_install:
   - export LANG=en_US.UTF-8
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; brew install yarn ios-sim
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; brew install yarn ios-sim ; brew install openssl ; brew upgrade openssl ;
+    echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile ; source ~/.bash_profile ;  which openssl ;
+    openssl version ; brew install rbenv ruby-build ; echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile ;
+    echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile ; source ~/.bash_profile ;
+    rbenv install --list ; rbenv install 2.5.1 ; rbenv versions ; ruby --version ;   rbenv global 2.5.1 ; rbenv versions ; ruby --version ;
     jq ios-deploy cocoapods ; rvm use system ; pod setup ; fi
   - nvm install 8
   - yarn global add ionic cordova
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
+  - chmod 755 ./sh/*.sh
 script:
   # 生成 APK/iPA
   - yarn install
