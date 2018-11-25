@@ -52,7 +52,9 @@ before_install:
     echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile ; source ~/.bash_profile ;
     rbenv install --list ; rbenv install 2.5.1 ; rbenv versions ; ruby --version ;   rbenv global 2.5.1 ; rbenv versions ; ruby --version ;
     gem install cocoapods ; 
-    brew install yarn ios-sim jq ios-deploy ; rvm use system ; pod setup ; fi
+    brew install yarn ios-sim jq ios-deploy ; rvm use system ; 
+    # pod setup ; 
+    fi
   - nvm install 8
   - yarn global add ionic cordova
 before_script:
