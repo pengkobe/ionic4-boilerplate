@@ -46,11 +46,7 @@ cache:
     - $HOME/.cache/yarn/v1/
 before_install:
   - export LANG=en_US.UTF-8
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; brew install openssl ; brew upgrade openssl ;
-    echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile ; source ~/.bash_profile ;  which openssl ;
-    openssl version ; brew install rbenv ruby-build ; echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile ;
-    echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile ; source ~/.bash_profile ;
-    rbenv install --list ; rbenv install 2.5.1 ; rbenv versions ; ruby --version ;   rbenv global 2.5.1 ; rbenv versions ; ruby --version ;
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; 
     gem install cocoapods ; 
     brew install yarn ios-sim jq ios-deploy ; rvm use system ; 
     # pod setup ; 
