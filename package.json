@@ -5,6 +5,7 @@
   "homepage": "http://github.com/pengkobe/ionic4-boilerplate",
   "scripts": {
     "ng": "ng",
+    "dev": "bnr dev",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -17,6 +18,15 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e"
+    }
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "ng serve",
+      "env": {
+        "NODE_ENV": "development",
+        "PLATFORM": "web"
+      }
     }
   },
   "private": true,
