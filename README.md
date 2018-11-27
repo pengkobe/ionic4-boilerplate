@@ -1,6 +1,7 @@
 # ionic4-boilerplate
 
 [![build status][travis-image]][travis-url]
+
 [![David deps][david-image]][david-url]
 
 [travis-image]: https://img.shields.io/travis/pengkobe/ionic4-boilerplate.svg?style=flat-square
@@ -11,7 +12,7 @@
 boilerplate for ionic4  
 migrate from : https://github.com/pengkobe/ionic-boilerplate
 
-> I am working on it right now. please don't fork and clone! ☺
+> I am working on it right now. please don't fork! ☺
 
 ## 使用
 
@@ -27,12 +28,19 @@ commitizen init cz-conventional-changelog --save --save-exact
 ## 支持项
 
 - [x] 运行环境介绍
-- [x] 开发流程
-  - [x] git
-  - [x] 测试
-  - [x] 代码规范
-  - [x] 工具集成
+- [x] 开发文档
+  - [x] 开发流程与规范
+    - [x] git
+    - [x] 测试
+    - [x] 代码规范
+    - [x] 工具集成
+  - [x] 环境搭建
+    - [x] Ionic
+    - [x] IOS
+    - [] Android
   - [ ] 部署
+    - [ ] Travis
+    - [ ] docker
 - [x] 版本更新( apk )
 - [x] 支持多语言[中/英]
 - [x] http
@@ -47,7 +55,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 去除开机白屏等待
 - [x] 物理返回键双击退出
 - [x] 错误上报
-- [x] NGRX
+- [x] ngrx
   - [x] TODO Demo
 - [x] 主题切换示例
 - [x] 常用组件
@@ -88,9 +96,20 @@ System:
    OS                : Windows 10
 ```
 
-## 开发流程
+## 开发文档
 
-see: [code-spec](./doc/code-spec.md)
+- [x] [开发流程与规范](./doc/code-spec.md)
+  - [x] git
+  - [x] 测试
+  - [x] 代码规范
+  - [x] 工具集成
+- [x] 环境搭建
+  - [x] [Ionic](./doc/ionic.md)
+  - [x] [IOS](./doc/ios.md)
+  - [x] [android](./doc/android.md)
+- [ ] 部署
+  - [ ] [Travis](./doc/travis.md)
+  - [ ] [docker](./doc/docker.md)
 
 ## 版本更新
 
@@ -111,11 +130,11 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 ## http
 
-基于 rebirth-http 进行开发，可以大大节省开发工作量和代码维护难度。
+基于 [rebirth-http](https://github.com/NG-ZORRO/rebirth-http) 进行开发，可以大大节省开发工作量和代码维护难度。
 
 ## 本地存储
 
-- 结合 rebirth-storage 实现，支持了 localstorage 和内存两种方式
+- 结合 [rebirth-storage](https://github.com/greengerong/rebirth-storage) 实现，支持了 localstorage 和内存两种方式
 - 使用 `@ionic/storage`，尽量不使用 localstorage，系统清内存时会被删掉
 
 ## 钩子
@@ -128,9 +147,9 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 ## 支持主目录相对定位
 
-通过在 tsconfig.json 中增加配置可以解决
+通过在 tsconfig.json 中增加以下配置可以实现目录相对定位
 
-```
+```bash
   "baseUrl": "./src/",
     "paths": {
       "@app/env": ["environments/environment"],
@@ -151,16 +170,15 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 ## 定义好目录结构
 
-按照职能进行区分，增加 share 与 core 等文件夹存放公有的模块和服务。
+按照功能模块职能进行区分，增加 share 与 core 等文件夹存放公有的模块和服务。
 
 ## 集成 echarts
 
-脚手架已集成 echarts  
-see: https://golb.hplar.ch/2017/02/Integrate-ECharts-into-an-Ionic-2-app.html
+脚手架已集成 echarts，教程可以参见 [Integrate-ECharts-into-an-Ionic-2-app](https://golb.hplar.ch/2017/02/Integrate-ECharts-into-an-Ionic-2-app.html)
 
 ## 去除开机白屏等待
 
-在 config.xml 中替换 Splash Screen 相关配置为如下:
+在 config.xml 中替换 `Splash Screen` 相关配置为如下:
 
 ```bash
 <preference name="FadeSplashScreenDuration" value="300" />
@@ -185,14 +203,13 @@ see: https://golb.hplar.ch/2017/02/Integrate-ECharts-into-an-Ionic-2-app.html
 npm install raven-js --save
 ```
 
-## NGRX
+## ngrx
 
-脚手架已集成 NGRX  
-see: https://github.com/ngrx
+脚手架已集成 [ngrx](https://github.com/ngrx),注意选择对应的版本进行集成。本脚手架 TODO Demo 即基于 ngrx 进行开发
 
 ## 主题切换示例
 
-参见代码
+参见代码示例
 
 ## 常用组件
 
@@ -211,7 +228,7 @@ https://www.joshmorony.com/create-a-pwa-with-angular-service-workers-in-ionic-4/
 ng add @angular/pwa@0.8.7 --project app
 ```
 
-可以参见 issue: https://github.com/angular/angular-cli/issues/12914
+可以参见 issue: [ng add @angular/pwa doesn't work correctly in angular-cli 6.2.5 (Maximum call stack size exceeded)](https://github.com/angular/angular-cli/issues/12914)
 
 ## Cordova 插件说明与示例
 
@@ -219,6 +236,8 @@ ng add @angular/pwa@0.8.7 --project app
 see: [cordova-plugin](./doc/cordova-plugin.md)
 
 ## 用户行为统计
+
+本架手架默认安装了 `AppAnalytics_SDK_Cordova` 与 `appcenter-sdk-cordova` 两个插件，两者选其一即可
 
 ### 方案 1
 
