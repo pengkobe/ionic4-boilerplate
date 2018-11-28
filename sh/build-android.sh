@@ -3,9 +3,7 @@
 set -e
 
 # Build Ionic App for Android
-ls -l
 ionic cordova platform add android --nofetch --no-resources
-ls -l
 
 if [[ "$TRAVIS_BRANCH" == "develop" ]]
 then

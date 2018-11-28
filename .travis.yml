@@ -24,7 +24,6 @@ matrix:
           packages:
             - oracle-java8-installer
             - oracle-java8-set-default
-            - yarn
             - jq
       licenses:
         - android-sdk-preview-license-.+
@@ -43,21 +42,20 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/Library/Caches/Yarn/v1/
-    - $HOME/.cache/yarn/v1/
 before_install:
   - export LANG=en_US.UTF-8
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; 
     gem install cocoapods ; 
-    brew install yarn ios-sim jq ios-deploy ; rvm use system ; fi
+    brew install ios-sim jq ios-deploy ; rvm use system ; fi
   - nvm install 8.9.0
-  - yarn global add ionic cordova
+  - npm install ionic cordova -g
 before_script:
   - chmod 755 ./sh/*.sh
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
   - chmod 777 ./config.xml
 script:
   # 生成 APK/iPA
-  - yarn install
+  - npm install
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/build-ios.sh && ./sh/package-ios.sh ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./sh/build-android.sh && ./sh/package-android.sh ; fi
 env:
