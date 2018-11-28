@@ -50,6 +50,7 @@ before_install:
     gem install cocoapods ; 
     brew install ios-sim jq ios-deploy ; rvm use system ; fi
   - nvm install 8.9.0
+  - npm uninstall cordova -g
   - npm install ionic cordova -g
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then yes | sdkmanager "platforms;android-27" ; fi
 before_script:
