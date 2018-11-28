@@ -48,14 +48,15 @@ before_install:
   - export LANG=en_US.UTF-8
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; 
     gem install cocoapods ; 
-    brew install yarn ios-sim jq ios-deploy ; rvm use system ; 
-    # pod setup ; 
-    fi
-  - nvm install 8
+    brew install yarn ios-sim jq ios-deploy ; rvm use system ; fi
+  - nvm install 8.9.0
   - yarn global add ionic cordova
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
   - chmod 755 ./sh/*.sh
+  - chmod 777 ./config.xml
+  - chmod 777 ./platforms
+  - chmod 777 ./plugins
 script:
   # 生成 APK/iPA
   - yarn install
