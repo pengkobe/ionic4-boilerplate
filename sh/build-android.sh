@@ -9,5 +9,5 @@ if [[ "$TRAVIS_BRANCH" == "develop" ]]
 then
     ionic cordova build android --no-resources
 else
-    ionic cordova build android --prod --release --no-resources
+    ionic cordova build android --release --no-resources
 fi

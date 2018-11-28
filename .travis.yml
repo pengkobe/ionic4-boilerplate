@@ -57,6 +57,7 @@ before_script:
   - chmod 755 ./sh/*.sh
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
   - chmod 777 ./config.xml
+  - chmod +x ./hooks/before_build/010_update_config.js
 script:
   - rm -rf package-lock.json
   - npm install

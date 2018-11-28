@@ -9,4 +9,4 @@ then
 fi
 
 mkdir -p output
-cp platforms/android/build/outputs/apk/android-release-unsigned.apk output/ionictravis-release-unsigned.apk
+cp platforms/android/app/build/outputs/apk/release/android-release-unsigned.apk output/ionictravis-release-unsigned.apk

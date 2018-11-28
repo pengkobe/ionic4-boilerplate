@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { IonicStorageModule } from '@ionic/Storage';
+// import { IonicStorageModule } from '@ionic/Storage';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { EffectsModule } from '@ngrx/effects';
@@ -27,7 +27,7 @@ import { RavenErrorHandler } from './raven-error-handler.';
     CoreModule,
     SharedModule,
     BrowserModule,
-    IonicStorageModule.forRoot(),
+    // IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
