@@ -52,11 +52,9 @@ before_install:
   - nvm install 8.9.0
   - yarn global add ionic cordova
 before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
   - chmod 755 ./sh/*.sh
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
   - chmod 777 ./config.xml
-  - chmod 777 ./platforms
-  - chmod 777 ./plugins
 script:
   # 生成 APK/iPA
   - yarn install
