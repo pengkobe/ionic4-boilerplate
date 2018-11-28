@@ -16,3 +16,7 @@ travis login --github-token YOUR_TOKEN
 ### github token 生成
 
 `travis encrypt YOUR_GITHUB_RAW_TOKEN -r pengkobe/ionic4-boilerplate --add`
+
+
+## 参考
+* https://github.com/samueltbrown/ionic-continuous-delivery-blog
