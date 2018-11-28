@@ -53,7 +53,7 @@ before_install:
   - npm install ionic cordova -g
 before_script:
   - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  # - sh -e /etc/init.d/xvfb start
   - chmod 755 ./sh/*.sh
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./sh/addkeys.sh ; fi
   - chmod 777 ./config.xml
