@@ -51,7 +51,7 @@ before_install:
     brew install ios-sim jq ios-deploy ; rvm use system ; fi
   - nvm install 8.9.0
   - npm install ionic cordova -g
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; yes | sdkmanager "platforms;android-27" ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then yes | sdkmanager "platforms;android-27" ; fi
 before_script:
   - export DISPLAY=:99.0
   # - sh -e /etc/init.d/xvfb start
