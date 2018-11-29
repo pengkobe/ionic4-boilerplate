@@ -3,6 +3,35 @@ branches:
     - master
 matrix:
   include:
+    - os: linux
+      sudo: required
+      language: android
+      android:
+        components:
+          - tools
+          - platform-tools
+          - tools
+          - build-tools-26.0.0
+          - android-25
+          - extra-google-google_play_services
+          - extra-google-m2repository
+          - extra-android-m2repository
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - google-chrome
+          packages:
+            - oracle-java8-installer
+            - oracle-java8-set-default
+            - jq
+            - google-chrome-stable
+            - lib32stdc++6
+            - lib32z1
+      licenses:
+        - android-sdk-preview-license-.+
+        - android-sdk-license-.+
+        - google-gdk-license-.+
     - os: osx
       language: objective-c
       osx_image: xcode10.1
@@ -40,6 +69,12 @@ script:
 env:
   global:
     - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "pengkobe"
+  - git config --local user.email "yipeng.info@gmail.com"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
 deploy:
   # 部署到 GitHub Release
   provider: releases
@@ -49,4 +84,5 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
+    tag: true
     branch: master
