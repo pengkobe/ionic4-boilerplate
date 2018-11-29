@@ -17,9 +17,8 @@ cache:
     - $HOME/.gradle/wrapper/
 before_install:
   - export LANG=en_US.UTF-8
-  # cocoapods
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; 
-    brew install ios-sim jq ios-deploy ; rvm use system ; pod setup ;  fi
+    brew install ios-sim jq ios-deploy; brew reinstall cocoapods ; rvm use system ; pod setup ;  fi
   - nvm install 8.9.0
   - npm uninstall cordova -g
   - npm install ionic cordova -g
