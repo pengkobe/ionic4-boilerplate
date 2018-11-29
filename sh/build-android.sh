@@ -8,6 +8,6 @@ ionic cordova platform add android --nofetch --no-resources
 if [[ "$TRAVIS_BRANCH" == "develop" ]]
 then
     ionic cordova build android --no-resources
-else
+else # --prod
     ionic cordova build android --release --no-resources
 fi

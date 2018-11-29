@@ -16,3 +16,4 @@
 
 * https://github.com/marcoturi/ionic-docker
 * https://hub.docker.com/r/agileek/ionic-framework/~/dockerfile/
+* https://github.com/svenlaater/travis-ci-ionic-yml/blob/master/Dockerfile-node-java-android
