@@ -40,6 +40,7 @@ commitizen init cz-conventional-changelog --save --save-exact
   - [ ] 部署
     - [ ] Travis
     - [ ] docker
+    - [ ] fastlane
 - [x] 版本更新( apk )
 - [x] 支持多语言[中/英]
 - [x] http
