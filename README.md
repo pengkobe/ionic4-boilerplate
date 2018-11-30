@@ -36,9 +36,9 @@ commitizen init cz-conventional-changelog --save --save-exact
   - [x] 环境搭建
     - [x] Ionic
     - [x] IOS
-    - [ ] Android
+    - [x] Android
   - [ ] 部署
-    - [ ] Travis
+    - [x] Travis
     - [ ] docker
     - [ ] fastlane
 - [x] 版本更新( apk )
@@ -180,7 +180,7 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 在 config.xml 中替换 `Splash Screen` 相关配置为如下:
 
-```bash
+```xml
 <preference name="FadeSplashScreenDuration" value="300" />
 <preference name="SplashShowOnlyFirstTime" value="false" />
 <preference name="SplashScreen" value="screen" />
