@@ -8,6 +8,10 @@
 
 travis login --github-token YOUR_TOKEN
 
+## 单元测试
+
+### xvfb
+
 ## deploy
 
 - https://docs.travis-ci.com/user/deployment
@@ -22,14 +26,14 @@ travis login --github-token YOUR_TOKEN
 - 提示版本不对: 注意镜像是否为 10.1
 - 提示安装不成功，无法建立 link: [解决参考](https://stackoverflow.com/questions/37904588/cocoapods-not-installing/48335801#48335801)
 
-### brew
+### brew 安装
 
 ```bash
 brew install cocoapods
 pop setup
 ```
 
-### gem
+### gem 安装
 
 ```bash
 mkdir -p $HOME/Software/ruby
@@ -45,4 +49,5 @@ pod --version
 `travis encrypt YOUR_GITHUB_RAW_TOKEN -r pengkobe/ionic4-boilerplate --add`
 
 ## 参考
+
 * https://github.com/samueltbrown/ionic-continuous-delivery-blog
