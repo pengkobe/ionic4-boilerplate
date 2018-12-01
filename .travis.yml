@@ -67,8 +67,7 @@ matrix:
         - export LANG=en_US.UTF-8
         - brew update
         - brew install ios-sim jq ios-deploy
-        - brew reinstall cocoapods 
-        - brew link --overwrite cocoapods
+        - brew reinstall cocoapods ;  brew link --overwrite cocoapods
         - rvm use system 
         - pod setup
         - nvm install 8.9.0

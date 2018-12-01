@@ -108,7 +108,7 @@ System:
   - [x] [IOS](./doc/ios.md)
   - [x] [android](./doc/android.md)
 - [ ] 部署
-  - [ ] [Travis](./doc/travis.md)
+  - [x] [Travis](./doc/travis.md)
   - [ ] [docker](./doc/docker.md)
 
 ## 版本更新
@@ -139,11 +139,11 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 
 ## 钩子
 
+> 新版仍然可以使用，但是已经废弃了
+
 位于文件夹 `hooks` 下, 可以写各个声明周期的钩子，目前引进的钩子有
 
-- `020_remove_sass_from_platforms`, 删除不必要的 sass 文件
 - `010_update_config`, 根据 package.json 中的版本号更新 config.xml
-- `010_init_directories`, 用于创建 plugins 与 platforms 文件夹
 
 ## 支持主目录相对定位
 

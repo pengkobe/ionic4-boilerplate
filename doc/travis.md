@@ -54,6 +54,11 @@ pod --version
 
 - 无法成功安装 `oracle-java8-installer`,android 语言自带有 JDK，实际上无需安装
 
+## TDOO
+
+- [ ] Storage 无法使用 `--prod` 选项
+- [ ] 添加 IOS 证书/签名
+
 ## 参考
 
 * https://github.com/samueltbrown/ionic-continuous-delivery-blog
