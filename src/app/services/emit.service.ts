@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class EmitService implements OnInit {
   public eventEmit: EventEmitter<any>;
-  private theme: BehaviorSubject<String>;
+  private theme: BehaviorSubject<string>;
 
   constructor() {
     console.log('Hello EmitService Provider');

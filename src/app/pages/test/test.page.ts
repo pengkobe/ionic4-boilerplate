@@ -5,13 +5,7 @@ import { Insomnia } from '@ionic-native/insomnia/ngx';
 import { EChartOption } from 'echarts';
 import { GlobalService } from '@services/global.service';
 import { EmitService } from '@services/emit.service';
-
-/**
- * Generated class for the TestPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
 
 @Component({
   selector: 'page-test',
@@ -59,13 +53,14 @@ export class TestPage {
   @Output()
   wrongScaned: EventEmitter<any> = new EventEmitter();
 
-  selectedTheme: String;
+  selectedTheme: string;
 
   constructor(
     private insomnia: Insomnia,
     public globalservice: GlobalService,
     public modalCtrl: ModalController,
-    public emit: EmitService
+    public emit: EmitService,
+    private appCenterAnalytics: AppCenterAnalytics
   ) {
     this.emit.getActiveTheme().subscribe(val => this.selectedTheme = val);
   }
@@ -108,7 +103,7 @@ export class TestPage {
     if (this.isAlwaysLight) {
       this.globalservice.isAlwaysLight = true;
       this.insomnia.keepAwake().then(
-        () => {},
+        () => { },
         e => {
           this.globalservice.isAlwaysLight = false;
           console.log('error', e);
@@ -117,7 +112,7 @@ export class TestPage {
     } else {
       this.globalservice.isAlwaysLight = false;
       this.insomnia.allowSleepAgain().then(
-        () => {},
+        () => { },
         e => {
           this.globalservice.isAlwaysLight = true;
           console.log('error', e);
@@ -129,6 +124,12 @@ export class TestPage {
   setLanguageType(val) {
     this.globalservice.languageType = val;
     this.emit.eventEmit.emit('languageType');
+
+    this.appCenterAnalytics.setEnabled(true).then(() => {
+      this.appCenterAnalytics.trackEvent('setLanguageType', { languageType: val }).then(() => {
+        console.log('setLanguageType event tracked');
+      });
+    });
   }
 
   toggleAppTheme() {
@@ -137,5 +138,12 @@ export class TestPage {
     } else {
       this.emit.setActiveTheme('dark-theme');
     }
+
+    this.appCenterAnalytics.setEnabled(true).then(() => {
+      this.appCenterAnalytics.trackEvent('toggleAppTheme', { themBefore: this.selectedTheme }).then(() => {
+        console.log('toggleAppTheme event tracked');
+      });
+    });
   }
+
 }
