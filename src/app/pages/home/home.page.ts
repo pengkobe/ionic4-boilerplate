@@ -6,12 +6,12 @@ import { DataService } from '@services/data.service';
   templateUrl: 'home.page.html',
 })
 export class HomePage {
-  cahceData = '';
+  cacheData = '';
   constructor(public dataservice: DataService) {}
 
   testCache() {
     this.dataservice.testCachedData().subscribe(num => {
-      this.cahceData = num;
+      this.cacheData = num;
     });
   }
 }

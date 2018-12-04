@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 
 import { DebounceClickDirective } from '@directives/debounce-click.directive';
+import { TrackEventDirective } from '@directives/trackEvent.directive';
 
 import { CalendarModule } from './ion2-calendar';
 
@@ -33,16 +34,17 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       },
     }),
   ],
-  declarations: [DebounceClickDirective],
+  declarations: [DebounceClickDirective, TrackEventDirective],
   providers: [], // better be empty!
   exports: [
     PipesModule,
     TranslateModule,
     DebounceClickDirective,
+    TrackEventDirective,
     IonicModule,
     CommonModule,
     FormsModule,
     CalendarModule,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
@@ -9,6 +9,7 @@ import { TestPage } from '../pages/test/test.page';
 
 @NgModule({
   imports: [IonicModule, SharedModule, TabsPageRoutingModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [TabsPage, HomePage, TestPage],
 })
-export class TabsPageModule {}
+export class TabsPageModule { }
