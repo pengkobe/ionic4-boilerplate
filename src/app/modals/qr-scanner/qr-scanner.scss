@@ -1,13 +1,7 @@
-modal-qr-scanner {
-    .scroll-content {
-        padding: 0 !important;
-    }
-    .content {
-        background: transparent !important;
-    }
     .transparent-bg {
         background-color: rgba(0, 0, 0, 0.85);
     }
+
     .scanner-top {
         height: 16%;
         position: relative;
@@ -21,6 +15,7 @@ modal-qr-scanner {
             text-align: center;
         }
     }
+
     .scanner-left {
         position: absolute;
         left: 0;
@@ -28,6 +23,7 @@ modal-qr-scanner {
         bottom: 0;
         width: 15%;
     }
+
     .scanner-right {
         position: absolute;
         right: 0;
@@ -35,10 +31,12 @@ modal-qr-scanner {
         bottom: 0;
         width: 15%;
     }
+
     .scanner-bottom {
         height: calc(84% - 70vw);
         text-align: center;
     }
+
     .scanner-content {
         position: relative;
         padding-top: 70%;
@@ -90,4 +88,3 @@ modal-qr-scanner {
             }
         }
     }
-}

@@ -252,6 +252,7 @@ see: [cordova-plugin](./doc/cordova-plugin.md)
 - 基于 微软的 [appcenter-sdk-cordova](https://github.com/Microsoft/appcenter-sdk-cordova)
 - 官网: https://appcenter.ms/
 - 文档: https://docs.microsoft.com/en-us/appcenter/sdk/analytics/cordova
+- Ionic 官网: https://beta.ionicframework.com/docs/native/app-center-analytics
 
 ## 技巧与工具
 

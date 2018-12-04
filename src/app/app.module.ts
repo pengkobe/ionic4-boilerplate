@@ -13,6 +13,7 @@ import { RebirthHttpModule } from 'rebirth-http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { environment } from '../environments/environment';
+import { QRScannerModalModule } from './modals/qr-scanner/qr-scanner.module';
 
 import { MyApp } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { RavenErrorHandler } from './raven-error-handler.';
     CoreModule,
     SharedModule,
     BrowserModule,
+    QRScannerModalModule,
     // IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
     StoreModule.forRoot({}),

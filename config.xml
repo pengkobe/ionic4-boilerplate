@@ -26,7 +26,7 @@
     <preference name="APPCENTER_CRASHES_ALWAYS_SEND" value="false" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="APP_SECRET" value="85a61209-7bb7-4692-9649-77907e85cdf9" />、
+        <preference name="APP_SECRET" value="85a61209-7bb7-4692-9649-77907e85cdf9" />
         <preference name="APP_SECRET" value="81ca54a1-bb60-484c-9494-ff0192db42fc" />
         <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />

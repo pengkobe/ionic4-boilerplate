@@ -1,20 +1,18 @@
-<ion-content no-bounce padding>
-  <close-popup color="white" large="true" (closePopUp)="dismiss()"></close-popup>
+<close-popup color="white" large="true" (closePopUp)="dismiss()"></close-popup>
 
-  <div class="transparent-bg scanner-top">
-    <p>对准二维码，即可自动扫描</p>
+<div class="transparent-bg scanner-top">
+  <p>对准二维码，即可自动扫描</p>
+</div>
+<div class="scanner-content">
+  <div class="transparent-bg scanner-left"></div>
+  <div class="scanner-box">
+    <div class="angle angle-top-left"></div>
+    <div class="angle angle-top-right"></div>
+    <div class="angle angle-bottom-right"></div>
+    <div class="angle angle-bottom-left"></div>
+    <div class="aimate-line"></div>
   </div>
-  <div class="scanner-content">
-    <div class="transparent-bg scanner-left"></div>
-    <div class="scanner-box">
-      <div class="angle angle-top-left"></div>
-      <div class="angle angle-top-right"></div>
-      <div class="angle angle-bottom-right"></div>
-      <div class="angle angle-bottom-left"></div>
-      <div class="aimate-line"></div>
-    </div>
-    <div class="transparent-bg scanner-right"></div>
-  </div>
-  <div class="transparent-bg scanner-bottom">
-  </div>
-</ion-content>
+  <div class="transparent-bg scanner-right"></div>
+</div>
+<div class="transparent-bg scanner-bottom">
+</div>

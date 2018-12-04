@@ -6,6 +6,7 @@ import { EChartOption } from 'echarts';
 import { GlobalService } from '@services/global.service';
 import { EmitService } from '@services/emit.service';
 import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
+import { QRScannerModal } from '@modals/qr-scanner/qr-scanner';
 
 @Component({
   selector: 'page-test',
@@ -75,7 +76,7 @@ export class TestPage {
 
   async open(format: boolean = false) {
     const modal = await this.modalCtrl.create({
-      component: 'QRScannerModal',
+      component: QRScannerModal,
       showBackdrop: true,
     });
     modal.onDidDismiss().then(qrCode => {
