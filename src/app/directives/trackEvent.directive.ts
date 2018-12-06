@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { AppCenterAnalytics, StringMap } from '@ionic-native/app-center-analytics/ngx';
 
-@Directive({ selector: '[trackEventDirective]' })
+@Directive({ selector: '[appTrackEventDirective]' })
 export class TrackEventDirective implements OnInit, OnDestroy {
     @Input() private trackParams: {
         evtName;
@@ -34,7 +34,7 @@ export class TrackEventDirective implements OnInit, OnDestroy {
                         console.log(this.trackParams.evtName + ' event tracked');
                     });
                 });
-            })
+            });
     }
     public ngOnDestroy() {
         this.trackStream$.unsubscribe();

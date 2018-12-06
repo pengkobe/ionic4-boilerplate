@@ -12,7 +12,7 @@
   <p>create by <a href="https://yipeng.info/">pengkobe</a> .</p>
   <ion-menu-button secondary>{{ 'HOME.Toggle' | translate }}</ion-menu-button>
 
-  <ion-button secondary (click)="testCache()" [trackEventDirective] 
+  <ion-button secondary (click)="testCache()" [appTrackEventDirective] 
     [trackParams]="{ evtName:'点击获取随机数',parames: {cahceData:cacheData}}">点击获取随机数</ion-button>
   <span> {{ cacheData }}</span>
 </ion-content>
