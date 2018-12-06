@@ -19,6 +19,11 @@ travis login --github-token YOUR_TOKEN
 - https://docs.travis-ci.com/user/deployment
 - 如何发布至 Github Release https://docs.travis-ci.com/user/deployment/releases/
 
+### 上传至蒲公英
+
+- https://www.pgyer.com/doc/view/travis_android
+- https://www.pgyer.com/doc/view/travis_ios
+
 ## cocoapods
 
 部分cordova 插件依赖于这个库，需要确保这个库已经安装，常见的安装方式有两种，一种是通过 `brew` 进行安装，一种是通过 `gem` 进行安装。
@@ -62,3 +67,4 @@ pod --version
 ## 参考
 
 * https://github.com/samueltbrown/ionic-continuous-delivery-blog
+* [为iOS建立Travis CI（史上最全版）](https://blog.csdn.net/qq_30817073/article/details/51719473) ,事实上还是比较全的
