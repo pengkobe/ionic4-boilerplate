@@ -1,93 +1,91 @@
 branches:
   only:
-    - master
+  - master
 matrix:
   include:
-    - language: node_js
-      sudo: required
-      dist: trusty
-      node_js:
-        - '8.9.4'
-      addons:
-        apt:
-          sources:
-            - google-chrome
-          packages:
-            - google-chrome-stable
-            - lib32stdc++6
-            - lib32z1
-      install:
-        - npm install
-      before_script:
-        - export DISPLAY=:99.0
-        - sh -e /etc/init.d/xvfb start
-      script:
-        - npm run lint
-        - npm run test
-    - os: linux
-      sudo: required
-      language: android
-      android:
-        components:
-          - tools
-          - platform-tools
-          - build-tools-26.0.0
-          - android-25
-          - extra-google-google_play_services
-          - extra-google-m2repository
-          - extra-android-m2repository
-      licenses:
-        - android-sdk-preview-license-.+
-        - android-sdk-license-.+
-        - google-gdk-license-.+
-      before_cache:
-        - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-        - rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
-        - rm -rf $HOME/.gradle/caches/3.5/fileHashes/
-        - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
-      cache:
-        directories:
-          - $HOME/.gradle/caches/
-          - $HOME/.gradle/wrapper/
-      before_install:
-        - export LANG=en_US.UTF-8
-        - nvm install 8.9.0
-        - npm install ionic cordova -g
-        - yes | sdkmanager "platforms;android-27"
-      before_script:
-        - chmod 755 ./sh/*.sh
-        - chmod 777 ./config.xml
-        - chmod +x ./hooks/before_build/010_update_config.js
-      script:
-        - npm install
-        - ./sh/build-android.sh && ./sh/package-android.sh
-    - os: osx
-      language: objective-c
-      before_install:
-        - export LANG=en_US.UTF-8
-        - brew update
-        - brew install ios-sim jq ios-deploy
-        - brew reinstall cocoapods ;  brew link --overwrite cocoapods
-        - rvm use system 
-        - pod setup
-        - nvm install 8.9.0
-        - npm install ionic cordova -g
-      before_script:
-        - chmod 755 ./sh/*.sh
-        - chmod 777 ./config.xml
-        - chmod +x ./hooks/before_build/010_update_config.js
-        - ./sh/addkeys.sh
-      script:
-        - npm install
-        - ./sh/build-ios.sh && ./sh/package-ios.sh
-
+  - language: node_js
+    sudo: required
+    dist: trusty
+    node_js:
+    - 8.9.4
+    addons:
+      apt:
+        sources:
+        - google-chrome
+        packages:
+        - google-chrome-stable
+        - lib32stdc++6
+        - lib32z1
+    install:
+    - npm install
+    before_script:
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    script:
+    - npm run lint
+    - npm run test
+  - os: linux
+    sudo: required
+    language: android
+    android:
+      components:
+      - tools
+      - platform-tools
+      - build-tools-26.0.0
+      - android-25
+      - extra-google-google_play_services
+      - extra-google-m2repository
+      - extra-android-m2repository
+    licenses:
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
+    before_cache:
+    - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+    - rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
+    - rm -rf $HOME/.gradle/caches/3.5/fileHashes/
+    - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+    cache:
+      directories:
+      - "$HOME/.gradle/caches/"
+      - "$HOME/.gradle/wrapper/"
+    before_install:
+    - export LANG=en_US.UTF-8
+    - nvm install 8.9.0
+    - npm install ionic cordova -g
+    - yes | sdkmanager "platforms;android-27"
+    before_script:
+    - chmod 755 ./sh/*.sh
+    - chmod 777 ./config.xml
+    - chmod +x ./hooks/before_build/010_update_config.js
+    script:
+    - npm install
+    - "./sh/build-android.sh && ./sh/package-android.sh"
+  - os: osx
+    language: objective-c
+    before_install:
+    - export LANG=en_US.UTF-8
+    - brew update
+    - brew install ios-sim jq ios-deploy
+    - brew reinstall cocoapods ;  brew link --overwrite cocoapods
+    - rvm use system
+    - pod setup
+    - nvm install 8.9.0
+    - npm install ionic cordova -g
+    before_script:
+    - chmod 755 ./sh/*.sh
+    - chmod 777 ./config.xml
+    - chmod +x ./hooks/before_build/010_update_config.js
+    - "./sh/addkeys.sh"
+    script:
+    - npm install
+    - "./sh/build-ios.sh && ./sh/package-ios.sh"
 before_deploy:
-  - git config --local user.name "pengkobe"
-  - git config --local user.email "yipeng.info@gmail.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
+- git config --local user.name "pengkobe"
+- git config --local user.email "yipeng.info@gmail.com"
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
 deploy:
-  # 部署到 GitHub Release
   provider: releases
   api_key:
     secure: kArQQt1D8XH45KSjLVRN56i7TQE7RRMdJ8NKxlt2g6TAU4s7Nmwd72mU7IrP/Q04AAfQwD7JVD/zt7vSDHsLErmob2kX/oBLqCpGbiNo2gOLwRSMEg7qEjbGfCywSQ1KSdfGA87TgYW5qYRRWiXBFk+s2ANk2My1RHkgMF7S1rTkgiH5Z2Wa0oTSngE/ScA00lZBj4rqrdOTkhM9SKEkmrogJH2Z87Ela9gjbRDp+ktXxCwWNEMg66CIGHad61X/rFBhfabpC2njgS16m3/2EB2t6x4GQo5q9qQgquLFMX4fF+lJPu6R2QrKFd+W2otUGFp28xXHIga4irY6i6PKb+YkNysSYHFEfVStxKzP/DDnwNII5jzPPZSdxlGLzo6CrK/8EcDZR/1p4H9dwlk0ITRzh1zJSFFxboiKgtlHlo7l7z9GtgLMwyG5e/mrB2Q3H1xOSQM6iNtBRYtqTNHxdpeg6Ouucy7pbu9czeTT30o7qBle+ICINDzv03iTUW7cza9L9SNYszBJco3evmsT2kWIQ5DvQDqS8Bb7YaOp38mBy4mq5s6QBhPNlLeBW88BPje321Iwa9t+HHM64opVdRglE5WIloKEjID3D/cLjrVNHWJRdD9hB4/djFvW7tz6o3WJhMxpMX5b5gzTV77DgJHQ4I2x9+Ma/WpAPovhF6k=
@@ -98,4 +96,3 @@ deploy:
   on:
     tag: true
     branch: master
-
