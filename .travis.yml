@@ -66,8 +66,9 @@ matrix:
     - npm install
     - "./sh/build-android.sh && ./sh/package-android.sh"
     after_script:
-    - set -e 
-    - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-unsigned.apk" ${PGYER_APIKEY}
+    - set -e
+    - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-unsigned.apk"
+      ${PGYER_APIKEY}
   - os: osx
     language: objective-c
     before_install:
@@ -80,31 +81,29 @@ matrix:
     - nvm install 8.9.0
     - npm install ionic cordova -g
     - wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
-      -O pgyer_upload.s
+      -O pgyer_upload.sh
     - chmod +x pgyer_upload.sh
     before_script:
     - chmod 755 ./sh/*.sh
     - chmod 755 ./sh/release/*.sh
     - chmod 777 ./config.xml
     - chmod +x ./hooks/before_build/010_update_config.js
-    - ./sh/release/decrypt-key.sh
-    - ./sh/release/add-key.sh
+    - "./sh/release/decrypt-key.sh"
+    - "./sh/release/add-key.sh"
     script:
     - npm install
     - "./sh/build-ios.sh && ./sh/package-ios.sh"
     after_success:
-    - ./sh/release/package-and-upload.sh
+    - "./sh/release/package-and-upload.sh"
     after_script:
-    - ./sh/release/remove-key.sh
+    - "./sh/release/remove-key.sh"
 notifications:
-   email:
-     - yipeng.info@gmail.com
+  email:
+  - yipeng.info@gmail.com
 env:
   global:
-    # KEY_PASSWORD
-    - secure: vpbuGKJ8nglvA8wsxCeBwPQL3Z2dtoUWfGuEky6wfyK+I64Pmb4WWicJ2zUfMrFWQpb5BRelIy5u0LcjogLBEL+Fw6JWZWEGcmylwq6HdFk493aOwSjz7xihxh/DIK3ujz//BDVyCq/AjROGJGGgwicKJj5UlZ4B1Jon3gEUb3rd+SO/MiVWhNRC0yukvcVQk30f5zQPcnZUskAuLPIz06zBAYvnrfg/e6x8ajMSc2Chd5LN/74AlXB/ztz7IozZ0IOHpD0jXNPS/Kkn3bOGHTQ1s5CkyE9s+Z6MV6Eu/CyLssbalKoDBNw31LmQyFG6Rh/6xZrx1wwQc39UQDXIGu7z+1AyWnGqvaymZ1y0ffBohdQSwQlKDBYJ8LyCqL/c0mSrf+mAg+pe4mWg+DyO+rKLqlYtNdscWHOG97BpnCTeZ6ODDQY8/sN/5eJ8reoNJwV+ZttHbzh1x7T9u21aMhh6bbm5EBUQRWX3yMimrrX3YsLgIHQ7E1eWP2tc0rbrQ5nh14kpbSYsf81Yjn5rsno4H/a2RUeqroxtnLQ9hmLoJGFJLaFSRIoPYwwDL/42Wjt8s7/X8+6lwtemyZojE7rASn4kaj/VgIw/1OT7zZ+YYJBQvoSLOilqjMys/kw+NTiOuKfOeqEefY4l+vP6BqzpnIMksOupBMdc77uVRQg=
-    # PGYER_APIKEY
-    - secure: BC33hodUvMPxFmUKwxK4VoyAXoiVZQQ1ZH2P78UcJdDOo7ssa+1OE0T+F/Lfqtfz5GTTbc5oMQtzHE+2YS1I+bwcAYn4JfSM15FL5zqYgpKQCK1yeWaOLDwZWcbqeNL6nxbMqgiuwbBtyliBwF0yqFQbvC8NWusafJLuI6snATobJ3eTvQ218hpoBvOfTPywbewMrhC3N2eSoVt4zxhTGerMFILcVvq+r9QKWrMesQaOv3wPfdjfZEl+fz2fP9agMe13vcizmCdwqq7Alh3bqaqtIB5iLxQXQ1VcxbKpy+ip9joF2hwAYLAMJxVSqz4GSpZCyZeBJQ7rVWQ3mM/9Disod2m38TENKrXXGLR36S6+jgGEVVS4qWSQ6n7chW5u9VBedwHWmOLv2yHhsgk3p8M3eVBqXU7dcIh+Q1J7ZG0VmNZl3ekMrq92K7Hhy0BbSCAKz5KdxB30lotrE2qGnFFL2wgEC3Bd1waqcnxa+ZkbQ6AH9MNsOE5aIoUMtbqPuDlKrj/j0USMUj1MW45sMimWw2U1Aj02BIur3twowYSrJygiIG85J2sFRt/cnadkiXzc8UWF51nUQKIf0noiOCdwCR/1YFLN80ymTSE4AasKX8vIdm2PBXOeTkHjgZ/tR6Yb9m/M4/R9gpy7HfsMG9wJ4RQNQZqdRk/DHNGK3uc=
-    - APP_NAME="ionic4-boilerplate"
-    - PROFILE_NAME="ionic4_Ad_Hoc_Profile"
-    - ION4_APP_UPLOAD_BRANCH="master"
+  - secure: vpbuGKJ8nglvA8wsxCeBwPQL3Z2dtoUWfGuEky6wfyK+I64Pmb4WWicJ2zUfMrFWQpb5BRelIy5u0LcjogLBEL+Fw6JWZWEGcmylwq6HdFk493aOwSjz7xihxh/DIK3ujz//BDVyCq/AjROGJGGgwicKJj5UlZ4B1Jon3gEUb3rd+SO/MiVWhNRC0yukvcVQk30f5zQPcnZUskAuLPIz06zBAYvnrfg/e6x8ajMSc2Chd5LN/74AlXB/ztz7IozZ0IOHpD0jXNPS/Kkn3bOGHTQ1s5CkyE9s+Z6MV6Eu/CyLssbalKoDBNw31LmQyFG6Rh/6xZrx1wwQc39UQDXIGu7z+1AyWnGqvaymZ1y0ffBohdQSwQlKDBYJ8LyCqL/c0mSrf+mAg+pe4mWg+DyO+rKLqlYtNdscWHOG97BpnCTeZ6ODDQY8/sN/5eJ8reoNJwV+ZttHbzh1x7T9u21aMhh6bbm5EBUQRWX3yMimrrX3YsLgIHQ7E1eWP2tc0rbrQ5nh14kpbSYsf81Yjn5rsno4H/a2RUeqroxtnLQ9hmLoJGFJLaFSRIoPYwwDL/42Wjt8s7/X8+6lwtemyZojE7rASn4kaj/VgIw/1OT7zZ+YYJBQvoSLOilqjMys/kw+NTiOuKfOeqEefY4l+vP6BqzpnIMksOupBMdc77uVRQg=
+  - secure: F17TDbbrfRU1qhtrspxnl9Knq9Gz8F6tOqOSmbsKBJtorimjP8AyRErqzukftfLRchb8+ZNcsP9G+CSy++nDOlgcEJSGN4+Bps/2KfcnNXTacBUmwAWhEb8CdAkX6iHI/sJ1KwKHY/OoQl8AwjxoAkXSaCxaULnb8FLMz1L5TiqI2Swhu0p8GkoAEDZaft9Vmbn+izsg6hHsXP9OLhWyZ9sCsWwz8TVNsKEIrEzU+faGyYkYMMrcWTCUDJ5Lgy5zUNkaKFstx2xMrOIfHV4+9XM80Rzigy5zQXcE5jiBVVriaO5d5poJ1x9Qa6XfqCRqoNQy46YTFyRdiCcFTfEoWJjJ/cjIK6/KKRGDW85uqaVppxcrxcC04BlSjpcWkwOk6zEm/JkVPs+qPtWmD0ZWKkGPQ5lcpmINtO7dDF1hRM3EG8cZUfMPPuWQI/8IdSlIIXmz1ZMwlraX5jmIAE3lRVtRXeCVdrcpEvvspsM/nkCzujkwpqe4mRhWc7uXcTdUQzKTMi1KqDQSPKcLEuCH4x4BGjaVge4gq1JAIvDorAwTq4WspxGcE6ds2taNOjfLP0bGxyTm9zf1+Uora9A5Oj1JKL6hB4pKBa0uFZwJThp6pl/TC36ONQcMIpq1EsGht9PrAZB/OMS5VDXdhHaksVyx+l0npgk7yPWryvodDCs=
+  - APP_NAME="ionic4-boilerplate"
+  - PROFILE_NAME="ionic4_Ad_Hoc_Profile"
+  - ION4_APP_UPLOAD_BRANCH="master"
