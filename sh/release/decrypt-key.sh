@@ -21,12 +21,11 @@ if [[ ! -e "./sh/release/certs/ios_distribution.p12.enc" ]]; then
 fi
 
 openssl aes-256-cbc \
--K $encrypted_db262004c62b_key -iv $encrypted_db262004c62b_iv \
+-K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv \
 -in "./sh/release/profile/ionic4_Ad_Hoc_Profile.mobileprovision.enc" -out "./sh/release/profile/ionic4_Ad_Hoc_Profile.mobileprovision" -d
 
-openssl aes-256-cbc -K $encrypted_6b68ab77240b_key -iv $encrypted_6b68ab77240b_iv \
+openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv \
 -in "./sh/release/certs/ios_distribution.cer.enc" -out "./sh/release/certs/ios_distribution.cer" -d
 
-openssl aes-256-cbc -K $encrypted_6b68ab77240b_key -iv $encrypted_6b68ab77240b_iv \
+openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv \
 -in "./sh/release/certs/ios_distribution.p12.enc" -out "./sh/release/certs/ios_distribution.p12" -d
-
