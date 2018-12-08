@@ -66,17 +66,18 @@ matrix:
     - chmod +x ./hooks/before_build/010_update_config.js
     script:
     - npm install
-    - "./sh/build-android.sh && ./sh/package-android.sh"
+    - "./sh/build-android.sh"
     after_success:
     - cp $TRAVIS_BUILD_DIR/sh/release/ionic4travis.jks $HOME
     - cd platforms/android/app/build/outputs/apk/release/
     - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/ionic4travis.jks
       -storepass $storepass -keypass $keypass app-release-unsigned.apk ionic4travis
     - jarsigner -verify app-release-unsigned.apk
-    - "${ANDROID_HOME}/build-tools/26.0.0/zipalign -v 4 app-release-unsigned.apk app-release-unsigned.apk"
+    - "${ANDROID_HOME}/build-tools/26.0.0/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk"
+    - "./sh/package-android.sh"
     after_script:
     - set -e
-    - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-unsigned.apk"
+    - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-signed.apk"
       ${PGYER_APIKEY}
   - os: osx
     language: objective-c
@@ -85,6 +86,8 @@ matrix:
     - brew update
     - brew install ios-sim jq ios-deploy
     - brew reinstall cocoapods ;  brew link --overwrite cocoapods
+    - "./sh/release/decrypt-key.sh"
+    - "./sh/release/add-key.sh"
     - rvm use system
     - pod setup
     - nvm install 8.9.0
@@ -97,8 +100,6 @@ matrix:
     - chmod 755 ./sh/release/*.sh
     - chmod 777 ./config.xml
     - chmod +x ./hooks/before_build/010_update_config.js
-    - "./sh/release/decrypt-key.sh"
-    - "./sh/release/add-key.sh"
     script:
     - npm install
     - "./sh/build-ios.sh && ./sh/package-ios.sh"
