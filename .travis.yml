@@ -73,10 +73,10 @@ matrix:
     - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/ionic4travis.jks
       -storepass $storepass -keypass $keypass app-release-unsigned.apk ionic4travis
     - jarsigner -verify app-release-unsigned.apk
-    #- "${ANDROID_HOME}/build-tools/26.0.0/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk"
+    - "${ANDROID_HOME}/build-tools/26.0.0/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk"
     after_script:
-    - set -e
     - "./sh/package-android.sh"
+    - set -e
     - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-signed.apk"
       ${PGYER_APIKEY}
   - os: osx
