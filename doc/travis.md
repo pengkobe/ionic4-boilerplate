@@ -58,6 +58,7 @@ pod --version
 ## 运行报错
 
 - 无法成功安装 `oracle-java8-installer`,android 语言自带有 JDK，实际上无需安装
+- error installing travis:ERROR: Failed to build gem native extension. 事实上在 windows 上生成的 enc 文件都是会报错的
 
 ## TDOO
 

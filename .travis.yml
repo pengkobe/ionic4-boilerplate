@@ -58,6 +58,8 @@ matrix:
     - wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
       -O pgyer_upload.sh
     - chmod +x pgyer_upload.sh
+    - openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv
+      -in ./sh/release/ionic4travis.jks.enc -out ./sh/release/ionic4travis.jks -d
     before_script:
     - chmod 755 ./sh/*.sh
     - chmod 777 ./config.xml
@@ -65,6 +67,13 @@ matrix:
     script:
     - npm install
     - "./sh/build-android.sh && ./sh/package-android.sh"
+    after_success:
+    - cp $TRAVIS_BUILD_DIR/sh/release/ionic4travis.jks $HOME
+    - cd platforms/android/app/build/outputs/apk/release/
+    - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/ionic4travis.jks
+      -storepass $storepass -keypass $keypass app-release-unsigned.apk ionic4travis
+    - jarsigner -verify app-release-unsigned.apk
+    - "${ANDROID_HOME}/build-tools/26.0.0/zipalign -v 4 app-release-unsigned.apk app-release-unsigned.apk"
     after_script:
     - set -e
     - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-unsigned.apk"
@@ -102,8 +111,10 @@ notifications:
   - yipeng.info@gmail.com
 env:
   global:
-  - secure: vpbuGKJ8nglvA8wsxCeBwPQL3Z2dtoUWfGuEky6wfyK+I64Pmb4WWicJ2zUfMrFWQpb5BRelIy5u0LcjogLBEL+Fw6JWZWEGcmylwq6HdFk493aOwSjz7xihxh/DIK3ujz//BDVyCq/AjROGJGGgwicKJj5UlZ4B1Jon3gEUb3rd+SO/MiVWhNRC0yukvcVQk30f5zQPcnZUskAuLPIz06zBAYvnrfg/e6x8ajMSc2Chd5LN/74AlXB/ztz7IozZ0IOHpD0jXNPS/Kkn3bOGHTQ1s5CkyE9s+Z6MV6Eu/CyLssbalKoDBNw31LmQyFG6Rh/6xZrx1wwQc39UQDXIGu7z+1AyWnGqvaymZ1y0ffBohdQSwQlKDBYJ8LyCqL/c0mSrf+mAg+pe4mWg+DyO+rKLqlYtNdscWHOG97BpnCTeZ6ODDQY8/sN/5eJ8reoNJwV+ZttHbzh1x7T9u21aMhh6bbm5EBUQRWX3yMimrrX3YsLgIHQ7E1eWP2tc0rbrQ5nh14kpbSYsf81Yjn5rsno4H/a2RUeqroxtnLQ9hmLoJGFJLaFSRIoPYwwDL/42Wjt8s7/X8+6lwtemyZojE7rASn4kaj/VgIw/1OT7zZ+YYJBQvoSLOilqjMys/kw+NTiOuKfOeqEefY4l+vP6BqzpnIMksOupBMdc77uVRQg=
-  - secure: F17TDbbrfRU1qhtrspxnl9Knq9Gz8F6tOqOSmbsKBJtorimjP8AyRErqzukftfLRchb8+ZNcsP9G+CSy++nDOlgcEJSGN4+Bps/2KfcnNXTacBUmwAWhEb8CdAkX6iHI/sJ1KwKHY/OoQl8AwjxoAkXSaCxaULnb8FLMz1L5TiqI2Swhu0p8GkoAEDZaft9Vmbn+izsg6hHsXP9OLhWyZ9sCsWwz8TVNsKEIrEzU+faGyYkYMMrcWTCUDJ5Lgy5zUNkaKFstx2xMrOIfHV4+9XM80Rzigy5zQXcE5jiBVVriaO5d5poJ1x9Qa6XfqCRqoNQy46YTFyRdiCcFTfEoWJjJ/cjIK6/KKRGDW85uqaVppxcrxcC04BlSjpcWkwOk6zEm/JkVPs+qPtWmD0ZWKkGPQ5lcpmINtO7dDF1hRM3EG8cZUfMPPuWQI/8IdSlIIXmz1ZMwlraX5jmIAE3lRVtRXeCVdrcpEvvspsM/nkCzujkwpqe4mRhWc7uXcTdUQzKTMi1KqDQSPKcLEuCH4x4BGjaVge4gq1JAIvDorAwTq4WspxGcE6ds2taNOjfLP0bGxyTm9zf1+Uora9A5Oj1JKL6hB4pKBa0uFZwJThp6pl/TC36ONQcMIpq1EsGht9PrAZB/OMS5VDXdhHaksVyx+l0npgk7yPWryvodDCs=
   - APP_NAME="ionic4-boilerplate"
   - PROFILE_NAME="ionic4_Ad_Hoc_Profile"
   - ION4_APP_UPLOAD_BRANCH="master"
+  - secure: vpbuGKJ8nglvA8wsxCeBwPQL3Z2dtoUWfGuEky6wfyK+I64Pmb4WWicJ2zUfMrFWQpb5BRelIy5u0LcjogLBEL+Fw6JWZWEGcmylwq6HdFk493aOwSjz7xihxh/DIK3ujz//BDVyCq/AjROGJGGgwicKJj5UlZ4B1Jon3gEUb3rd+SO/MiVWhNRC0yukvcVQk30f5zQPcnZUskAuLPIz06zBAYvnrfg/e6x8ajMSc2Chd5LN/74AlXB/ztz7IozZ0IOHpD0jXNPS/Kkn3bOGHTQ1s5CkyE9s+Z6MV6Eu/CyLssbalKoDBNw31LmQyFG6Rh/6xZrx1wwQc39UQDXIGu7z+1AyWnGqvaymZ1y0ffBohdQSwQlKDBYJ8LyCqL/c0mSrf+mAg+pe4mWg+DyO+rKLqlYtNdscWHOG97BpnCTeZ6ODDQY8/sN/5eJ8reoNJwV+ZttHbzh1x7T9u21aMhh6bbm5EBUQRWX3yMimrrX3YsLgIHQ7E1eWP2tc0rbrQ5nh14kpbSYsf81Yjn5rsno4H/a2RUeqroxtnLQ9hmLoJGFJLaFSRIoPYwwDL/42Wjt8s7/X8+6lwtemyZojE7rASn4kaj/VgIw/1OT7zZ+YYJBQvoSLOilqjMys/kw+NTiOuKfOeqEefY4l+vP6BqzpnIMksOupBMdc77uVRQg=
+  - secure: F17TDbbrfRU1qhtrspxnl9Knq9Gz8F6tOqOSmbsKBJtorimjP8AyRErqzukftfLRchb8+ZNcsP9G+CSy++nDOlgcEJSGN4+Bps/2KfcnNXTacBUmwAWhEb8CdAkX6iHI/sJ1KwKHY/OoQl8AwjxoAkXSaCxaULnb8FLMz1L5TiqI2Swhu0p8GkoAEDZaft9Vmbn+izsg6hHsXP9OLhWyZ9sCsWwz8TVNsKEIrEzU+faGyYkYMMrcWTCUDJ5Lgy5zUNkaKFstx2xMrOIfHV4+9XM80Rzigy5zQXcE5jiBVVriaO5d5poJ1x9Qa6XfqCRqoNQy46YTFyRdiCcFTfEoWJjJ/cjIK6/KKRGDW85uqaVppxcrxcC04BlSjpcWkwOk6zEm/JkVPs+qPtWmD0ZWKkGPQ5lcpmINtO7dDF1hRM3EG8cZUfMPPuWQI/8IdSlIIXmz1ZMwlraX5jmIAE3lRVtRXeCVdrcpEvvspsM/nkCzujkwpqe4mRhWc7uXcTdUQzKTMi1KqDQSPKcLEuCH4x4BGjaVge4gq1JAIvDorAwTq4WspxGcE6ds2taNOjfLP0bGxyTm9zf1+Uora9A5Oj1JKL6hB4pKBa0uFZwJThp6pl/TC36ONQcMIpq1EsGht9PrAZB/OMS5VDXdhHaksVyx+l0npgk7yPWryvodDCs=
+  - secure: giL8LqHQE0PLU36mGD9OP9mArH5MpyveU8iLYt7YQtH3xglCNMKMjtlCKSwffyrTjTbn5KTX2PGHp9LtCoZfwaKy5xePSdwYzXRTi/g5dCtgn5t0QNpEek2jsrboNB8VAm/+CFC69osqxHYVK/6B8B3LJkMJxpbpCGXb0XYdFS+3nN/RQ/YqyXwDLiJ3HwBof0g3MY6kNBjB57c2yTyEa2K6iiF9agR4yVk6dSKf7EpT/wwhLhXK4h5ccsCqa6TYIeuIT24uLkHYvpaa0N2D2fLGj9p7GUqgWJ3aQz5sb7py44/3qzIkzpXQlJ9DIsLZiaqEzAyy4HZgGO10eI4rCGxV04VV8kp6x+uH/cG8dgCvDNTXuFvbp1qRX/kv9rga26ocJ+w0rE0vskymifsAD0ppa3qMwMACn9cg5DNqtulnpqrb3J6FCdqijWNH4gmCF9CbuIQAOBAL6j4S4awPrDw1Bi39AeHtbvBJajM/JdP4CES0aB+IbEpEl7bAxU/iEzh0vx1ehPg9f16z2QxMni+o3gZOW2NbFaGxF6WNXPCMpwD8P6Kfe84ylEQ0/DFZWIulMwaaHX+EHeg6O/QgUBUjm1NSt2cxoG3txxHamYMoGIYHlD7TQkKdKO/aVslvhUa9SQSrXk+TwF31yqkbjdd1NBKhiyDdje6TdeFUFHs=
+  - secure: YvugMt6y6Wla+KtClWIe07tzVAsT3XCaxPJORzixVSHTjwOSz21km4QFoZTXRKciL50kVZIeARwKN+8sW+i8bSO0QrqqSMsINjizOeuWTVOn2iIyFoKTTfpqE8cSINOlJOwPBKgEgTmYR4bpco13AGeY1zgmHeo/DPT4LpLIUQAU/nPxl1zIajxCnor7w0Fm+POwEWlBz0vNvRk1s3nkvzPIThTcmVcv8koeBxwTq9C4orBkKelWAvNGGqcWscpQdR0CIApgVLpHrNvSmucx62lF6uHKBq2hUo7UU9vhHVLevgOWPBX+cfTp8tXuvl+ILheDACpZeF16IPofGrfhoVAb9OP4pDMZK1C+0+DfyKT/o4Zlm8/iV/I0LuOC/v0HD46bv4tIzLYzC7rhGl9FSAicg9wf7ALnvsOUIgGATkDZBuTJp5bUSlIzfPPJui0i5rz2TzCt84xznYUd1+9sC/bjxxC56WWNnEHBBOUGIQwY6DNHIWksvd3SsMFHOfXF7hLGwNd51an9eocckxE7QsY89SXmBr52wFkF69XsAEtk21jvaBi7mLUeZX6ZcsPHWF4RqXE5VpsIsBsuRWX0/jZTyDcK3rf7gKrg1+Zihvj1n84uyd2bAC3X9OVpRZAR5tYo9ORuoSjxcJXOyzDCwZliYufXwv58r/xykmkM63M=
