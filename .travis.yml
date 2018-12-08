@@ -73,7 +73,7 @@ matrix:
     - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/ionic4travis.jks
       -storepass $storepass -keypass $keypass app-release-unsigned.apk ionic4travis
     - jarsigner -verify app-release-unsigned.apk
-    - "${ANDROID_HOME}/build-tools/26.0.0/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk"
+    #- "${ANDROID_HOME}/build-tools/26.0.0/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk"
     after_script:
     - set -e
     - "./sh/package-android.sh"
@@ -86,7 +86,7 @@ matrix:
     - brew update
     - brew install ios-sim jq ios-deploy
     - brew reinstall cocoapods ;  brew link --overwrite cocoapods
-    - chmod 755 ./sh/release/*.sh
+    - chmod 777 ./sh/release/*.sh
     - "./sh/release/decrypt-key.sh"
     - "./sh/release/add-key.sh"
     - rvm use system
