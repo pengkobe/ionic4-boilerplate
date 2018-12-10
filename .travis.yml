@@ -72,10 +72,11 @@ matrix:
     - cd platforms/android/app/build/outputs/apk/release/
     - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/ionic4travis.jks
       -storepass $storepass -keypass $keypass app-release-unsigned.apk ionic4travis
-    #- jarsigner -verify app-release-unsigned.apk
+    - jarsigner -verify app-release-unsigned.apk
     - ls
     #- "${ANDROID_HOME}/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk"
     after_script:
+    - cd ${TRAVIS_BUILD_DIR}
     - "./sh/package-android.sh"
     - set -e
     - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-signed.apk"
@@ -88,6 +89,9 @@ matrix:
     - brew install ios-sim jq ios-deploy
     - brew reinstall cocoapods ;  brew link --overwrite cocoapods
     - chmod 777 ./sh/release/*.sh
+    # for test
+    - openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv
+      -in ./sh/release/ionic4travis.jks.enc -out ./sh/release/ionic4travis.jks -d
     - "./sh/release/decrypt-key.sh"
     - "./sh/release/add-key.sh"
     - rvm use system
