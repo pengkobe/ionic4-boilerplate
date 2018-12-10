@@ -6,15 +6,15 @@ fi
 
 security create-keychain -p travis ios-build.keychain
 
-security import ./sh/release/certs/apple.cer \
+security import ./sh/release/certificates/apple.cer \
 -k ~/Library/Keychains/ios-build.keychain \
 -T /usr/bin/codesign
 
-security import ./sh/release/certs/ios_distribution.cer \
+security import ./sh/release/certificates/ios_distribution.cer \
 -k ~/Library/Keychains/ios-build.keychain \
 -T /usr/bin/codesign
 
-security import ./sh/release/certs/ios_distribution.p12 \
+security import ./sh/release/certificates/ios_distribution.p12 \
 -k ~/Library/Keychains/ios-build.keychain \
 -P $KEY_PASSWORD \
 -T /usr/bin/codesign
@@ -26,4 +26,4 @@ security default-keychain -s ios-build.keychain
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
-cp "./sh/release/profile/$PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+cp "./sh/release/certificates/$PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/

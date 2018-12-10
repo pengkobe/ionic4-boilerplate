@@ -5,21 +5,10 @@ if [[ -z "$PROFILE_NAME" ]]; then
     exit 1
 fi
 
-if [[ ! -e "./sh/release/profile/$PROFILE_NAME.mobileprovision.enc" ]]; then
-    echo "Error: Missing encrypted provision profile"
+if [[ ! -e "./sh/release/certificates.tar.enc" ]]; then
+    echo "Error: Missing encrypted certificates."
     exit 1
 fi
 
-if [[ ! -e "./sh/release/certs/ios_distribution.cer.enc" ]]; then
-    echo "Error: Missing encrypted distribution cert."
-    exit 1
-fi
-
-if [[ ! -e "./sh/release/certs/ios_distribution.p12.enc" ]]; then
-    echo "Error: Missing encrypted private key."
-    exit 1
-fi
-
-openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv -in ./sh/release/profile/ionic4_Ad_Hoc_Profile.mobileprovision.enc -out ./sh/release/profile/ionic4_Ad_Hoc_Profile.mobileprovision -d
-openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv -in ./sh/release/certs/ios_distribution.cer.enc -out ./sh/release/certs/ios_distribution.cer -d
-openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv -in ./sh/release/certs/ios_distribution.p12.enc -out ./sh/release/certs/ios_distribution.p12 -d
+openssl aes-256-cbc -K $encrypted_b6bccd78c701_key -iv $encrypted_b6bccd78c701_iv -in ./sh/release/certificates.tar.enc -out ./sh/release/certificates.tar -d
+tar xvf ./sh/release/certificates.tar -C ./sh/release/certificates
