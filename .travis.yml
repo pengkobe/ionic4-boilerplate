@@ -67,7 +67,7 @@ matrix:
     script:
     - npm install
     - "./sh/build-android.sh"
-    after_success:
+    after_script:
     - cp $TRAVIS_BUILD_DIR/sh/release/certificates/ionic4travis.jks $HOME
     - cd platforms/android/app/build/outputs/apk/release/
     - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/ionic4travis.jks
@@ -75,9 +75,9 @@ matrix:
     - jarsigner -verify app-release-unsigned.apk
     - ls
     - "${ANDROID_HOME}/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk"
-    after_script:
     - cd ${TRAVIS_BUILD_DIR}
     - "./sh/package-android.sh"
+    #after_script:
     - set -e
     - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/output/ionic4-boilerplate-release-signed.apk"
       ${PGYER_APIKEY}

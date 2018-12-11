@@ -68,5 +68,7 @@ pod --version
 
 ## 参考
 
-* https://github.com/samueltbrown/ionic-continuous-delivery-blog
+* https://github.com/samueltbrown/ionic-continuous-delivery-blog ,这篇文章年代有点久远，还是需要做一些修正才行
+  - 文中对 XCode7+ iOS9 中的 App Transport Security 处理脚本其实不再需要了，默认就是设置为 true 了
+  - update_xcconfig 那段也不需要了，高版本 Xcode 也已经默认移除了相关配置
 * [为iOS建立Travis CI（史上最全版）](https://blog.csdn.net/qq_30817073/article/details/51719473) ,事实上还是比较全的
