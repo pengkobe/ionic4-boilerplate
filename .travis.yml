@@ -102,6 +102,7 @@ matrix:
     - chmod 755 ./sh/*.sh
     - chmod 777 ./config.xml
     - chmod +x ./hooks/before_build/010_update_config.js
+    - chmod +x ./hooks/after_platform_add/update-release-xcconfig.js
     script:
     - npm install
     - "./sh/build-ios.sh && ./sh/package-ios.sh"
@@ -115,7 +116,9 @@ notifications:
 env:
   global:
   - APP_NAME="ionic4-boilerplate"
+  - DEVELOPER_NAME="iPhone Distribution: Shenzhen Cloud Facilities Network Company Limited (CVU2X68836)"
   - PROFILE_NAME="ionic4_Ad_Hoc_Profile"
+  - PROFILE_UUID="7e4556a6-395a-42bd-9ca1-fcb7230208ac"
   - ION4_APP_UPLOAD_BRANCH="master"
   - secure: vpbuGKJ8nglvA8wsxCeBwPQL3Z2dtoUWfGuEky6wfyK+I64Pmb4WWicJ2zUfMrFWQpb5BRelIy5u0LcjogLBEL+Fw6JWZWEGcmylwq6HdFk493aOwSjz7xihxh/DIK3ujz//BDVyCq/AjROGJGGgwicKJj5UlZ4B1Jon3gEUb3rd+SO/MiVWhNRC0yukvcVQk30f5zQPcnZUskAuLPIz06zBAYvnrfg/e6x8ajMSc2Chd5LN/74AlXB/ztz7IozZ0IOHpD0jXNPS/Kkn3bOGHTQ1s5CkyE9s+Z6MV6Eu/CyLssbalKoDBNw31LmQyFG6Rh/6xZrx1wwQc39UQDXIGu7z+1AyWnGqvaymZ1y0ffBohdQSwQlKDBYJ8LyCqL/c0mSrf+mAg+pe4mWg+DyO+rKLqlYtNdscWHOG97BpnCTeZ6ODDQY8/sN/5eJ8reoNJwV+ZttHbzh1x7T9u21aMhh6bbm5EBUQRWX3yMimrrX3YsLgIHQ7E1eWP2tc0rbrQ5nh14kpbSYsf81Yjn5rsno4H/a2RUeqroxtnLQ9hmLoJGFJLaFSRIoPYwwDL/42Wjt8s7/X8+6lwtemyZojE7rASn4kaj/VgIw/1OT7zZ+YYJBQvoSLOilqjMys/kw+NTiOuKfOeqEefY4l+vP6BqzpnIMksOupBMdc77uVRQg=
   - secure: F17TDbbrfRU1qhtrspxnl9Knq9Gz8F6tOqOSmbsKBJtorimjP8AyRErqzukftfLRchb8+ZNcsP9G+CSy++nDOlgcEJSGN4+Bps/2KfcnNXTacBUmwAWhEb8CdAkX6iHI/sJ1KwKHY/OoQl8AwjxoAkXSaCxaULnb8FLMz1L5TiqI2Swhu0p8GkoAEDZaft9Vmbn+izsg6hHsXP9OLhWyZ9sCsWwz8TVNsKEIrEzU+faGyYkYMMrcWTCUDJ5Lgy5zUNkaKFstx2xMrOIfHV4+9XM80Rzigy5zQXcE5jiBVVriaO5d5poJ1x9Qa6XfqCRqoNQy46YTFyRdiCcFTfEoWJjJ/cjIK6/KKRGDW85uqaVppxcrxcC04BlSjpcWkwOk6zEm/JkVPs+qPtWmD0ZWKkGPQ5lcpmINtO7dDF1hRM3EG8cZUfMPPuWQI/8IdSlIIXmz1ZMwlraX5jmIAE3lRVtRXeCVdrcpEvvspsM/nkCzujkwpqe4mRhWc7uXcTdUQzKTMi1KqDQSPKcLEuCH4x4BGjaVge4gq1JAIvDorAwTq4WspxGcE6ds2taNOjfLP0bGxyTm9zf1+Uora9A5Oj1JKL6hB4pKBa0uFZwJThp6pl/TC36ONQcMIpq1EsGht9PrAZB/OMS5VDXdhHaksVyx+l0npgk7yPWryvodDCs=
