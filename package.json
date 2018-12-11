@@ -1,6 +1,6 @@
 {
   "name": "ionic4-boilerplate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "pengkobe",
   "homepage": "http://github.com/pengkobe/ionic4-boilerplate",
   "scripts": {
@@ -64,6 +64,7 @@
     "cordova-android": "7.1.4",
     "cordova-android-support-gradle-release": "^2.0.1",
     "cordova-hot-code-push-plugin": "^1.5.3",
+    "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-appcenter-analytics": "^0.2.0",
     "cordova-plugin-appcenter-crashes": "^0.2.0",
     "cordova-plugin-appcenter-shared": "^0.2.0",
@@ -162,7 +163,8 @@
       "cordova-plugin-appcenter-crashes": {},
       "cordova-plugin-qrscanner": {},
       "cordova-android-support-gradle-release": {},
-      "cordova-hot-code-push-plugin": {}
+      "cordova-hot-code-push-plugin": {},
+      "cordova-plugin-app-version": {}
     },
     "platforms": [
       "android"

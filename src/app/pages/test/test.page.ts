@@ -7,6 +7,7 @@ import { GlobalService } from '@services/global.service';
 import { EmitService } from '@services/emit.service';
 import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
 import { QRScannerModal } from '@modals/qr-scanner/qr-scanner';
+declare var window;
 
 @Component({
   selector: 'page-test',
@@ -14,7 +15,7 @@ import { QRScannerModal } from '@modals/qr-scanner/qr-scanner';
 })
 export class TestPage {
   isAlwaysLight = false;
-
+  versionNumber;
   languageType: string;
 
   options: EChartOption = {
@@ -72,6 +73,12 @@ export class TestPage {
     this.languageType = this.globalservice.languageType
       ? this.globalservice.languageType
       : 'zh';
+
+    if (window.cordova) {
+      window.cordova.getAppVersion.getVersionNumber().then(version => {
+        this.versionNumber = version;
+      });
+    }
   }
 
   async open(format: boolean = false) {
