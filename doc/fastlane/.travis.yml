@@ -1,0 +1,11 @@
+language: objective-c
+osx_image: xcode9.4
+cache:
+  - bundler
+before_install:
+  - bundle install
+  - bundle update
+  - npm install -g cordova ionic
+  - npm install
+script:
+  - fastlane beta
