@@ -9,6 +9,5 @@ if [[ ! -e "./sh/release/certificates.tar.enc" ]]; then
     echo "Error: Missing encrypted certificates."
     exit 1
 fi
-
-openssl aes-256-cbc -K $encrypted_b6bccd78c701_key -iv $encrypted_b6bccd78c701_iv -in ./sh/release/certificates.tar.enc -out ./sh/release/certificates.tar -d
+openssl aes-256-cbc -K $encrypted_8e49fe484714_key -iv $encrypted_8e49fe484714_iv -in ./sh/release/certificates.tar.enc -out ./sh/release/certificates.tar -d
 tar xvf ./sh/release/certificates.tar -C ./sh/release/certificates
