@@ -29,8 +29,8 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     create_keychain(
-      name: "ios-build",
-      password: "travis",
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_PASSWORD"],
       default_keychain: true,
       unlock: true,
       timeout: 3600,
@@ -39,8 +39,8 @@ platform :ios do
 
     match(
       type: "adhoc", 
-      keychain_name: "ios-build",
-      keychain_password: "travis",
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
       readonly: true
     )
     
