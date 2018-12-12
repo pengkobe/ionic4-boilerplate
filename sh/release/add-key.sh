@@ -19,6 +19,15 @@ security import ./sh/release/certificates/ios_distribution.p12 \
 -P $KEY_PASSWORD \
 -T /usr/bin/codesign
 
+security import ./sh/release/certificates/ios_develop.cer \
+-k ~/Library/Keychains/ios-build.keychain \
+-T /usr/bin/codesign
+
+security import ./sh/release/certificates/ios_develop.p12 \
+-k ~/Library/Keychains/ios-build.keychain \
+-P $KEY_PASSWORD \
+-T /usr/bin/codesign
+
 security set-keychain-settings -t 3600 \
 -l ~/Library/Keychains/ios-build.keychain
 
