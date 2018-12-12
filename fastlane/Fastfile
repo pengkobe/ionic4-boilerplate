@@ -47,7 +47,7 @@ platform :ios do
 
     sigh(
       adhoc: true, 
-      username: "yipeng.info@gamil.com",
+      username: "yipeng.info@gmail.com",
       team_id: "CVU2X68836",
       provisioning_name: "ionic4_Ad_Hoc_Profile.mobileprovision",
       cert_id: "CVU2X68836"
