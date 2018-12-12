@@ -6,8 +6,9 @@
 var path = require('path');
 var fs = require('fs');
 
-
+// @deprecated
 fs.exists("../../platforms/ios", function (exists) {
+    return true;
     if (exists) {
         var PROFILE_UUID_TEMPLATE_VAL = '%PROFILE_UUID%';
         var PROFILE_UUID_ENV_VAR = process.env.PROFILE_UUID;
