@@ -28,6 +28,9 @@ platform :ios do
   desc "Submit a new Beta Build to Apple PGYER"
   desc "This will also make sure the profile is up to date"
   lane :beta do
+    get_certificates           # invokes cert
+    get_provisioning_profile   # invokes sigh
+
     create_keychain(
       name: ENV["MATCH_KEYCHAIN_NAME"],
       password: ENV["MATCH_PASSWORD"],
@@ -37,12 +40,27 @@ platform :ios do
       add_to_search_list: true
     )
 
-    match(
-      type: "adhoc", 
-      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_PASSWORD"],
-      readonly: true
+    # Import distribution certificate
+    import_certificate(
+      certificate_path: "sh/release/certificates/ios_distribution.p12",
+      certificate_password: ENV["KEY_PASSWORD"],
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"]
     )
+
+    sigh(
+      adhoc: true, 
+      username: "yipeng.info@gamil.com",
+      team_id: "CVU2X68836",
+      provisioning_name: "ionic4_Ad_Hoc_Profile.mobileprovision",
+      cert_id: "CVU2X68836"
+    )
+
+    # match(
+    #   type: "adhoc", 
+    #   keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+    #   keychain_password: ENV["MATCH_PASSWORD"],
+    #   readonly: true
+    # )
     
     ## --prod
     sh "cd .. && ionic cordova build ios --release"

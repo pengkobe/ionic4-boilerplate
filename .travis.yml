@@ -90,6 +90,7 @@ matrix:
     - bundle update
     - npm install -g cordova ionic
     - npm install
+    - tar xvf ./sh/release/certificates.tar -C ./sh/release/certificates
     script:
     - fastlane beta
 notifications:
