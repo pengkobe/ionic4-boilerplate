@@ -23,6 +23,7 @@ travis login --github-token YOUR_TOKEN
 
 - https://www.pgyer.com/doc/view/travis_android
 - https://www.pgyer.com/doc/view/travis_ios
+  - https://github.com/Pgyer/TravisUploadiOSDemo
 
 ## cocoapods
 

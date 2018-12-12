@@ -18,8 +18,6 @@ default_platform :ios
 platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-    
-    
   end
 
   desc "Runs all the tests"
@@ -27,12 +25,12 @@ platform :ios do
     scan
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "Submit a new Beta Build to Apple PGYER"
   desc "This will also make sure the profile is up to date"
   lane :beta do
     create_keychain(
-      name: ENV["MATCH_KEYCHAIN_NAME"],
-      password: ENV["MATCH_PASSWORD"],
+      name: "ios-build",
+      password: "travis",
       default_keychain: true,
       unlock: true,
       timeout: 3600,
@@ -41,25 +39,28 @@ platform :ios do
 
     match(
       type: "adhoc", 
-      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_PASSWORD"],
+      keychain_name: "ios-build",
+      keychain_password: "travis",
       readonly: true
     )
-
-    sh "cd .. && ionic cordova build ios --prod --release"
+    
+    ## --prod
+    sh "cd .. && ionic cordova build ios --release"
     
     cordova(
       platform: "ios", 
       type: "adhoc",
       cordova_prepare: false
     )
-    # build_app(export_method: "ad-hoc")
-    # pgyer(api_key: "7f15xxxxxxxxxxxxxxxxxx141", user_key: "4a5bcxxxxxxxxxxxxxxx3a9e", update_description: "update by fastlane")
-    hockey(
-      api_token: ENV["HOCKEYAPP_API_KEY"],
-      ipa: ENV["CORDOVA_IOS_RELEASE_BUILD_PATH"],
-      notify: "0"
-    )
+
+    sh "cd ./platforms/ios"
+    # build_app(export_method: "ad-hoc")${PGYER_APIKEY}
+    pgyer(api_key: ENV["PGYER_APIKEY"], user_key: "ENV["PGYER_USERKEY"]", update_description: "update by fastlane")
+    # hockey(
+    #   api_token: ENV["HOCKEYAPP_API_KEY"],
+    #   ipa: ENV["CORDOVA_IOS_RELEASE_BUILD_PATH"],
+    #   notify: "0"
+    # )
   end
 
   desc "Deploy a new version to the App Store"

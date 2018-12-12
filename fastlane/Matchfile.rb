@@ -1,6 +1,6 @@
-git_url "https://github.com/pengkobe/ionic4-boilerplate"
+git_url "https://github.com/pengkobe/ionic4-boilerplate.git"
 
-type "development" # The default type, can be: appstore, adhoc, enterprise or development
+type "adhoc" # The default type, can be: development, appstore, adhoc, enterprise or development
 
 # app_identifier ["tools.fastlane.app", "tools.fastlane.app2"]
 # username "user@fastlane.tools" # Your Apple Developer Portal username
