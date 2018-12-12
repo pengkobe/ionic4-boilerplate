@@ -28,8 +28,6 @@ platform :ios do
   desc "Submit a new Beta Build to Apple PGYER"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    get_certificates           # invokes cert
-    get_provisioning_profile   # invokes sigh
 
     create_keychain(
       name: ENV["MATCH_KEYCHAIN_NAME"],
