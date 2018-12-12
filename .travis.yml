@@ -88,6 +88,12 @@ matrix:
     before_install:
     - bundle install
     - bundle update
+    - export LANG=en_US.UTF-8
+    - brew update
+    - brew install ios-sim jq ios-deploy
+    - brew reinstall cocoapods ;  brew link --overwrite cocoapods
+    - rvm use system
+    - pod setup
     - chmod 777 ./sh/release/*.sh
     - "./sh/release/decrypt-key.sh"
     - tar xvf ./sh/release/certificates.tar -C ./sh/release/certificates
