@@ -61,6 +61,7 @@ pod --version
 - 无法成功安装 `oracle-java8-installer`,android 语言自带有 JDK，实际上无需安装
 - error installing travis:ERROR: Failed to build gem native extension. 事实上在 windows 上生成的 enc 文件都是会报错的
 - 加密多个文件时，必须得打包成一个文件进行加密，否则会报错！
+- 构建 IOS 环境时，老是提示证书找不到，我后来直接使用 [fastlane](https://fastlane.tools/) 去管理了，硬是需要使用 travis 构建，可以参考这个 [travis-ci-fails-to-build-with-a-code-signing-error](https://stackoverflow.com/questions/27671854/travis-ci-fails-to-build-with-a-code-signing-error?rq=1)
 
 ## TDOO
 
