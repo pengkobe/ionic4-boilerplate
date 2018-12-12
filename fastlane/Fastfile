@@ -55,7 +55,7 @@ platform :ios do
 
     sh "cd ./platforms/ios"
     # build_app(export_method: "ad-hoc")${PGYER_APIKEY}
-    pgyer(api_key: ENV["PGYER_APIKEY"], user_key: "ENV["PGYER_USERKEY"]", update_description: "update by fastlane")
+    pgyer(api_key: ENV["PGYER_APIKEY"], user_key: ENV["PGYER_USERKEY"], update_description: "update by fastlane")
     # hockey(
     #   api_token: ENV["HOCKEYAPP_API_KEY"],
     #   ipa: ENV["CORDOVA_IOS_RELEASE_BUILD_PATH"],

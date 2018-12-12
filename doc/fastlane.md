@@ -34,6 +34,10 @@ https://www.pgyer.com/doc/view/fastlane
 
 * [是否支持 windows](https://github.com/fastlane/fastlane/issues/3594)
 
+## Cordova
+
+有集成 Cordova 构建的插件 [fastlane-plugin-cordova](https://github.com/bamlab/fastlane-plugin-cordova)
+
 ## 参考
 * https://fastlane.tools/
 * https://docs.fastlane.tools/
