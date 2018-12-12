@@ -88,9 +88,11 @@ matrix:
     before_install:
     - bundle install
     - bundle update
+    - chmod 777 ./sh/release/*.sh
+    - "./sh/release/decrypt-key.sh"
+    - tar xvf ./sh/release/certificates.tar -C ./sh/release/certificates
     - npm install -g cordova ionic
     - npm install
-    - tar xvf ./sh/release/certificates.tar -C ./sh/release/certificates
     script:
     - fastlane beta
 notifications:
