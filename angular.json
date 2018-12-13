@@ -31,7 +31,8 @@
                 "input": "node_modules/@ionic/angular/dist/ionic/svg",
                 "output": "./svg"
               },
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/chcp.json"
             ],
             "styles": [
               {
@@ -101,7 +102,8 @@
                 "input": "src/assets",
                 "output": "/assets"
               },
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/chcp.json"
             ]
           }
         },
