@@ -45,6 +45,13 @@ platform :ios do
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"]
     )
 
+    # Import push certificate
+    import_certificate(
+      certificate_path: "sh/release/certificates/ios_push_distribution.p12",
+      certificate_password: ENV["KEY_PASSWORD"],
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"]
+    )
+
     sigh(
       adhoc: true, 
       username: "yipeng.info@gmail.com",
@@ -60,8 +67,8 @@ platform :ios do
     #   readonly: true
     # )
     
-    ## --prod
-    sh "ionic cordova build ios --release"
+    # --prod
+    # sh "ionic cordova build ios --release"
     
     cordova(
       platform: "ios", 
@@ -69,7 +76,7 @@ platform :ios do
       cordova_prepare: false
     )
 
-    sh "cd ./platforms/ios"
+    sh "cd ./ios"
     # build_app(export_method: "ad-hoc")${PGYER_APIKEY}
     pgyer(api_key: ENV["PGYER_APIKEY"], user_key: ENV["PGYER_USERKEY"], update_description: "update by fastlane")
     # hockey(

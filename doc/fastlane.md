@@ -47,4 +47,8 @@ https://www.pgyer.com/doc/view/fastlane
 
 * https://github.com/tim-hoffmann/ionic-fastlane-travisci-hockeyapp
 * https://github.com/janpio/ionic-fastlane
+  * 集成 ionic fastlane 插件
+  * 集成 appcenter 插件
+  * 集成 cordova fastlane 插件
+
 * https://github.com/mikepsinn/qm-ionic-quantimodo/blob/master/fastlane/Fastfile
