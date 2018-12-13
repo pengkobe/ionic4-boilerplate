@@ -69,9 +69,9 @@ platform :ios do
     
     # --prod
     # sh "ionic cordova build ios --release"
-    sh "cd .."
+    sh "ls -l"
 
-    cordova(
+    ionic(
       platform: "ios", 
       type: "adhoc",
       cordova_prepare: false
