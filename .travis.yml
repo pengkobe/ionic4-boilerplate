@@ -92,7 +92,7 @@ matrix:
     #- brew update
     #- brew install ios-sim jq ios-deploy
     - brew reinstall cocoapods ;  brew link --overwrite cocoapods
-    - rvm use system
+    #- rvm use system
     - pod setup
     - nvm install 8.9.0
     - chmod 777 ./sh/release/*.sh

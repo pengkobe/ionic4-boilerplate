@@ -68,7 +68,7 @@ platform :ios do
     # )
     
     # --prod
-    sh "ionic cordova build ios --release"
+    # -sh "ionic cordova build ios --release"
     
     cordova(
       platform: "ios", 
