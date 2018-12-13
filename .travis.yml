@@ -91,9 +91,9 @@ matrix:
     - export LANG=en_US.UTF-8
     #- brew update
     #- brew install ios-sim jq ios-deploy
-    - brew reinstall cocoapods ;  brew link --overwrite cocoapods
+    #- brew reinstall cocoapods ;  brew link --overwrite cocoapods
     #- rvm use system
-    - pod setup
+    #- pod setup
     - nvm install 8.9.0
     - chmod 777 ./sh/release/*.sh
     - chmod +x ./hooks/before_build/010_update_config.js
