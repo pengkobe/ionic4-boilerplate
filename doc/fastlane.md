@@ -31,8 +31,13 @@ fastlane init swift
 fastlane 提供了好几种证书管理的方式，非常方便团队协作，
 
 ### match
+
 可以参考这篇文章（[setup-fastlane-match-for-ios](https://medium.com/@danielvivek2006/setup-fastlane-match-for-ios-6260758a9a4e)
 ）进行设置
+
+### cert 与 sigh
+
+可以方便你手动对证书进行管理
 
 ## 上传至蒲公英
 

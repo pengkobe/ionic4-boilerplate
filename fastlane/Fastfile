@@ -59,32 +59,18 @@ platform :ios do
       provisioning_name: "ionic4_Ad_Hoc_Profile.mobileprovision",
       cert_id: "CVU2X68836"
     )
-
-    # match(
-    #   type: "adhoc", 
-    #   keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-    #   keychain_password: ENV["MATCH_PASSWORD"],
-    #   readonly: true
-    # )
     
-    # --prod
-    # sh "ionic cordova build ios --release"
+    # sh "ionic cordova build ios --prod --release"
     sh "ls -l"
 
     ionic(
       platform: "ios", 
-      type: "adhoc",
-      cordova_prepare: false
+      type: "adhoc"
     )
 
-    sh "cd ./platforms/ios"
-    # build_app(export_method: "ad-hoc")${PGYER_APIKEY}
+    sh "cd ../platforms/ios"
     pgyer(api_key: ENV["PGYER_APIKEY"], user_key: ENV["PGYER_USERKEY"], update_description: "update by fastlane")
-    # hockey(
-    #   api_token: ENV["HOCKEYAPP_API_KEY"],
-    #   ipa: ENV["CORDOVA_IOS_RELEASE_BUILD_PATH"],
-    #   notify: "0"
-    # )
+
   end
 
   desc "Deploy a new version to the App Store"
