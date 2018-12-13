@@ -11,8 +11,6 @@
 boilerplate for ionic4  
 migrate from : https://github.com/pengkobe/ionic-boilerplate
 
-> I am working on it right now. please don't fork! ☺
-
 ## 使用
 
 ```bash
@@ -40,7 +38,7 @@ commitizen init cz-conventional-changelog --save --save-exact
   - [ ] 部署
     - [x] travis
     - [ ] jenkins
-    - [ ] fastlane
+    - [x] fastlane
     - [ ] docker
 - [x] 版本更新( apk )
 - [x] 支持多语言[中/英]
@@ -111,7 +109,7 @@ System:
 - [ ] 部署
   - [x] [travis](./doc/travis.md)
   - [ ] [jenkins](./doc/jenkins.md)
-  - [ ] [fastlane](./doc/fastlane.md)
+  - [x] [fastlane](./doc/fastlane.md)
   - [ ] [docker](./doc/docker.md)
 
 ## 版本更新
