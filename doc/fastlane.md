@@ -28,7 +28,7 @@ fastlane init swift
 
 ## 上传至蒲公英
 
-https://www.pgyer.com/doc/view/fastlane
+参见[蒲公英官网教程](https://www.pgyer.com/doc/view/fastlane)
 
 ## 一些疑问
 
@@ -39,16 +39,17 @@ https://www.pgyer.com/doc/view/fastlane
 有集成 Cordova 构建的插件 [fastlane-plugin-cordova](https://github.com/bamlab/fastlane-plugin-cordova)
 
 ## 参考
-* https://fastlane.tools/
-* https://docs.fastlane.tools/
-* https://www.3pillarglobal.com/insights/automatic-ionic-and-ios-builds-with-jenkins-and-f
+
+* [fastlane 官网](https://fastlane.tools/)
+* [fastlane 官方文档](https://docs.fastlane.tools/)
+* [automatic-ionic-and-ios-builds-with-jenkins-and-fastlane](https://www.3pillarglobal.com/insights/automatic-ionic-and-ios-builds-with-jenkins-and-f)
 
 ### demo 项目
 
-* https://github.com/tim-hoffmann/ionic-fastlane-travisci-hockeyapp
-* https://github.com/janpio/ionic-fastlane
+* 基于 `match` 打包证书，然后上传至 hockeyapp，[ionic-fastlane-travisci-hockeyapp](https://github.com/tim-hoffmann/ionic-fastlane-travisci-hockeyapp)
+* [ionic-fastlane](https://github.com/janpio/ionic-fastlane)
   * 集成 ionic fastlane 插件
   * 集成 appcenter 插件
   * 集成 cordova fastlane 插件
-
-* https://github.com/mikepsinn/qm-ionic-quantimodo/blob/master/fastlane/Fastfile
+* IOS 构建示例： https://github.com/macoscope/ContinuousIntegrationExample
+* 一个涵盖 travis fastlane Jenkins 等一个大杂烩 Repo， [qm-ionic-quantimodo](https://github.com/mikepsinn/qm-ionic-quantimodo/blob/master/fastlane/Fastfile)
