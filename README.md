@@ -70,7 +70,9 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ## 运行环境介绍
 
-本脚手架运行环境为( base on command: `ionic info`):
+本脚手架构建环境为( base on command: `ionic info`):
+
+### Android
 
 ```bash
 Ionic:
@@ -93,6 +95,34 @@ System:
    NodeJS            : v8.9.1
    npm               : 5.5.1
    OS                : Windows 10
+```
+
+### IOS
+
+```
+Ionic:
+
+   ionic (Ionic CLI)             : 4.5.0 (/usr/local/lib/node_modules/ionic)
+   Ionic Framework               : @ionic/angular 4.0.0-beta.15
+   @angular-devkit/build-angular : 0.8.8
+   @angular-devkit/schematics    : 0.8.8
+   @angular/cli                  : 6.2.8
+   @ionic/angular-toolkit        : 1.2.0
+
+Cordova:
+
+   cordova (Cordova CLI) : 8.0.0
+   Cordova Platforms     : ios 4.5.5
+   Cordova Plugins       : cordova-plugin-ionic-keyboard 2.1.3, cordova-plugin-ionic-webview 2.3.1, (and 19 other plugins)
+
+System:
+
+   ios-deploy : 1.9.1
+   ios-sim    : 5.0.3
+   NodeJS     : v8.9.0 (/usr/local/bin/node)
+   npm        : 5.5.1
+   OS         : macOS Mojave
+   Xcode      : Xcode 10.1 Build version 10B61
 ```
 
 ## 开发文档
