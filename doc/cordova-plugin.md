@@ -24,3 +24,17 @@ cordova-plugin-wechat
 ### 定位
 
 cordova-plugin-baidumaplocation
+
+## 错误集锦
+
+```bash
+Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<WKWebViewConfiguration 0x7fb1d960cd00> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key _requiresUserActionForMediaPlayback
+```
+
+解决办法: [Not working iOS](https://github.com/katzer/cordova-plugin-background-mode/issues/406)
+
+```bash
+app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[NSURL URLByAppendingPathComponent:isDirectory:]: component, components, or pathExtension cannot be nil.'
+```
+
+解决办法: [iOS crash when loading the plugin](https://github.com/nordnet/cordova-hot-code-push/issues/128)
