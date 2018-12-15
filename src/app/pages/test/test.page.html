@@ -12,7 +12,7 @@
     <ion-row>
       <ion-col col-12 (click)="open()">
         <ion-item>
-          <ion-label> 扫码拍照</ion-label>
+          <ion-label> {{ 'HOME.Scan' | translate }}</ion-label>
           <ion-icon name="qr-scanner" item-start color="primary"></ion-icon>
         </ion-item>
       </ion-col>
@@ -22,7 +22,7 @@
       <ion-col col-12>
         <ion-item>
           <ion-icon name="bulb" item-start color="primary"></ion-icon>
-          <ion-label> 屏幕常亮</ion-label>
+          <ion-label> {{ 'HOME.ScreenAlwaysLight' | translate }} </ion-label>
           <ion-toggle
             (ionChange)="changeLightState()"
             color="secondary"
@@ -36,17 +36,17 @@
       <ion-col col-12>
         <ion-item>
           <ion-icon name="musical-notes" item-start color="primary"></ion-icon>
-          <ion-label>语言切换</ion-label>
+          <ion-label>{{ 'HOME.SwitchLanguage' | translate }}</ion-label>
           <ion-select
             [(ngModel)]="languageType"
             (ngModelChange)="setLanguageType($event)"
-            cancelText="取消"
-            okText="确定"
+            cancelText="{{ 'HOME.Cancel' | translate }}"
+            okText="{{ 'HOME.confirm' | translate }}"
           >
             <ion-select-option value="zh" selected="true"
-              >中文</ion-select-option
+              >{{ 'HOME.LanguageCH' | translate }}</ion-select-option
             >
-            <ion-select-option value="en">英文</ion-select-option>
+            <ion-select-option value="en">{{ 'HOME.LanguageEN' | translate }}</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -56,7 +56,7 @@
       <ion-col col-12>
         <ion-item>
           <ion-icon name="bulb" item-start color="primary"></ion-icon>
-          <ion-label>皮肤切换</ion-label>
+          <ion-label>{{ 'HOME.Theme' | translate }}</ion-label>
           <ion-toggle
             (ionChange)="toggleAppTheme()"
             color="secondary"

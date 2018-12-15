@@ -5,6 +5,14 @@
     "Test": "测试",
     "Me": "我",
     "Toggle": "侧边栏",
-    "Menu": "菜单"
+    "Menu": "菜单",
+    "Scan": "扫码",
+    "ScreenAlwaysLight": "屏幕常亮",
+    "SwitchLanguage": "语言切换",
+    "LanguageCH":"中文",
+    "LanguageEN":"英文",
+    "Theme":"皮肤切换",
+    "Cancel":"取消",
+    "confirm":"确定"
   }
 }

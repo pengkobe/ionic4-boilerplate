@@ -5,6 +5,14 @@
     "Test": "Test",
     "Me": "Me",
     "Toggle": "Toggle Menu",
-    "Menu": "Menu"
+    "Menu": "Menu",
+    "Scan": "Scan",
+    "ScreenAlwaysLight": "Screen Always Light",
+    "SwitchLanguage": "Switch Language",
+    "LanguageCH":"Chinese",
+    "LanguageEN":"English",
+    "Theme":"Theme",
+    "Cancel":"Cancel",
+    "confirm":"OK"
   }
 }
