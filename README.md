@@ -268,18 +268,6 @@ see: [cordova-plugin](./doc/cordova-plugin.md)
 
 ## 用户行为统计
 
-本架手架默认安装了 `AppAnalytics_SDK_Cordova` 与 `appcenter-sdk-cordova` 两个插件，两者选其一即可
-
-### 方案 1
-
-基于 TalkingData 进行统计，Github 上有相应 Cordova 插件，需要在官网下载最新库文件，手动进行集成
-
-- 官网：https://www.talkingdata.com/
-- 集成文档: http://doc.talkingdata.com/posts/143
-- Cordova 插件模板: https://github.com/TalkingData/AppAnalytics_SDK_Cordova
-
-### 方案 2
-
 - 基于 微软的 [appcenter-sdk-cordova](https://github.com/Microsoft/appcenter-sdk-cordova)
 - 官网: https://appcenter.ms/
 - 文档: https://docs.microsoft.com/en-us/appcenter/sdk/analytics/cordova
