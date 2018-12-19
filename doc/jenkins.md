@@ -11,6 +11,15 @@ java -jar jenkins.war --httpPort=8080.
 设置账户密码: username/password
 Jenkins URL: http://localhost:8080/
 
+### 基于 docker
+
+拉取 jenkins 并运行容器，使用 `http://YOUR_IP:10080` 访问
+
+```bash
+docker pull docker.io/jenkins/jenkins
+docker run --name jenkins -p 10080:8080 docker.io/jenkins/jenkins
+```
+
 ## 如何集成 Ionic 项目
 
 ### IOS
@@ -20,14 +29,13 @@ Jenkins URL: http://localhost:8080/
 * [iOS持续集成—Jenkins(最新最全)](https://www.jianshu.com/p/9cb3d8c8c78d)
 * [Jenkins持续集成ionic iOS项目](https://www.jianshu.com/p/d7822a92b575)
 
-#### 上传至蒲公英
+#### IOS 上传至蒲公英
 
 https://www.pgyer.com/doc/view/jenkins_ios
 
-
 ### Android
 
-#### 上传至蒲公英
+#### Android 上传至蒲公英
 
 https://www.pgyer.com/doc/view/jenkins
 
