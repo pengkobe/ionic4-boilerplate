@@ -57,18 +57,21 @@ platform :ios do
       keychain_password: keychain_password
     )
 
-    #cert(
-    #  username: "yipeng.info@gmail.com",
-    #  keychain_password: keychain_password,
-    #  keychain_path:"/Users/travis/Library/Keychains/ios-build.keychain-db"
-    #)
+    # cert(
+    #   force: true,
+    #   team_id: "CVU2X68836",
+    #   username: "yipeng.info@gmail.com",
+    #   filename: "ionic4travis",
+    #   keychain_path:"/Users/travis/Library/Keychains/ios-build.keychain-db",
+    #   keychain_password: keychain_password
+    # )
+    
     sigh(
       adhoc: true, 
       force: true,
       username: "yipeng.info@gmail.com",
       team_id: "CVU2X68836",
-      provisioning_name: "ionic4AdHoc.mobileprovision",
-      cert_id: "CVU2X68836"
+      provisioning_name: "ionic4AdHoc.mobileprovision"
     )
     
     # sh "ionic cordova build ios --prod --release"
