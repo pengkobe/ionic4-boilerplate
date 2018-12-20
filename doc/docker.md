@@ -14,30 +14,32 @@
 
 ## 安装
 
-参考教程: http://www.runoob.com/docker/windows-docker-install.html (文中有提到在 win10 环境下需要开启 hyperV 功能，实际上是不需要的)  
+参考教程: http://www.runoob.com/docker/windows-docker-install.html (文中有提到在 win10 环境下需要开启 hyperV 功能，实际上只支持 win10 专业版)  
 
-windows 安装非常简单，主要会安装以下几个组件
+windows 安装非常简单，主要会安装以下几个组件  
 
 - Kitematic，为 Windows提供了与 Mac 相同的用户体验和功能，支持 powershell 等，可视化方式从 docker hub 拉取镜像和运行镜像
-- Docker Quickstart Terminal
-- Docker for Windows
-- VirtualBox
+- Docker Machine，可以让你在windows的命令行中运行docker引擎命令
+- Docker Cli，用来运行docker引擎创建镜像和容器
+- Docker Compose. 用来运行docker-compose命令
+- Docker Quickstart Terminal，是一个已经配置好 Docker 的命令行环境
+- VirtualBox， 虚拟机
 
 ## 镜像
 
 ### ionic-docker
 
-基于 docker 镜像，，Github 地址: https://github.com/marcoturi/ionic-docker
+基于 docker 镜像，Github 地址: https://github.com/marcoturi/ionic-docker
 
 windows 下环境下运行一直识别不出 ionic 项目，按照 Issue 中修改 myApp 为 Sources 也不行。  
 
 linux 下环境下运行
 
 ```bash
-alias ionic="docker run -ti --rm --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v \$PWD:/myApp:rw marcoturi/ionic ionic"
+alias ionic="docker run -ti --rm --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v $PWD:/myApp:rw marcoturi/ionic ionic"
 ```
 
-原来作者只是修改了这个项目的一些配置，连文档都没改过来，直接参考这个就 ok: https://hub.docker.com/r/agileek/ionic-framework 
+作者只是修改了这个项目的一些配置，连文档都没改过来，直接参考这个就 ok: https://hub.docker.com/r/agileek/ionic-framework 
 
 ### docker-ionic
 
@@ -49,7 +51,7 @@ https://github.com/beevelop/docker-ionic
 
 ## 参考
 
-* https://github.com/beevelop/docker-ionic
+* 推荐: https://github.com/beevelop/docker-ionic
 * 推荐: https://github.com/marcoturi/ionic-docker
 * https://hub.docker.com/r/agileek/ionic-framework/~/dockerfile/
 * https://github.com/svenlaater/travis-ci-ionic-yml/blob/master/Dockerfile-node-java-android

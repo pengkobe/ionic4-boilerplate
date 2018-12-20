@@ -37,9 +37,9 @@ commitizen init cz-conventional-changelog --save --save-exact
     - [x] Android
   - [ ] 部署
     - [x] travis
-    - [ ] jenkins
+    - [x] jenkins
     - [x] fastlane
-    - [ ] docker
+    - [x] docker
 - [x] 版本更新( apk )
 - [x] 支持多语言[中/英]
 - [x] http
@@ -138,9 +138,9 @@ System:
   - [x] [android](./doc/android.md)
 - [ ] 部署
   - [x] [travis](./doc/travis.md)
-  - [ ] [jenkins](./doc/jenkins.md)
+  - [x] [jenkins](./doc/jenkins.md)
   - [x] [fastlane](./doc/fastlane.md)
-  - [ ] [docker](./doc/docker.md)
+  - [x] [docker](./doc/docker.md)
 
 ## 版本更新
 
