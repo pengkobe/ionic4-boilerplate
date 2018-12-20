@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/pengkobe/ionic4-boilerplate/compare/v0.1.0...v0.3.0) (2018-12-20)
+
+
+### Bug Fixes
+
+* **backgroundmode:** fix backgroud-mode plugin cause wkwebview crash ([a874b2c](https://github.com/pengkobe/ionic4-boilerplate/commit/a874b2c))
+* **hotcodepush:** chcp.json file missed cause ios app crashed ([7313a52](https://github.com/pengkobe/ionic4-boilerplate/commit/7313a52))
+
+
+### Features
+
+* **trasnlate:** [skip travis] translate few words ([d5c4ee6](https://github.com/pengkobe/ionic4-boilerplate/commit/d5c4ee6))
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/pengkobe/ionic4-boilerplate/compare/v0.0.2...v0.1.0) (2018-12-12)
 
