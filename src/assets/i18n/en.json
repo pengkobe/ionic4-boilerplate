@@ -13,6 +13,8 @@
     "LanguageEN":"English",
     "Theme":"Theme",
     "Cancel":"Cancel",
-    "confirm":"OK"
+    "confirm":"OK",
+    "GetRandomNumber":"Get Random Number",
+    "Calendar":"Calendar"
   }
 }

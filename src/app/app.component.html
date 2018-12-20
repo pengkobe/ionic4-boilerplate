@@ -7,30 +7,28 @@
   >
     <ion-menu>
       <ion-header>
-        <ion-toolbar> <ion-title>菜单</ion-title> </ion-toolbar>
+        <ion-toolbar> <ion-title> {{ 'HOME.Menu' | translate }} </ion-title> </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-list-header> 功能点 </ion-list-header>
-
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="navigate('/tabs')">
               <ion-icon slot="start" name="home"></ion-icon>
-              <ion-label> 首页 </ion-label>
+              <ion-label> {{ 'HOME.Home' | translate }} </ion-label>
             </ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="navigate('/tabs/(list:list)')">
               <ion-icon slot="start" name="information-circle"></ion-icon>
-              <ion-label> 列表 </ion-label>
+              <ion-label> {{ 'HOME.List' | translate }} </ion-label>
             </ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="navigate('/tabs/(test:test)')">
               <ion-icon slot="start" name="hammer"></ion-icon>
-              <ion-label> 测试 </ion-label>
+              <ion-label> {{ 'HOME.Test' | translate }} </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

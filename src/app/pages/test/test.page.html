@@ -35,7 +35,7 @@
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-icon name="musical-notes" item-start color="primary"></ion-icon>
+          <ion-icon name="keypad" item-start color="primary"></ion-icon>
           <ion-label>{{ 'HOME.SwitchLanguage' | translate }}</ion-label>
           <ion-select
             [(ngModel)]="languageType"
@@ -44,9 +44,9 @@
             okText="{{ 'HOME.confirm' | translate }}"
           >
             <ion-select-option value="zh" selected="true"
-              >{{ 'HOME.LanguageCH' | translate }}</ion-select-option
+              >中文</ion-select-option
             >
-            <ion-select-option value="en">{{ 'HOME.LanguageEN' | translate }}</ion-select-option>
+            <ion-select-option value="en"> English </ion-select-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -55,7 +55,7 @@
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-icon name="bulb" item-start color="primary"></ion-icon>
+          <ion-icon name="moon" item-start color="primary"></ion-icon>
           <ion-label>{{ 'HOME.Theme' | translate }}</ion-label>
           <ion-toggle
             (ionChange)="toggleAppTheme()"

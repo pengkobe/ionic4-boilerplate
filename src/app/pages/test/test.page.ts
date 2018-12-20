@@ -7,6 +7,7 @@ import { GlobalService } from '@services/global.service';
 import { EmitService } from '@services/emit.service';
 import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
 import { QRScannerModal } from '@modals/qr-scanner/qr-scanner';
+import { TranslateService } from '@ngx-translate/core';
 declare var window;
 
 @Component({
@@ -62,17 +63,18 @@ export class TestPage {
     public globalservice: GlobalService,
     public modalCtrl: ModalController,
     public emit: EmitService,
-    private appCenterAnalytics: AppCenterAnalytics
+    private appCenterAnalytics: AppCenterAnalytics,
+    public translate: TranslateService
   ) {
     this.emit.getActiveTheme().subscribe(val => this.selectedTheme = val);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestPage');
+    this.translate.get(this.globalservice.languageType).subscribe((res: string) => {
+      this.languageType = res ? res : 'zh';
+    });
 
-    this.languageType = this.globalservice.languageType
-      ? this.globalservice.languageType
-      : 'zh';
 
     if (window.cordova) {
       window.cordova.getAppVersion.getVersionNumber().then(version => {
@@ -80,6 +82,7 @@ export class TestPage {
       });
     }
   }
+
 
   async open(format: boolean = false) {
     const modal = await this.modalCtrl.create({
@@ -131,8 +134,10 @@ export class TestPage {
 
   setLanguageType(val) {
     this.globalservice.languageType = val;
+    this.translate.get(val).subscribe((res: string) => {
+      this.languageType = res ? res : 'zh';
+    });
     this.emit.eventEmit.emit('languageType');
-
     this.appCenterAnalytics.setEnabled(true).then(() => {
       this.appCenterAnalytics.trackEvent('setLanguageType', { languageType: val }).then(() => {
         console.log('setLanguageType event tracked');
