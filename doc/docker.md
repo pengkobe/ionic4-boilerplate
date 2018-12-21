@@ -39,7 +39,7 @@ linux 下环境下运行
 alias ionic="docker run -ti --rm --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v $PWD:/myApp:rw marcoturi/ionic ionic"
 ```
 
-作者只是修改了这个项目的一些配置，连文档都没改过来，直接参考这个就 ok: https://hub.docker.com/r/agileek/ionic-framework 
+作者只是修改了这个项目的一些配置，连文档都没改过来，直接参考这个就 ok: https://hub.docker.com/r/agileek/ionic-framework ，按照文档进行使用就 ok，只是挂载的时候需要注意路径问题
 
 ### docker-ionic
 

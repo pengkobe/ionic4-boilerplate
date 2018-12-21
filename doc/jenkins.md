@@ -3,8 +3,9 @@
 ## 安装
 
 ```bash
-java -jar jenkins.war --httpPort=8080.
+java -jar jenkins.war --httpPort=8080
 ```
+找到初始化密码,位置为 `C:\Users\kobepeng\.jenkins\secrets\initialAdminPassword`
 
 个人选择安装了社区默认的插件
 
@@ -41,4 +42,4 @@ https://www.pgyer.com/doc/view/jenkins
 
 ## 参考
 
-* https://jenkins.io/doc
+* https://jenkins.io/doc ， 支持 pdf 版下载，使用更便捷
