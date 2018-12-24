@@ -27,7 +27,7 @@ security list-keychains -s $KEY_CHAIN
 security default-keychain -s $KEY_CHAIN
 
 # Add certificates to keychain and allow codesign to access them
-security import apple-wwdcrca.cer -k $KEY_CHAIN -T /usr/bin/codesign
+security import release/certificates/apple.cer -k $KEY_CHAIN -T /usr/bin/codesign
 
 # Restore working directory
 cd -

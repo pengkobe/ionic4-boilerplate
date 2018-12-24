@@ -136,7 +136,7 @@ System:
   - [x] [Ionic](./doc/ionic.md)
   - [x] [IOS](./doc/ios.md)
   - [x] [android](./doc/android.md)
-- [ ] 部署
+- [x] 部署
   - [x] [travis](./doc/travis.md)
   - [x] [jenkins](./doc/jenkins.md)
   - [x] [fastlane](./doc/fastlane.md)
