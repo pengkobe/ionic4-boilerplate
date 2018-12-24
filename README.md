@@ -35,7 +35,7 @@ commitizen init cz-conventional-changelog --save --save-exact
     - [x] Ionic
     - [x] IOS
     - [x] Android
-  - [ ] 部署
+  - [x] 部署
     - [x] travis
     - [x] jenkins
     - [x] fastlane

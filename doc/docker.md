@@ -48,6 +48,7 @@ https://github.com/beevelop/docker-ionic
 ## 报错
 
 * boot2docker.iso，不一定能下下来，会导致报错 `wsarecv: An existing connection was forcibly closed by the remote host.` 个人因为装了代理，后来关闭代理后才解决
+* 和 windows 结合开发有各种不确定的问题，一方面 windows 不是直接的宿主机而是依赖于 linux 虚拟机，虚拟机自然有其局限性，此外，对于两者这届的环境和目录处理需要倍加小心
 
 ## 参考
 
