@@ -16,7 +16,7 @@ declare var window;
 })
 export class TestPage {
   isAlwaysLight = false;
-  versionNumber;
+  versionNumber= 'init...';
   languageType: string;
 
   options: EChartOption = {
