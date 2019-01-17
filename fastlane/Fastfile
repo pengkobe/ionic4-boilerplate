@@ -69,6 +69,7 @@ platform :ios do
     sigh(
       adhoc: true, 
       force: true,
+      Renew: true,
       username: "yipeng.info@gmail.com",
       team_id: "CVU2X68836",
       provisioning_name: "ionic4AdHoc.mobileprovision"

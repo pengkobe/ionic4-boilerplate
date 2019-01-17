@@ -85,7 +85,7 @@ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg R
 # 编译生成 Apk 包
 cordova build --release android
 # JAR 文件签名和验证
-./jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore android-release-unsigned.apk efos_key
+./jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore android-release-unsigned.apk your_key
 # 对打包的 Android 应用程序进行优化
 zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
 
