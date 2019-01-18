@@ -42,7 +42,6 @@ platform :ios do
     )
 
     cert(
-      force: true,
       team_id: "CVU2X68836",
       username: "yipeng.info@gmail.com",
       filename: "ionic4traviscert",

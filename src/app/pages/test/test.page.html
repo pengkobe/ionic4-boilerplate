@@ -23,11 +23,7 @@
         <ion-item>
           <ion-icon name="bulb" item-start color="primary"></ion-icon>
           <ion-label> {{ 'HOME.ScreenAlwaysLight' | translate }} </ion-label>
-          <ion-toggle
-            (ionChange)="changeLightState()"
-            color="secondary"
-            [(ngModel)]="isAlwaysLight"
-          ></ion-toggle>
+          <ion-toggle (ionChange)="changeLightState()" color="secondary" [(ngModel)]="isAlwaysLight"></ion-toggle>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -37,15 +33,9 @@
         <ion-item>
           <ion-icon name="keypad" item-start color="primary"></ion-icon>
           <ion-label>{{ 'HOME.SwitchLanguage' | translate }}</ion-label>
-          <ion-select
-            [(ngModel)]="languageType"
-            (ngModelChange)="setLanguageType($event)"
-            cancelText="{{ 'HOME.Cancel' | translate }}"
-            okText="{{ 'HOME.confirm' | translate }}"
-          >
-            <ion-select-option value="zh" selected="true"
-              >中文</ion-select-option
-            >
+          <ion-select [(ngModel)]="languageType" (ngModelChange)="setLanguageType($event)" cancelText="{{ 'HOME.Cancel' | translate }}"
+            okText="{{ 'HOME.confirm' | translate }}">
+            <ion-select-option value="zh" selected="true">中文</ion-select-option>
             <ion-select-option value="en"> English </ion-select-option>
           </ion-select>
         </ion-item>
@@ -57,18 +47,21 @@
         <ion-item>
           <ion-icon name="moon" item-start color="primary"></ion-icon>
           <ion-label>{{ 'HOME.Theme' | translate }}</ion-label>
-          <ion-toggle
-            (ionChange)="toggleAppTheme()"
-            color="secondary"
-          ></ion-toggle>
+          <ion-toggle (ionChange)="toggleAppTheme()" color="secondary"></ion-toggle>
         </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-card>
+          <ion-card-content>
+            {{ versionNumber }}
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-card>
-      <ion-card-content>
-        {{ versionNumber }}
-      </ion-card-content>
-  </ion-card>
+
 </ion-content>
