@@ -41,22 +41,6 @@ platform :ios do
       add_to_search_list: true
     )
 
-    # Import distribution certificate
-    # import_certificate(
-    #   certificate_path: "sh/release/certificates/ios_distribution.p12",
-    #   certificate_password: ENV["KEY_PASSWORD"],
-    #   keychain_name: keychain_name,
-    #   keychain_password: keychain_password
-    # )
-
-    # Import push certificate
-    # import_certificate(
-    #   certificate_path: "sh/release/certificates/ios_push_distribution.p12",
-    #   certificate_password: ENV["KEY_PASSWORD"],
-    #   keychain_name: keychain_name,
-    #   keychain_password: keychain_password
-    # )
-
     cert(
       force: true,
       team_id: "CVU2X68836",
@@ -82,7 +66,6 @@ platform :ios do
       type: "adhoc"
     )
 
-    sh "ls"
     sh "cd .."
     sh "ls"
     pgyer(api_key: ENV["PGYER_APIKEY"], user_key: ENV["PGYER_USERKEY"], update_description: "upload by fastlane", ipa:'/Users/travis/build/pengkobe/ionic4-boilerplate/platforms/ios/build/device/ionic4-boilerplate.ipa')
