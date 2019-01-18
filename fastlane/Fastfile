@@ -42,34 +42,33 @@ platform :ios do
     )
 
     # Import distribution certificate
-    import_certificate(
-      certificate_path: "sh/release/certificates/ios_distribution.p12",
-      certificate_password: ENV["KEY_PASSWORD"],
-      keychain_name: keychain_name,
-      keychain_password: keychain_password
-    )
-
-    # Import push certificate
-    import_certificate(
-      certificate_path: "sh/release/certificates/ios_push_distribution.p12",
-      certificate_password: ENV["KEY_PASSWORD"],
-      keychain_name: keychain_name,
-      keychain_password: keychain_password
-    )
-
-    # cert(
-    #   force: true,
-    #   team_id: "CVU2X68836",
-    #   username: "yipeng.info@gmail.com",
-    #   filename: "ionic4travis",
-    #   keychain_path:"/Users/travis/Library/Keychains/ios-build.keychain-db",
+    # import_certificate(
+    #   certificate_path: "sh/release/certificates/ios_distribution.p12",
+    #   certificate_password: ENV["KEY_PASSWORD"],
+    #   keychain_name: keychain_name,
     #   keychain_password: keychain_password
     # )
+
+    # Import push certificate
+    # import_certificate(
+    #   certificate_path: "sh/release/certificates/ios_push_distribution.p12",
+    #   certificate_password: ENV["KEY_PASSWORD"],
+    #   keychain_name: keychain_name,
+    #   keychain_password: keychain_password
+    # )
+
+    cert(
+      force: true,
+      team_id: "CVU2X68836",
+      username: "yipeng.info@gmail.com",
+      filename: "ionic4traviscert",
+      keychain_path:"/Users/travis/Library/Keychains/ios-build.keychain-db",
+      keychain_password: keychain_password
+    )
     
     sigh(
       adhoc: true, 
       force: true,
-      Renew: true,
       username: "yipeng.info@gmail.com",
       team_id: "CVU2X68836",
       provisioning_name: "ionic4AdHoc.mobileprovision"
