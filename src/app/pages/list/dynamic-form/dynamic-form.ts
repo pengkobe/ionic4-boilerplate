@@ -35,16 +35,18 @@ export class DynamicFormPage implements AfterViewInit {
     ];
 
     ngAfterViewInit() {
-        let previousValid = this.form.valid;
-        this.form.changes.subscribe(() => {
-            if (this.form.valid !== previousValid) {
-                previousValid = this.form.valid;
-                this.form.setDisabled('submit', !previousValid);
-            }
-        });
+        setTimeout(() => {
+            let previousValid = this.form.valid;
+            this.form.changes.subscribe(() => {
+                if (this.form.valid !== previousValid) {
+                    previousValid = this.form.valid;
+                    this.form.setDisabled('submit', !previousValid);
+                }
+            });
 
-        this.form.setDisabled('submit', true);
-        this.form.setValue('name', 'Todd Motto');
+            this.form.setDisabled('submit', true);
+            this.form.setValue('name', 'Todd Motto');
+        });
     }
 
     submit(value: { [name: string]: any }) {
