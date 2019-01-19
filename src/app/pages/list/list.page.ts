@@ -36,6 +36,11 @@ export class ListPage {
         note: '',
         icon: 'calendar',
       },
+      {
+        title: 'dynamicform',
+        note: '',
+        icon: 'paper',
+      },
     ];
 
     this.initTranslate();

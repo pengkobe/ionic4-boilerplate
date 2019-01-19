@@ -9,12 +9,13 @@
     "Scan": "Scan",
     "ScreenAlwaysLight": "Screen Always Light",
     "SwitchLanguage": "Switch Language",
-    "LanguageCH":"Chinese",
-    "LanguageEN":"English",
-    "Theme":"Theme",
-    "Cancel":"Cancel",
-    "confirm":"OK",
-    "GetRandomNumber":"Get Random Number",
-    "Calendar":"Calendar"
+    "LanguageCH": "Chinese",
+    "LanguageEN": "English",
+    "Theme": "Theme",
+    "Cancel": "Cancel",
+    "confirm": "OK",
+    "GetRandomNumber": "Get Random Number",
+    "Calendar": "Calendar",
+    "DynamicForm": "DynamicForm"
   }
 }
