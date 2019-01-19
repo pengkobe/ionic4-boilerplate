@@ -74,7 +74,7 @@ match 可以自动为你选择需要的证书，这也是官方推荐的方式�
 
 可以方便你手动对证书进行管理。
 
-- cert 可以自动帮你下载或者生成 `Certificates`
+- cert 可以自动帮你下载或者生成 `Certificates` ，**不要用于 第三方 CI 机器**
 - sign 可以自动帮你下载 `Provisioning Profiles`
 
 ## 插件
@@ -102,5 +102,5 @@ match 可以自动为你选择需要的证书，这也是官方推荐的方式�
 ### demo 项目
 
 * 基于 `match` 打包证书，然后上传至 hockeyapp，[ionic-fastlane-travisci-hockeyapp](https://github.com/tim-hoffmann/ionic-fastlane-travisci-hockeyapp)
-* IOS 构建示例： https://github.com/macoscope/ContinuousIntegrationExample
+* IOS 构建示例（基于 fastlane sigh）： https://github.com/macoscope/ContinuousIntegrationExample
 * 一个涵盖 travis fastlane Jenkins 等一个大杂烩 Repo， [qm-ionic-quantimodo](https://github.com/mikepsinn/qm-ionic-quantimodo/blob/master/fastlane/Fastfile)

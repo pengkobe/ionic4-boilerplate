@@ -58,7 +58,7 @@ matrix:
     - wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
       -O pgyer_upload.sh
     - chmod +x pgyer_upload.sh
-    - openssl aes-256-cbc -K $encrypted_28b1957c839b_key -iv $encrypted_28b1957c839b_iv
+    - openssl aes-256-cbc -K $encrypted_fd699ad937e2_key -iv $encrypted_fd699ad937e2_iv
       -in ./sh/release/certificates.tar.enc -out ./sh/release/certificates.tar -d
     - tar xvf ./sh/release/certificates.tar -C ./sh/release/certificates
     before_script:

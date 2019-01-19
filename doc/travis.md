@@ -54,14 +54,27 @@ pod --version
 
 ### github token 生成
 
+#### 加密 token
+
 `travis encrypt YOUR_GITHUB_RAW_TOKEN -r pengkobe/ionic4-boilerplate --add`
+
+#### 加密文件
+
+只支持打包加密，不支持一个一个文件加密
+
+```bash
+# 打包
+tar cvf certificates.tar ios_distribution.cer ios_distribution.p12 ionic4_Ad_Hoc_Profile.mobileprovision ionic4travis.jks ios_develop.cer ios_develop.p12 ios_push_distribution.cer ios_push_distribution.p12
+# 加密
+travis encrypt-file certificates.tar -r pengkobe/ionic4-boilerplate
+`
 
 ## 运行报错
 
 - 无法成功安装 `oracle-java8-installer`,android 语言自带有 JDK，实际上无需安装
-- error installing travis:ERROR: Failed to build gem native extension. 事实上在 windows 上生成的 enc 文件都是会报错的
+- error installing travis:ERROR: Failed to build gem native extension. **事实上在 windows 上生成的 enc 文件都是会报错的**
 - 加密多个文件时，必须得打包成一个文件进行加密，否则会报错！
-- 构建 IOS 环境时，老是提示证书找不到，我后来直接使用 [fastlane](https://fastlane.tools/) 去管理了，硬是需要使用 travis 构建，可以参考这个 [travis-ci-fails-to-build-with-a-code-signing-error](https://stackoverflow.com/questions/27671854/travis-ci-fails-to-build-with-a-code-signing-error?rq=1) 和看看这个 ISSUE[ode Sign error: No code signing identities found](https://github.com/travis-ci/travis-ci/issues/3072)
+- 构建 IOS 环境时，老是提示证书找不到，我后来直接使用 [fastlane](https://fastlane.tools/) 去管理了，硬是需要使用 travis 构建，可以参考这个 [travis-ci-fails-to-build-with-a-code-signing-error](https://stackoverflow.com/questions/27671854/travis-ci-fails-to-build-with-a-code-signing-error?rq=1) 和看看这个 ISSUE[Code Sign error: No code signing identities found](https://github.com/travis-ci/travis-ci/issues/3072)
 - 提示: `No output has been received in the last 10m0s` , 属于 `Mac: macOS Sierra (10.12) Code Signing Error` , 参见 Travis 官方文档对应的 [解决办法](https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received)
 
 ## TDOO

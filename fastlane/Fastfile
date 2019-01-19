@@ -41,13 +41,29 @@ platform :ios do
       add_to_search_list: true
     )
 
-    cert(
-      team_id: "CVU2X68836",
-      username: "yipeng.info@gmail.com",
-      filename: "ionic4traviscert",
-      keychain_path:"/Users/travis/Library/Keychains/ios-build.keychain-db",
+    # Import distribution certificate
+    import_certificate(
+      certificate_path: "sh/release/certificates/ios_distribution.p12",
+      certificate_password: ENV["KEY_PASSWORD"],
+      keychain_name: keychain_name,
+      keychain_password: keychain_password
+    )      
+
+    # Import push certificate
+    import_certificate(
+      certificate_path: "sh/release/certificates/ios_push_distribution.p12",
+      certificate_password: ENV["KEY_PASSWORD"],
+      keychain_name: keychain_name,
       keychain_password: keychain_password
     )
+        
+    # cert(
+    #   team_id: "CVU2X68836",
+    #   username: "yipeng.info@gmail.com",
+    #   filename: "ionic4traviscert",
+    #   keychain_path:"/Users/travis/Library/Keychains/ios-build.keychain-db",
+    #   keychain_password: keychain_password
+    # )
     
     sigh(
       adhoc: true, 
