@@ -8,7 +8,7 @@ import { FieldConfig } from '../../models/field-config.interface';
   selector: 'form-button',
   styleUrls: ['form-button.component.scss'],
   template: `
-    <div 
+    <div
       class="dynamic-field form-button"
       [formGroup]="group">
       <button

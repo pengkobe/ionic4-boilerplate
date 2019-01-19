@@ -8,8 +8,8 @@ import { FieldConfig } from '../../models/field-config.interface';
   selector: 'form-input',
   styleUrls: ['form-input.component.scss'],
   template: `
-    <div 
-      class="dynamic-field form-input" 
+    <div
+      class="dynamic-field form-input"
       [formGroup]="group">
       <label>{{ config.label }}</label>
       <input

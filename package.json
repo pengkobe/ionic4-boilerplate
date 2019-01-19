@@ -9,7 +9,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "ng lint --fix",
     "e2e": "ng e2e",
     "scss-lint": "scss-lint",
     "commitmsg": "commitlint -e",
