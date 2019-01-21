@@ -5,7 +5,8 @@
 ```bash
 java -jar jenkins.war --httpPort=8080
 ```
-找到初始化密码,位置为 `C:\Users\kobepeng\.jenkins\secrets\initialAdminPassword`
+
+找到初始化密码,位置为 `C:\Users\you_user_name\.jenkins\secrets\initialAdminPassword`
 
 个人选择安装了社区默认的插件
 

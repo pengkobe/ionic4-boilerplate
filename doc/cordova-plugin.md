@@ -38,3 +38,11 @@ app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[NSURL
 ```
 
 解决办法: [iOS crash when loading the plugin](https://github.com/nordnet/cordova-hot-code-push/issues/128)
+
+### android
+
+```bash
+not allowed to load local resources
+```
+
+解决: 这是因为 [webview](https://www.npmjs.com/package/cordova-plugin-ionic-webview) 插件升级导致的 bug，以前使用 `file://` 开头访问文件的方法得进行转换才能访问了，`window.Ionic.WebView.convertFileSrc()`  

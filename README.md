@@ -9,7 +9,7 @@
 [david-url]: https://david-dm.org/pengkobe/ionic4-boilerplate
 
 boilerplate for ionic4  
-migrate from : https://github.com/pengkobe/ionic-boilerplate
+migrate and upgrade from : https://github.com/pengkobe/ionic-boilerplate
 
 ## 使用
 
@@ -236,18 +236,19 @@ npm install raven-js --save
 
 ## ngrx
 
-脚手架已集成 [ngrx](https://github.com/ngrx),注意选择对应的版本进行集成。本脚手架 TODO Demo 即基于 ngrx 进行开发
+脚手架已集成 [ngrx](https://github.com/ngrx), 本脚手架 TODO Demo 即基于 ngrx 进行开发
 
 ## 主题切换示例
 
 参见代码示例
 
-## 常用组件
+## 常用功能
 
-这里提供的常用组件有这些( 更多待开发 )
+本脚手架提供了下述常用功能 Demo
 
 - [x] 二维码扫描
 - [x] 日历
+- [x] 动态表单
 
 ## PWA
 

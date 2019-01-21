@@ -27,14 +27,13 @@ cordova-hcp build
 
 修改完成后，将整个 `www` 内的内容上传至服务器，需要保证与 `config.xml` 中 `chcp` 下节点 `config-file` 配置的服务器路径的一致性。  
 
-
 ## APK 更新
 
 ```bash
 ionic cordova build android --prod
 ```  
 
-**注意：在 build apk 之前，先进行热更新构建**  
+*注意：在 build apk 之前，先进行热更新构建*  
 
 更新 `apk_version.json` 文件
 

@@ -33,7 +33,17 @@ npm run test
 npm run e2e
 ```
 
-#### 安装 commitizen
+## 代码规范
+
+### 业界参考
+
+- JavaScript 代码规范, 参见业界公认的 airbnb 规范:https://github.com/airbnb/javascript
+- Angular 规范, 直接参考官网:https://angular.io/guide/styleguide , 默认已集成部分检测工具, 如 `tslint-angular`, 手动检测可以执行命令 `npm run lint`
+- Scss, 基于 scsslint 验证 sass 代码是否规范, 参见:https://sass-guidelin.es/#tools
+
+## 工具集成
+
+### 安装 commitizen
 
 commitizen, 可以实现提交提示可视化, see:https://github.com/commitizen/cz-cli  
 提交内容主要分为以下几个方面
@@ -57,7 +67,7 @@ ci: 持续集成相关的更改
  commitizen init cz-conventional-changelog --save --save-exact
 ```
 
-#### commitlint
+### commitlint
 
 基于 commitlint 验证 git message 是否规范  
 see:https://github.com/marionebl/commitlint
@@ -65,7 +75,7 @@ see:https://github.com/marionebl/commitlint
 本脚手架使用 angular 规则, 详情参见:
 https://github.com/marionebl/commitlint/tree/master/@commitlint/config-angular
 
-#### standard-version
+### standard-version
 
 本脚手架使用 standard-version 生成 changelog
 see:https://github.com/conventional-changelog/standard-version
@@ -73,16 +83,6 @@ see:https://github.com/conventional-changelog/standard-version
 ```bash
 npm i --save-dev standard-version
 ```
-
-## 代码规范
-
-### 业界参考
-
-- JavaScript 代码规范, 参见业界公认的 airbnb 规范:https://github.com/airbnb/javascript
-- Angular 规范, 直接参考官网:https://angular.io/guide/styleguide , 默认已集成部分检测工具, 如 `tslint-angular`, 手动检测可以执行命令 `npm run lint`
-- Scss, 基于 scsslint 验证 sass 代码是否规范, 参见:https://sass-guidelin.es/#tools
-
-## 工具集成
 
 ### husky
 
