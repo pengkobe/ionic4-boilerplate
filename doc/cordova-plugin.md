@@ -6,7 +6,8 @@
 
 ## ionic-native
 
-TODO
+参见官方文档( v4 已经正式上线了)：  
+https://ionicframework.com/docs/native/
 
 ## 远程推送
 
@@ -26,6 +27,8 @@ cordova-plugin-wechat
 cordova-plugin-baidumaplocation
 
 ## 错误集锦
+
+这里放些平常比较常见的错误，供查阅。
 
 ```bash
 Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<WKWebViewConfiguration 0x7fb1d960cd00> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key _requiresUserActionForMediaPlayback

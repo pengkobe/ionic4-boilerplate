@@ -29,17 +29,19 @@ windows 安装非常简单，主要会安装以下几个组件
 
 ### ionic-docker
 
-基于 docker 镜像，Github 地址: https://github.com/marcoturi/ionic-docker
+可以基于市面上的 docker 镜像进行搭建，如`ionic-docker`, Github 地址: https://github.com/marcoturi/ionic-docker  
 
-windows 下环境下运行一直识别不出 ionic 项目，按照 Issue 中修改 myApp 为 Sources 也不行。  
+> 作者只是修改了这个项目的一些配置，连文档都没改过来，直接参考这个也 ok: https://hub.docker.com/r/agileek/ionic-framework  
 
-linux 下环境下运行
+运行以下命令就 ok
 
 ```bash
 alias ionic="docker run -ti --rm --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v $PWD:/myApp:rw marcoturi/ionic ionic"
 ```
 
-作者只是修改了这个项目的一些配置，连文档都没改过来，直接参考这个就 ok: https://hub.docker.com/r/agileek/ionic-framework ，按照文档进行使用就 ok，只是挂载的时候需要注意路径问题
+#### windows 下存在问题
+
+windows 下环境下运行一直识别不出 ionic 项目，按照 Issue 中修改 myApp 为 Sources 也不行。后知后觉，是 windows 本机上的磁盘没有挂载到虚拟机，挂载后就没问题了。
 
 ### docker-ionic
 
@@ -48,7 +50,7 @@ https://github.com/beevelop/docker-ionic
 ## 报错
 
 - boot2docker.iso，不一定能下下来，会导致报错 `wsarecv: An existing connection was forcibly closed by the remote host.` 个人因为装了代理，后来关闭代理后才解决
-- 和 windows 结合开发有各种不确定的问题，一方面 windows 不是直接的宿主机而是依赖于 linux 虚拟机，虚拟机自然有其局限性，此外，对于两者这届的环境和目录处理需要倍加小心
+- 和 windows 结合开发有各种不确定的问题，一方面 windows 不是直接的宿主机而是依赖于 linux 虚拟机，虚拟机自然有其局限性，此外，对于两者之间的环境和目录处理需要倍加小心
 
 ## 参考
 

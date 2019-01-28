@@ -31,18 +31,17 @@ JAVA_HOME:C:\Program Files\Java\jdk1.8.0_65
 
 _JAVA_OPTIONS:-Xmx512M
 
-ANDROID_HOME:C:\Users\lenovo\Desktop\APP\adt-bundle-windows-x86-20131030\sdk
+ANDROID_HOME:C:\Users\path\to\adt-bundle-windows-x86-20131030\sdk
 
 ANDROID_PLATFORM_TOOLS:%ANDROID_HOME%\platforms
 
 ANDROID_TOOLS:%ANDROID_HOME%\tools
 
-ANT_HOME:C:\Users\lenovo\Desktop\APP\apache-ant-1.9.5-bin\apache-ant-1.9.5
-ClASSPATH:.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar;C:\Users\lenovo\Desktop\APP\apache-ant-1.9.5-bin\apache-ant-1.9.5\lib
+ANT_HOME:C:\Users\path\to\apache-ant-1.9.5-bin\apache-ant-1.9.5
+ClASSPATH:.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar;C:\Users\path\to\apache-ant-1.9.5-bin\apache-ant-1.9.5\lib
 
-Path:C:\ProgramData\Oracle\Java\javapath;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%ANDROID_HOME%;C:\Users\lenov
-o\Desktop\APP\apache-ant-1.9.5-bin\apache-ant-1.9.5\bin;C:\Users\lenovo\Desktop\APP\adt-bundle-windows-x86-
-20130917.467161976\adt-bundle-windows-x86-20130917\sdk\tools;C:\Users\lenovo\Desktop\APP\adt-bundle-
+Path:C:\ProgramData\Oracle\Java\javapath;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%ANDROID_HOME%;C:\Users\path\to\apache-ant-1.9.5-bin\apache-ant-1.9.5\bin;C:\Users\path\to\adt-bundle-windows-x86-
+20130917.467161976\adt-bundle-windows-x86-20130917\sdk\tools;C:\Users\path\to\adt-bundle-
 windows-x86-20130917.467161976\adt-bundle-windows-x86-20130917\sdk\platform-tools;
 
 ```
@@ -68,7 +67,7 @@ Android 开发 app 时，必须使用 keystore 进行签名，否则应用将无
 链接： http://jingyan.baidu.com/album/a3f121e4dece5ffc9052bbd9.html?picindex=1
 
 1. 进入 `C:\Program Files\Java\jdk1.8.0_65\bin`
-2. 运行命令 `keytool -list -keystore C:/Users/lenovo/.android/debug.keystore -storepass android`
+2. 运行命令 `keytool -list -keystore C:/Users/YOUR_USER_NAME/.android/debug.keystore -storepass android`
 
 ### Eclipse
 
