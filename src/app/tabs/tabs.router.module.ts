@@ -12,34 +12,33 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/tabs/(home:home)',
-        pathMatch: 'full',
+        component: HomePage,
       },
       {
         path: 'home',
-        outlet: 'home',
         component: HomePage,
       },
       {
         path: 'test',
-        outlet: 'test',
         component: TestPage,
       },
       {
         path: 'list',
-        outlet: 'list',
-        loadChildren: '../pages/list/list.module#ListPageModule',
-      },
+        children: [{
+          path: '',
+          loadChildren: '../pages/list/list.module#ListPageModule',
+        }]
+      }
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/(home:home)',
+    redirectTo: '/tabs/home',
     pathMatch: 'full',
   },
   {
     path: 'list',
-    redirectTo: '/tabs/(list:list)',
+    redirectTo: '/tabs/list',
     pathMatch: 'full',
   },
 ];
@@ -48,4 +47,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

@@ -16,7 +16,7 @@
     <ion-item
       ion-item
       *ngFor="let item of items"
-      routerLink="{{'./'+  item.title }}"
+      routerLink="{{'/tabs/list/'+  item.title }}"
       routerLinkActive="active"
     >
       <ion-icon [name]="item.icon" item-start></ion-icon>
