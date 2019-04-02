@@ -1,30 +1,35 @@
-# Ionic Android
+# Android For Ionic
 
 see more from: https://yipeng.info/p/58aededee78659dd0b37f5c2
 
-## 准备
+## 安装
 
-1. 安装 JDK，在该[地址](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)选择对应的版本下载即可，当然，最后还是跑 CSDN 上去下载了。安装好后，配置环境变量(JAVA_HOME)，并加入到 path 即可(%JAVA_HOME%/bin)
+1. 安装 JDK，在该[地址](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)选择对应的版本下载即可，当然，最后我还是跑 CSDN 上去下载了，速度快，具体还是得看你的网络环境。安装好后，配置环境变量( JAVA_HOME )，并加入到 path 即可(%JAVA_HOME%/bin)
 
-2. 安装 ADT, 打开 SDK Manager 并配置好代理服务器，勾选需要用到的工具有
-
+2. 安装 ADT后, 打开 SDK Manager 并配置好代理服务器，勾选需要用到的工具以下内容，高版本向低版本兼容，没必要一次装几个版本，一般是往新版本装
+   - Android SDK Tools
    - Android SDK Platform-tools（平台）
    - Android SDK Build-tools（编译）
-   - API(23): SDK Platform（编译依赖版本）
-   - Android Support Repository（corrswalk 需要）
-   - Google Repository（corrswalk 需要）
-   - 设置国内镜像代理为：http://www.androiddevtools.cn/
+   - API: SDK Platform（编译依赖版本）
+     - SDK Platform
+     - TV/Wear SDK（可以不装，卸载掉就行）
+   - Android Support Repository（Crosswalk 需要）
+   - Extra
+     - Android Support Repository
+   - Google Repository（Crosswalk 需要）
+   - 设置国内镜像代理，具体可以参考：http://www.androiddevtools.cn/
 
 3. 配置好 Android 开发环境:[参考](http://www.cnblogs.com/zoupeiyang/p/4034517.html)，主要是一系列的环境变量得配置
-4. 注意:这里并没有说到要安装 ant ，主要原因是 ionic/cordova cli 在初次运行时若检测到没有安装，则会自动安装，不过安装过程还真是折腾，有一次挂了一网上都没有结果，第二天开个 VPN 才接着开始下。
 
-## 流程
+4. **注意**: 这里并没有说到要安装 ant ，主要原因是 ionic/cordova Cli 在初次运行时若检测到没有安装时会自动安装，不过安装过程还真是折腾人，有一次挂了一网上都没有结果，第二天开了个 VPN 才接着开始下。
 
-- 打开 Android SDK Manager，会自动检查更新，正常情况下是无法成功的，因为你无法跨域，所以，你最好设置代理服务器。[androiddevtools.cn/](http://www.androiddevtools.cn/) 上有需要的代理服务器，注意设置端口
+### 设置 SDK Manager 代理
 
-## 环境变量
+- 打开 ADT 内 Android SDK Manager，程序会自动检查需要更新的内容，正常情况下是无法成功的，因为你无法跨墙，所以，你得设置代理服务器。[androiddevtools.cn/](http://www.androiddevtools.cn/) 上有需要的代理服务器，**注意端口设置**
 
-主要有以下所述几个
+### 设置环境变量
+
+主要有以下所述几个，具体设置需要根据你程序安装的路径来，这里至提供一个简单的参考，具体网上也有完善的教程
 
 ```bash
 JAVA_HOME:C:\Program Files\Java\jdk1.8.0_65
@@ -46,30 +51,25 @@ windows-x86-20130917.467161976\adt-bundle-windows-x86-20130917\sdk\platform-tool
 
 ```
 
-## Android 依赖
+## Android Studio
 
-使用 _SDK Manager.exe_ 进行安装，装完之后的大小为：4.2G，高版本向低版本兼容，没必要一次装几个版本
+这个工具必装，主要有以下好处
 
-- Android SDK Tools
-- Android SDK Platform-tools
-- Android SDK Build-tools
-- Android API
-  - SDK Platform
-  - TV/Wear SDK（可以不装，卸载掉就行）
-- Extra
-  - Android Support Repository
+- 可以查看原生代码报错但没有反馈回 JS 控制台的问题，比如某些 jar 包没有引入或者路径不对等等
+- 可以用来查看 Android 日志，这其中日志比控制台全而且详细
+- 可以用来修改 Cordova 插件代码，并且实时断点调试，当然，这个工具要比 eclipse 还是好用得多
 
 ## Android 查看 sha1
 
-### CMD
+### 基于 CMD
 
 Android 开发 app 时，必须使用 keystore 进行签名，否则应用将无法安装在手机等设备上  
-链接： http://jingyan.baidu.com/album/a3f121e4dece5ffc9052bbd9.html?picindex=1
+参考链接： http://jingyan.baidu.com/album/a3f121e4dece5ffc9052bbd9.html?picindex=1
 
 1. 进入 `C:\Program Files\Java\jdk1.8.0_65\bin`
 2. 运行命令 `keytool -list -keystore C:/Users/YOUR_USER_NAME/.android/debug.keystore -storepass android`
 
-### Eclipse
+### 基于 Eclipse
 
 打开 eclipse，走以下路径可以找到
 `window -> preference -> Android -> build -> sha1`
