@@ -1,33 +1,46 @@
 # 版本更新
 
-## 热更新
+## 基于 `cordova-hot-code-push-plugin` 插件热更新
 
-基于 cordova 插件: `cordova-hot-code-push-plugin`, see: https://github.com/nordnet/cordova-hot-code-push
+[cordova-hot-code-push-plugin](https://github.com/nordnet/cordova-hot-code-push) 插件可以用来热更新包括不涉及到原生更改的内容，需要注意的是这个插件已经停维了。
 
 ### 插件安装
 
 ```bash
 cordova plugin add cordova-hot-code-push-plugin
-# Add plugin for local development
+# Add plugin for local development( 本地开发调试用 )
 cordova plugin add cordova-hot-code-push-local-dev-addon
-# Install Cordova Hot Code Push CLI client:
+# Install Cordova Hot Code Push CLI client
 npm install -g cordova-hot-code-push-cli
 # Start local server by executing:
 cordova-hcp server
 ```
 
-### 热更新构建
+### 热更新构建步骤
 
 ```bash
+# build 生成文件
 npm run build --prod
+# 生成 chcp.json 文件与 manifest.json 文件
 cordova-hcp build
 ```
 
-> 注意: 需要对 www/chcp.json 进行稍许更改，模板可以参考 version_update/chcp.json
+> 需要对 www/chcp.json 进行稍许更改，模板可以参考 version_update/chcp.json
 
-修改完成后，将整个 `www` 内的内容上传至服务器，需要保证与 `config.xml` 中 `chcp` 下节点 `config-file` 配置的服务器路径的一致性。  
+修改完成后，将整个 `www` 内的内容上传至服务器，需要保证与 `config.xml` 中 `chcp` 下节点 `config-file` 配置的服务器路径的一致。  
+
+```xml
+<chcp>
+    <config-file url="http://path/to//chcp.json" />
+    <native-interface version="1" />
+    <auto-download enabled="true" />
+    <auto-install enabled="true" />
+</chcp>
+```
 
 ## APK 更新
+
+此方法基于 json 文件中的配置进行检测，当然，你也可以通过在数据库中建表的方式解决。
 
 ```bash
 ionic cordova build android --prod
@@ -49,13 +62,13 @@ ionic cordova build android --prod
 ```
 
 * 将生成的 apk 文件上传到 `downloadUrl` 对应的路径下。
-* 将更新后的 `apk_version.json` 文件上传到 `update.service.ts` 文件里 `getServerVersion` 方法指定的路径下
+* 将更新后的 `apk_version.json` 文件上传到 `src/services/update.service.ts` 文件里 `getServerVersion` 方法中请求地址匹配路径下
 
-## 热更新插件 code-push
+## 热更新插件 cordova-plugin-code-push
 
-由于插件`cordova-hot-code-push-plugin` 已经停维，最好基于微软热更新插件进行更新。
+由于插件`cordova-hot-code-push-plugin` 已经停维，最好基于微软热更新插件 [cordova-plugin-code-push](https://github.com/Microsoft/cordova-plugin-code-push) 来进行热更新。
 
-### 前奏
+### 准备
 
 * 使用 npm 命令全局安装 typescript、typings、tslint、code-push-cli 四个插件
 
@@ -150,6 +163,7 @@ export const CODE_PUSH_DEPLOYMENT_KEY = {
 ### 热更新同步方法
 
 将以下代码放到 `app.component.ts` 文件中，在构造函数 `constructor(){}` 中调用 sync() 方法。
+> 此种用法不能用于生产环境，生产环境中必须有友好的提示与 UI 交互。
 
 ```js
 import { CodePush } from '@ionic-native/code-push';

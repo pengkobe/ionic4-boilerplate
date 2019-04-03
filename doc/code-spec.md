@@ -4,7 +4,7 @@
 
 ### 仓库
 
-托管在码云私有仓库上, see:https://gitee.com/
+托管在[码云](https://gitee.com/)或者 Github 私有仓库
 
 ### 分支管理
 
@@ -14,7 +14,7 @@
 ### 提交流程
 
 参见教程:[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html),
-本脚手架基于 commitizen 与 commitlint 来对提交信息做验证, 执行以下脚本即可
+本脚手架基于 commitizen 与 commitlint 来对提交信息做验证, 脚本示例如下，commitlint 具体介绍，下面也会提到:
 
 ```bash
 git add YOUR_EDITED_FILES
@@ -37,28 +37,15 @@ npm run e2e
 
 ### 业界参考
 
-- JavaScript 代码规范, 参见业界公认的 airbnb 规范:https://github.com/airbnb/javascript
-- Angular 规范, 直接参考官网:https://angular.io/guide/styleguide , 默认已集成部分检测工具, 如 `tslint-angular`, 手动检测可以执行命令 `npm run lint`
-- Scss, 基于 scsslint 验证 sass 代码是否规范, 参见:https://sass-guidelin.es/#tools
+- JavaScript 代码规范, 参见业界公认的 [airbnb JavaScript 规范](https://github.com/airbnb/javascript)
+- Angular 规范, 直接参考官网[styleguide](https://angular.io/guide/styleguide), Angular 默认已集成部分检测工具, 如 `tslint-angular`, 如需手动验证，可以执行命令 `npm run lint`
+- Scss, 基于 scsslint 可验证 sass 代码是否规范, 参见: https://sass-guidelin.es/#tools
 
 ## 工具集成
 
 ### 安装 commitizen
 
-commitizen, 可以实现提交提示可视化, see:https://github.com/commitizen/cz-cli  
-提交内容主要分为以下几个方面
-
-```bash
-feat: 新功能（ feature ）
-fix: 修补 bug
-docs: 文档（ documentation ）
-style: 格式（ 不影响代码运行的变动 ）
-refactor: 重构（ 即不是新增功能, 也不是修改bug的代码变动 ）
-test: 测试相关更改
-chore: 构建过程或辅助工具的变动
-build: 与构建工具相关的更改
-ci: 持续集成相关的更改
-```
+[commitizen](https://github.com/commitizen/cz-cli  ), 可以实现代码提交可视化，可以使用以下脚本安装
 
 ```bash
  # 全局安装
@@ -67,27 +54,39 @@ ci: 持续集成相关的更改
  commitizen init cz-conventional-changelog --save --save-exact
 ```
 
+默认提交类目主要有以下几个
+
+- feat: 新功能（ feature ）
+- fix: 修补 bug
+- docs: 文档（ documentation ）
+- style: 格式（ 不影响代码运行的变动 ）
+- refactor: 重构（ 即不是新增功能, 也不是修改bug的代码变动 ）
+- test: 测试相关更改
+- chore: 构建过程或辅助工具的变动
+- build: 与构建工具相关的更改
+- ci: 持续集成相关的更改
+
 ### commitlint
 
-基于 commitlint 验证 git message 是否规范  
-see:https://github.com/marionebl/commitlint
+基于 [commitlint](https://github.com/marionebl/commitlint) 验证 git message 是否规范  
 
 本脚手架使用 angular 规则, 详情参见:
 https://github.com/marionebl/commitlint/tree/master/@commitlint/config-angular
 
 ### standard-version
 
-本脚手架使用 standard-version 生成 changelog
-see:https://github.com/conventional-changelog/standard-version
+本脚手架使用 [standard-version](https://github.com/conventional-changelog/standard-version) 可以基于 `Git Commit Message` 生成 changelog, 需要对文档中生成规则进行熟悉。执行下述基本可以安装 standard-version，其也有全局安装选项，可以自由选择
 
 ```bash
 npm i --save-dev standard-version
+
+# 全局安装
+npm i -g standard-version
 ```
 
 ### husky
 
-通过 husky 可以执行生命周期内的相关钩子, 自动验证代码的是否符合规范  
-see:https://www.npmjs.com/package/husky
+通过 [husky](https://www.npmjs.com/package/husky) 可以执行生命周期内的相关钩子, 自动验证代码的是否符合规范  
 
 ```bash
 npm install husky --save-dev
@@ -95,8 +94,9 @@ npm install husky --save-dev
 
 ### type doc
 
-自动根据注释生成文档的工具, 前提是你自己得写好注释  
-see:https://github.com/TypeStrong/typedoc/  
+[type doc](https://github.com/TypeStrong/typedoc/) 可以自动根据注释生成文档的工具
+> 前提是你按照标准的格式写好注释  
+
 建议全局安装
 
 ```bash
@@ -106,14 +106,12 @@ typedoc
 
 ### better-npm-run
 
-能够去除配置文件硬编码,
-see:https://github.com/benoror/better-npm-run
+[better-npm-run](https://github.com/benoror/better-npm-run) 能够去除配置文件硬编码, 可以直接在 package.json 中配置命令行参数
 
 ```bash
  npm install better-npm-run --save-dev
 ```
 
-### ionic docker (TODO)
+### ionic docker (TODO:)
 
-能够屏蔽部署环境差异,
-see:https://github.com/marcoturi/ionic-docker
+[ionic docker](https://github.com/marcoturi/ionic-docker) 能够屏蔽部署环境差异, 可惜对 Windows 支持不大好，必须要基于虚拟机进行安装，否则大家可以使用一套环境相同的开发环境。
