@@ -1,5 +1,7 @@
 # jenkins
 
+[jenkins](https://jenkins.io/) 是一个自动化部署，支持自动对程序进行构建和发布，能够与 SVN 和 GIT 做集成，与日常开发部署流程结合，可以大大提高开发效率。
+
 ## 安装
 
 ```bash

@@ -19,13 +19,13 @@ fastlane init swift
 
 ### 证书管理
 
-fastlane 提供了好几种证书管理的方式，非常方便团队协作，如: 
+fastlane 提供了好几种证书管理的方式，非常方便团队协作
 
 #### 手动导入证书
 
 若你直接将证书加密放到仓库下，可以直接通过解压导入, 比如，本项目证书放置在 `sh/release/certificates` 文件夹下，可以解压后再导入  
 
-解压（代码位于 `sh/release/decrypt-key.sh`）
+（解压代码位于 `sh/release/decrypt-key.sh`）
 
 ```bash
 #!/bin/sh
@@ -83,7 +83,7 @@ match 可以自动为你选择需要的证书，这也是官方推荐的方式�
 
 - 集成 Cordova 构建的插件，[fastlane-plugin-cordova](https://github.com/bamlab/fastlane-plugin-cordova)
 - [fastlane-plugin-ionic](https://github.com/janpio/ionic-fastlane)
-- fastlane-plugin-pgyer
+- 蒲公英集成，fastlane-plugin-pgyer
 
 ## 上传至蒲公英
 
@@ -100,6 +100,8 @@ match 可以自动为你选择需要的证书，这也是官方推荐的方式�
 - [automatic-ionic-and-ios-builds-with-jenkins-and-fastlane](https://www.3pillarglobal.com/insights/automatic-ionic-and-ios-builds-with-jenkins-and-f)
 
 ### demo 项目
+
+可以学习这些项目打包构建的流程
 
 - 基于 `match` 打包证书，然后上传至 hockeyapp，[ionic-fastlane-travisci-hockeyapp](https://github.com/tim-hoffmann/ionic-fastlane-travisci-hockeyapp)
 - IOS 构建示例（基于 fastlane sigh）： https://github.com/macoscope/ContinuousIntegrationExample

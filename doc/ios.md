@@ -155,7 +155,9 @@
 
 ### 问题集锦( 持续更新 )
 
-我之前也整理过一个 ISSUE 集锦，具体可以参考: https://github.com/pengkobe/reading-notes/issues/433
+我之前也整理过一个 ISSUE 集锦，具体可以参考: 
+- https://github.com/pengkobe/reading-notes/issues/433
+- https://github.com/pengkobe/reading-notes/issues/268
 
 #### Invalid Signature - A sealed resource is missing or invalid
 

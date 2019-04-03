@@ -29,9 +29,9 @@ windows 安装非常简单，主要会安装以下几个组件
 
 ### ionic-docker
 
-可以基于市面上的 docker 镜像进行搭建，如`ionic-docker`, Github 地址: https://github.com/marcoturi/ionic-docker  
+可以基于 docker 镜像进行搭建，如`ionic-docker`, Github 地址: https://github.com/marcoturi/ionic-docker  
 
-> 作者只是修改了这个项目的一些配置，连文档都没改过来，直接参考这个也 ok: https://hub.docker.com/r/agileek/ionic-framework  
+> 作者只是修改了这个项目的一些配置，连文档都没改过来，该项目主要源自: https://hub.docker.com/r/agileek/ionic-framework  
 
 运行以下命令就 ok
 
@@ -54,7 +54,7 @@ https://github.com/beevelop/docker-ionic
 
 ## 参考
 
-- 推荐: https://github.com/beevelop/docker-ionic
-- 推荐: https://github.com/marcoturi/ionic-docker
+- 镜像推荐1: https://github.com/beevelop/docker-ionic
+- 镜像推荐2: https://github.com/marcoturi/ionic-docker
 - https://hub.docker.com/r/agileek/ionic-framework/~/dockerfile/
 - https://github.com/svenlaater/travis-ci-ionic-yml/blob/master/Dockerfile-node-java-android
