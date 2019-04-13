@@ -102,7 +102,8 @@ npm install -g code-push-cli
 * 命令终端进入app目录，安装热更新插件及插件依赖
   ```bash
   ionic cordova plugin add cordova-plugin-code-push
-  npm install --save @ionic-native/code-push
+  npm install --save @ionic-native/code-push     // ionic4
+  npm install --save @ionic-native/code-push@4   // ionic2/3
   ```
   
 > 插件依赖于 cordova-plugin-whitelist，使用 `cordova plugin list` 命令可以查看是否安装白名单插件
