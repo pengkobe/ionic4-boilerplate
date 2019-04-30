@@ -37,19 +37,13 @@
     "@angular/http": "^7.2.2",
     "@angular/platform-browser": "^7.2.2",
     "@angular/platform-browser-dynamic": "^7.2.2",
-    "@angular/router": "^7.2.2",
-    "@ionic-native/core": "^5.0.0",
-    "@ionic-native/splash-screen": "^5.0.0",
-    "@ionic-native/status-bar": "^5.0.0",
-    "@ionic/angular": "^4.0.0",
-    "core-js": "^2.5.4",
-    "rxjs": "~6.3.3",
-    "zone.js": "~0.8.29",
     "@angular/pwa": "^0.8.7",
+    "@angular/router": "^7.2.2",
     "@angular/service-worker": "~6.1.1",
     "@ionic-native/app-center-analytics": "^5.0.0-beta.21",
     "@ionic-native/app-center-crashes": "^5.0.0-beta.21",
     "@ionic-native/background-mode": "^5.0.0-beta.21",
+    "@ionic-native/core": "^5.0.0",
     "@ionic-native/file": "^5.0.0-beta.21",
     "@ionic-native/file-opener": "^5.0.0-beta.21",
     "@ionic-native/file-transfer": "^5.0.0-beta.21",
@@ -57,7 +51,10 @@
     "@ionic-native/local-notifications": "^5.0.0-beta.21",
     "@ionic-native/network": "^5.0.0-beta.21",
     "@ionic-native/qr-scanner": "^5.0.0-beta.21",
+    "@ionic-native/splash-screen": "^5.0.0",
+    "@ionic-native/status-bar": "^5.0.0",
     "@ionic-native/vibration": "^5.0.0-beta.21",
+    "@ionic/angular": "^4.0.0",
     "@ionic/storage": "^2.2.0",
     "@ngrx/effects": "^6.1.2",
     "@ngrx/store": "^6.1.2",
@@ -72,7 +69,6 @@
     "cordova-plugin-appcenter-crashes": "^0.2.0",
     "cordova-plugin-appcenter-shared": "^0.2.0",
     "cordova-plugin-background-mode": "git+https://github.com/katzer/cordova-plugin-background-mode.git",
-    "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-file-opener2": "^2.1.4",
@@ -81,22 +77,26 @@
     "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-ionic-webview": "^2.2.0",
     "cordova-plugin-jcore": "^1.2.5",
-    "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "cordova-plugin-network-information": "^2.0.1",
     "cordova-plugin-qrscanner": "^2.6.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-transparent-status-bar": "git+https://github.com/csi00153/cordova-plugin-transparent-status-bar.git",
     "cordova-plugin-vibration": "^3.1.0",
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-sqlite-storage": "^2.5.0",
+    "core-js": "^2.5.4",
     "echarts": "^4.2.0-rc.2",
     "jpush-phonegap-plugin": "^3.4.7",
     "moment": "^2.22.2",
     "ngx-echarts": "^4.0.0",
     "raven-js": "^3.27.0",
     "rebirth-http": "^6.0.2",
+    "rxjs": "~6.3.3",
     "todomvc-app-css": "^2.1.2",
-    "todomvc-common": "^1.0.5"
+    "todomvc-common": "^1.0.5",
+    "xgpush-cordova": "git+https://github.com/Wininsoft/xgpush-cordova.git",
+    "zone.js": "~0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.12.3",
@@ -156,7 +156,6 @@
       "jpush-phonegap-plugin": {
         "APP_KEY": "e4fad56dc2d40b58d77629f7"
       },
-      "cordova-plugin-local-notification": {},
       "cordova-plugin-appcenter-analytics": {},
       "cordova-plugin-appcenter-crashes": {},
       "cordova-plugin-qrscanner": {},
@@ -166,7 +165,8 @@
       "cordova-plugin-background-mode": {},
       "cordova-plugin-file-opener2": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
+      "cordova-plugin-transparent-status-bar": {}
     },
     "platforms": [
       "android"

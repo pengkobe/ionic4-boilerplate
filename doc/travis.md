@@ -71,7 +71,7 @@ pod --version
 tar cvf certificates.tar ios_distribution.cer ios_distribution.p12 ionic4_Ad_Hoc_Profile.mobileprovision ionic4travis.jks ios_develop.cer ios_develop.p12 ios_push_distribution.cer ios_push_distribution.p12
 # 加密
 travis encrypt-file certificates.tar -r pengkobe/ionic4-boilerplate
-`
+```
 
 ## 运行报错
 

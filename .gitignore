@@ -11,7 +11,8 @@ log.txt
 *.sublime-workspace
 .vscode/
 npm-debug.log*
-
+private.log
+cordova_plugins/
 .idea/
 .ionic/
 .sourcemaps/

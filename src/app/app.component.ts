@@ -20,6 +20,8 @@ import { NativeService } from '@services/native.service';
 import { TranslateService } from '@ngx-translate/core';
 import { EmitService } from '@services/emit.service';
 
+declare var window;
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -27,7 +29,7 @@ import { EmitService } from '@services/emit.service';
 export class MyApp {
   backButtonPressed = false;
   hideNav = false;
-
+  statubarHeight = '0px';
   pages: Array<{ title: string; component: any }>;
 
   lastTimeBackPress = 0;
@@ -70,8 +72,13 @@ export class MyApp {
       this.splashScreen.hide();
       this.statusBar.styleDefault();
       this.statusBar.overlaysWebView(false);
-      this.statusBar.backgroundColorByHexString('#f8f8f8');
+      // this.statusBar.backgroundColorByHexString('#f8f8f8');
       if (window.cordova) {
+        window.Transparentstatusbar.init(result => {
+          if (result > 0) {
+            this.statubarHeight = result + 'px';
+          }
+        });
         this.native.initNativeService();
         this.updateService.checkUpdate();
         this.registerBackButtonAction();
@@ -118,7 +125,7 @@ export class MyApp {
           element.dismiss();
           return;
         }
-      } catch (error) {}
+      } catch (error) { }
 
       // close popover
       try {
@@ -127,7 +134,7 @@ export class MyApp {
           element.dismiss();
           return;
         }
-      } catch (error) {}
+      } catch (error) { }
 
       // close modal
       try {
@@ -147,7 +154,7 @@ export class MyApp {
           this.menuCtrl.close();
           return;
         }
-      } catch (error) {}
+      } catch (error) { }
 
       this.routerOutlets.forEach(async (outlet: IonRouterOutlet) => {
         if (outlet && outlet.canGoBack()) {
