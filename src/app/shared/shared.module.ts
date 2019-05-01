@@ -39,8 +39,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   exports: [
     PipesModule,
     TranslateModule,
-    DebounceClickDirective,
-    TrackEventDirective,
     IonicModule,
     CommonModule,
     FormsModule,

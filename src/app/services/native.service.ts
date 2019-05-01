@@ -22,7 +22,9 @@ import {
 
 declare var window;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class NativeService {
   headimgurl: String;
   toast: any;

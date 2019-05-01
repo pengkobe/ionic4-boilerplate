@@ -6,7 +6,9 @@ import { Platform } from '@ionic/angular';
 
 declare var window;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BaiduLocationService {
   constructor(public plf: Platform) {}
 

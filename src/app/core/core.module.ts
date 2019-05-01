@@ -20,14 +20,6 @@ import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
 
 import { JPush } from '../../nativewrapper/jpush/ngx';
 
-import { GlobalService } from '@services/global.service';
-import { QiniuUploadService } from '@services/qiniu.upload.service';
-import { UpdateService } from '@services/update.service';
-import { NativeService } from '@services/native.service';
-import { DataService } from '@services/data.service';
-import { BaiduLocationService } from '@services/baidulocation.service';
-import { EmitService } from '@services/emit.service';
-
 @NgModule({
   imports: [CommonModule, HttpClientModule],
   exports: [],
@@ -45,14 +37,6 @@ import { EmitService } from '@services/emit.service';
     AppCenterAnalytics,
     AppCenterCrashes,
     LocalNotifications,
-
-    NativeService,
-    UpdateService,
-    GlobalService,
-    QiniuUploadService,
-    DataService,
-    BaiduLocationService,
-    EmitService,
   ],
 })
-export class CoreModule {}
+export class CoreModule { }

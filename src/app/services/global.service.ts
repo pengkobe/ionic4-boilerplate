@@ -8,7 +8,9 @@ const subject: Subject<any> = new Subject<any>();
 const tokenSubject: Subject<any> = new Subject<any>();
 const settingSubject: Subject<any> = new Subject<any>();
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GlobalService {
   public notificationSubject: Subject<any> = new Subject<any>();
   public serverAddress = baseUrl;

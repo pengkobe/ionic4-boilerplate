@@ -12,7 +12,9 @@ import { Cacheable } from './offlinecache.service';
 import { baseUrl } from '../config';
 import { NativeService } from './native.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DataService {
   baseUrl: string = baseUrl;
   headers: HttpHeaders = new HttpHeaders({

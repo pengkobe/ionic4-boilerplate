@@ -15,7 +15,9 @@ import { Observable } from 'rxjs';
 
 declare var window;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UpdateService {
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',

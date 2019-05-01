@@ -9,7 +9,9 @@ import { GlobalService } from './global.service';
 
 declare var window;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class QiniuUploadService {
   private _qiuniutokeninfo: any;
 
