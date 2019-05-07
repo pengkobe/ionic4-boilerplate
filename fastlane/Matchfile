@@ -1,4 +1,4 @@
-git_url("https://github.com/pengkobe/efos-ios-certs")
+git_url("https://pengkobe:#{ENV["GITHUB_PWD"]}@github.com/pengkobe/efos-ios-certs")
 
 type("adhoc") # The default type, can be: appstore, adhoc, enterprise or development
 
