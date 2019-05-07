@@ -93,6 +93,13 @@ match 可以自动为你选择需要的证书，这也是官方推荐的方式�
 
 - [是否支持 windows?](https://github.com/fastlane/fastlane/issues/3594)，答案是`不支持`
 
+## 报错
+
+### Two-factor authentication must be turned on for your Apple ID
+
+- 参见官网文档: https://docs.fastlane.tools/best-practices/continuous-integration/#authentication-with-apple-services
+- 相关 ISSUE: https://github.com/fastlane/fastlane/issues/14239
+
 ## 参考
 
 - [fastlane 官网](https://fastlane.tools/)
