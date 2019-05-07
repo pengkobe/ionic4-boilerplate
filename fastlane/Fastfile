@@ -45,7 +45,7 @@ platform :ios do
       type: "adhoc", 
       keychain_name: keychain_name,
       keychain_password: keychain_password,
-      readonly: true
+      readonly: false
     )
     
     # sh "ionic cordova build ios --prod --release"
