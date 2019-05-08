@@ -66,7 +66,7 @@ fastlane 导入脚本
 
 #### match
 
-match 可以自动为你选择需要的证书，这也是官方推荐的方式，你只需要将你所有团队的所有证书统一一个仓库进行管理就 ok。  
+match 可以自动为你选择和生成需要的证书，这也是官方推荐的方式，你只需要将团队用到的证书统一一个仓库进行管理。  
 可以参考这篇文章（[setup-fastlane-match-for-ios](https://medium.com/@danielvivek2006/setup-fastlane-match-for-ios-6260758a9a4e)
 ）进行设置
 
@@ -93,12 +93,16 @@ match 可以自动为你选择需要的证书，这也是官方推荐的方式�
 
 - [是否支持 windows?](https://github.com/fastlane/fastlane/issues/3594)，答案是`不支持`
 
-## 报错
+## Two-factor authentication
 
-### Two-factor authentication must be turned on for your Apple ID
+首先，必须开通 Two-factor authentication
 
 - 参见官网文档: https://docs.fastlane.tools/best-practices/continuous-integration/#authentication-with-apple-services
 - 相关 ISSUE: https://github.com/fastlane/fastlane/issues/14239
+
+再来，你可以在 CI 机器上设置 session( 如果产生 session 的机器与 CI 机器不在一个区内，那也悲剧，`本项目基于 travis 构建时会要求输入安全码，所以构建会不成功`)
+
+ - https://github.com/fastlane/fastlane/tree/master/spaceship
 
 ## 参考
 
