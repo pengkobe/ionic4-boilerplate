@@ -28,7 +28,7 @@ platform :ios do
   desc "Submit a new Beta Build to Apple PGYER"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-
+    # TODO:setup_travis
     keychain_name = "ios-build.keychain"
     keychain_password = SecureRandom.base64
 
