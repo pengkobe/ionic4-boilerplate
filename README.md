@@ -11,6 +11,8 @@
 boilerplate for ionic4  
 migrate and upgrade from : https://github.com/pengkobe/ionic-boilerplate
 
+notes: *Please ignore the CI build error status. it mainly caused by ios 2-factor authentication.*
+
 ## 使用
 
 ```bash
@@ -60,6 +62,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 常用组件
   - [x] 二维码扫描
   - [x] 日历组件
+  - [x] 动态表单
 - [x] PWA
 - [x] Cordova 插件说明与示例
   - [x] 断网检测
@@ -76,23 +79,23 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ```bash
 Ionic:
-
-   Ionic Framework            : @ionic/angular 4.0.0-beta.15
-   @angular-devkit/core       : 0.8.6
-   @angular-devkit/schematics : 0.8.6
-   @angular/cli               : 6.2.6
-   @ionic/ng-toolkit          : not installed
-   @ionic/schematics-angular  : not installed
+   ionic (Ionic CLI)             : 4.12.0
+   Ionic Framework               : @ionic/angular 4.3.1
+   @angular-devkit/build-angular : 0.12.4
+   @angular-devkit/schematics    : 7.2.4
+   @angular/cli                  : 7.2.4
+   @ionic/angular-toolkit        : 1.4.1
 
 Cordova:
 
-   cordova (Cordova CLI) : 8.0.0
-   Cordova Platforms     : android 7.1.4
-   Cordova Plugins       : cordova-plugin-ionic-keyboard 2.1.3, cordova-plugin-ionic-webview 2.2.0, (and other plugins)
+   cordova (Cordova CLI) : not installed
+   Cordova Platforms     : not available
+   Cordova Plugins       : cordova-plugin-ionic-keyboard 2.1.3, cordova-plugin-ionic-webview 2.2.0, (and 21 other plugins)
 
 System:
 
-   NodeJS            : v8.9.1
+   Android SDK Tools : 26.1.1
+   NodeJS            : v8.9.0
    npm               : 5.5.1
    OS                : Windows 10
 ```
@@ -102,12 +105,12 @@ System:
 ```
 Ionic:
 
-   ionic (Ionic CLI)             : 4.5.0 (/usr/local/lib/node_modules/ionic)
-   Ionic Framework               : @ionic/angular 4.0.0-beta.15
-   @angular-devkit/build-angular : 0.8.8
-   @angular-devkit/schematics    : 0.8.8
-   @angular/cli                  : 6.2.8
-   @ionic/angular-toolkit        : 1.2.0
+   ionic (Ionic CLI)             : 4.12.0
+   Ionic Framework               : @ionic/angular 4.3.1
+   @angular-devkit/build-angular : 0.12.4
+   @angular-devkit/schematics    : 7.2.4
+   @angular/cli                  : 7.2.4
+   @ionic/angular-toolkit        : 1.4.1
 
 Cordova:
 
@@ -119,7 +122,7 @@ System:
 
    ios-deploy : 1.9.1
    ios-sim    : 5.0.3
-   NodeJS     : v8.9.0 (/usr/local/bin/node)
+   NodeJS     : v8.9.0
    npm        : 5.5.1
    OS         : macOS Mojave
    Xcode      : Xcode 10.1 Build version 10B61
