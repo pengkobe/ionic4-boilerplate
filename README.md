@@ -45,6 +45,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 - [x] 版本更新( apk )
 - [x] 支持多语言[中/英]
 - [x] http
+  - [x] http-interceptor
   - [x] rebirth-http
 - [x] 本地存储
   - [x] rebirth-storage
@@ -163,6 +164,12 @@ npm install @ngx-translate/http-loader@3.0.1 --save
 ```
 
 ## http
+
+### http interceptor
+
+对服务端返回码做全局处理，参见代码 `http.interceptor.service.ts`
+
+### rebirth-http
 
 基于 [rebirth-http](https://github.com/NG-ZORRO/rebirth-http) 进行开发，可以大大节省开发工作量和代码维护难度。
 

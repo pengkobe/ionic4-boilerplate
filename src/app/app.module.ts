@@ -8,6 +8,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RebirthHttpModule } from 'rebirth-http';
 
 import { CoreModule } from './core/core.module';
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { MyErrorHandler } from './error.handler';
 import { RavenErrorHandler } from './raven-error-handler.';
+import { MYHttpInterceptor } from './http.interceptor.service';
 
 @NgModule({
   declarations: [MyApp],
@@ -40,8 +42,13 @@ import { RavenErrorHandler } from './raven-error-handler.';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     RebirthHttpModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MYHttpInterceptor,
+      multi: true
+    }
     // { provide: ErrorHandler, useClass: MyErrorHandler },
     // { provide: ErrorHandler, useClass: RavenErrorHandler }
   ],
 })
-export class AppModule {}
+export class AppModule { }

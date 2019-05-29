@@ -32,7 +32,7 @@ describe('AppComponent', () => {
     platformSpy = jasmine.createSpyObj('Platform', {
       ready: platformReadySpy,
       is: () => true,
-      backButton:{subscribeWithPriority:() => true},
+      backButton: {subscribeWithPriority: () => true},
     });
     routerSpy = jasmine.createSpyObj('events', ['subscribe', 'events']);
     eventsSpy = jasmine.createSpyObj('Events', ['subscribe']);

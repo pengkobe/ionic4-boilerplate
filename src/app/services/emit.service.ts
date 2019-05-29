@@ -20,7 +20,7 @@ export class EmitService implements OnInit {
     this.theme.next(val);
   }
 
-  getActiveTheme():Observable<any> {
+  getActiveTheme(): Observable<any> {
     return this.theme.asObservable();
   }
 }
