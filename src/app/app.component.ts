@@ -20,7 +20,7 @@ import { NativeService } from '@services/native.service';
 import { TranslateService } from '@ngx-translate/core';
 import { EmitService } from '@services/emit.service';
 
-declare var window;
+declare var window:any;
 
 @Component({
   selector: 'app-root',
@@ -79,6 +79,9 @@ export class MyApp {
             this.statubarHeight = result + 'px';
           }
         });
+        let trtc = window.trtc;
+        debugger;
+        console.log('trtc', trtc);
         this.native.initNativeService();
         this.updateService.checkUpdate();
         this.registerBackButtonAction();

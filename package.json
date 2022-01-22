@@ -95,6 +95,7 @@
     "rxjs": "~6.3.3",
     "todomvc-app-css": "^2.1.2",
     "todomvc-common": "^1.0.5",
+    "trtc": "file:cordova_plugins/cordova-plugin-trtc",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
@@ -165,7 +166,8 @@
       "cordova-plugin-file-opener2": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "cordova-plugin-transparent-status-bar": {}
+      "cordova-plugin-transparent-status-bar": {},
+      "cordova-plugin-trtc": {}
     },
     "platforms": [
       "android"
