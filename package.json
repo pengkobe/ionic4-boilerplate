@@ -88,7 +88,7 @@
     "core-js": "^2.5.4",
     "echarts": "^4.2.0-rc.2",
     "jpush-phonegap-plugin": "^3.4.7",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "ngx-echarts": "^4.0.0",
     "raven-js": "^3.27.0",
     "rebirth-http": "^6.0.2",
